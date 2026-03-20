@@ -27,7 +27,7 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl mb-6 text-[#E5F2C9]">
             Levenvale Farm <br />
           </h1>
-          <p className="font-bold text-white">Belligen, NSW</p>
+          <p className="font-bold text-white">Bellingen, NSW</p>
         </div>
       </section>
 
