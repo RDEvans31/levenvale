@@ -11,7 +11,7 @@ const repeatedImages = Array(8).fill(images).flat();
 export default function ImageMarquee() {
   return (
     <div className="overflow-hidden bg-white py-6">
-      <div className="flex w-max items-center animate-marquee md:animate-marquee-slow will-change-transform">
+      <div className="flex w-max items-center animate-marquee-slow will-change-transform">
         {[...repeatedImages, ...repeatedImages].map((img, i) => (
           <div key={i} className="flex-shrink-0 mx-12">
             <Image
