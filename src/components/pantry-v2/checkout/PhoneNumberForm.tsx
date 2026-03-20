@@ -112,8 +112,6 @@ export function PhoneNumberForm({
     setIsNew(false);
   };
 
-  console.log(formData);
-
   return (
     <div className="flex items-start gap-4">
       <Phone size={20} className="mt-1" />

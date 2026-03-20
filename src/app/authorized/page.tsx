@@ -13,8 +13,6 @@ export default async function AuthorizedPage() {
 
   const userId = session.user.id;
 
-  console.log(session.user);
-
   if (!userId) {
     console.error('Error: No userId found in session.');
     return (

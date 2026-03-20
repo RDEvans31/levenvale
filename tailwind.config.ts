@@ -18,8 +18,8 @@ export default {
         },
       },
       animation: {
-        marquee: 'marquee 5s linear infinite',
-        'marquee-slow': 'marquee 30s linear infinite',
+        marquee: 'marquee 15s linear infinite',
+        'marquee-slow': 'marquee 60s linear infinite',
       },
       colors: {
         background: 'var(--background)',
