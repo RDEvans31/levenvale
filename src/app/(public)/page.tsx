@@ -107,7 +107,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold mb-8 md:mb-0">What We Do</h2>
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden md:hidden mb-8">
               <Image
-                src="/sam-holding-soil.webp"
+                src="/home/sam-holding-soil.webp"
                 alt="Land Regeneration"
                 fill
                 className="object-cover rounded-lg"
