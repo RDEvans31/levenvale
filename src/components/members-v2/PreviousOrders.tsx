@@ -1,4 +1,6 @@
 import { getUserOrders } from '@/actions/members';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import OrderCard from './OrderCard';
 
 interface PreviousOrdersProps {
@@ -6,30 +8,32 @@ interface PreviousOrdersProps {
 }
 
 export default async function PreviousOrders({ userId }: PreviousOrdersProps) {
-  // Fetch previous orders from the new API
   const ordersResponse = await getUserOrders(userId);
-  const recentOrders = ordersResponse.success
-    ? ordersResponse.value.orders.slice(0, 3)
-    : [];
+  const orders = ordersResponse.success ? ordersResponse.value.orders : [];
+  const latestOrder = orders[0] ?? null;
+  const orderCount = orders.length;
 
   return (
-    <div className="col-span-1 md:col-span-2">
-      <h2 className="text-xl font-bold mb-4 text-gray-900">Previous Orders</h2>
-      {recentOrders.length > 0 ? (
-        <div className="space-y-4">
-          {recentOrders.map(order => (
-            <OrderCard
-              key={order.id}
-              order={order}
-              orderNumber={order.referenceId}
-              userId={userId}
-            />
-          ))}
-        </div>
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-3 h-full flex flex-col">
+      <div className="flex items-center justify-between mb-1">
+        <h2 className="text-sm font-bold text-gray-900">
+          Previous Orders{orderCount > 1 && ` (${orderCount})`}
+        </h2>
+        <Link
+          href={`/members-v2/${userId}/orders`}
+          className="flex items-center justify-center px-2 bg-forest bg-opacity-10 rounded-full hover:bg-opacity-20 transition-colors"
+        >
+          See more <ArrowRight size={16} className="text-forest" />
+        </Link>
+      </div>
+      {latestOrder ? (
+        <OrderCard
+          order={latestOrder}
+          orderNumber={latestOrder.referenceId}
+          userId={userId}
+        />
       ) : (
-        <div className="bg-gray-50 rounded-lg p-6 text-center">
-          <p className="text-gray-600">No previous orders found.</p>
-        </div>
+        <p className="text-gray-500 text-sm">No previous orders found.</p>
       )}
     </div>
   );

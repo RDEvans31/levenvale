@@ -61,70 +61,53 @@ export default function OrderCard({
   const remainingCount = order.orderItems.length - 3;
 
   return (
-    <Link href={`/members-v2/${userId}/orders/${order.id}`}>
-      <div className="bg-green-100 bg-opacity-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer mb-4 border-2 border-green-100">
-        {/* Header */}
-        <div className="flex justify-between items-start mb-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-semibold text-gray-900">
-                Order #{orderNumber}
-              </span>
-              <span
-                className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(
-                  order.status
-                )}`}
-              >
-                {getStatusText(order.status)}
-              </span>
-            </div>
-            <p className="flex -gray-600 text-sm">
-              <Coins size={12} className="my-auto mr-2" />{' '}
-              {order.total.toFixed(2)} • {formatDate(order.createdAt)}
-            </p>
-          </div>
-          <ArrowRight className="text-forest" size={20} />
+    <Link
+      href={`/members-v2/${userId}/orders/${order.id}`}
+      className="flex-1 rounded-xl p-3 hover:bg-gray-50 transition-colors cursor-pointer flex flex-col"
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-1.5">
+          <span className="text-sm font-semibold text-gray-900">
+            #{orderNumber}
+          </span>
+          <span
+            className={`px-1.5 py-0.5 text-[10px] font-medium rounded-full ${getStatusColor(order.status)}`}
+          >
+            {getStatusText(order.status)}
+          </span>
         </div>
+        <ArrowRight className="text-forest flex-shrink-0" size={16} />
+      </div>
+      <p className="flex items-center text-gray-600 text-xs mb-3">
+        <Coins size={10} className="mr-1" />
+        {order.total.toFixed(2)} • {formatDate(order.createdAt)}
+        {order.orderItems.length > 1 && ` • ${order.orderItems.length} items`}
+      </p>
 
-        {/* Product Images */}
-        <div className="rounded-lg p-4">
-          <div className="flex items-start gap-4">
-            {visibleItems.map(item => (
-              <div
-                key={item.id}
-                className="flex-shrink-0 flex flex-col items-center"
-              >
-                <div className="w-16 h-16 relative mb-2">
-                  <Image
-                    src={
-                      item.product?.images && item.product.images.length > 0
-                        ? item.product.images[0].url
-                        : PLACEHOLDER_IMAGE
-                    }
-                    alt={item.name}
-                    fill
-                    className="object-cover rounded-lg"
-                  />
-                </div>
-                <span className="text-xs text-gray-700 text-center max-w-16 leading-tight">
-                  {item.name}
-                </span>
-              </div>
-            ))}
-            {remainingCount > 0 && (
-              <div className="flex-shrink-0 flex flex-col items-center">
-                <div className="flex items-center justify-center w-16 h-16 bg-white rounded-lg border-2 border-dashed border-gray-300 mb-2">
-                  <span className="text-gray-600 font-medium">
-                    +{remainingCount}
-                  </span>
-                </div>
-                <span className="text-xs text-gray-700 text-center max-w-16 leading-tight">
-                  more items
-                </span>
-              </div>
-            )}
+      {/* Product thumbnails */}
+      <div className="flex items-center gap-2 mt-auto">
+        {visibleItems.map(item => (
+          <div key={item.id} className="w-12 h-12 relative flex-shrink-0">
+            <Image
+              src={
+                item.product?.images && item.product.images.length > 0
+                  ? item.product.images[0].url
+                  : PLACEHOLDER_IMAGE
+              }
+              alt={item.name}
+              fill
+              className="object-cover rounded-lg"
+            />
           </div>
-        </div>
+        ))}
+        {remainingCount > 0 && (
+          <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-lg flex-shrink-0">
+            <span className="text-gray-500 text-xs font-medium">
+              +{remainingCount}
+            </span>
+          </div>
+        )}
       </div>
     </Link>
   );

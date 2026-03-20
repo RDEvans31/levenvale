@@ -79,20 +79,20 @@ export default async function MembersPage({
           <h1 className="text-2xl font-bold mb-6">Hi {greetingDisplay}</h1>
         </div>
 
-        <div className="col-span-1 md:col-span-2">
-          <CardEvents />
+        {/* Wallet - full width on mobile, left column on desktop */}
+        <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <TokenBalance userId={userId} />
+          <div className="grid grid-cols-2 gap-4">
+            <CardGoToPantry pantryLink="/members-v2/pantry" />
+            <CardEvents />
+            {/* Previous Orders - spans both columns */}
+            <div className="col-span-2 aspect-[2/1]">
+              <Suspense fallback={<PreviousOrdersSkeleton />}>
+                <PreviousOrders userId={userId} />
+              </Suspense>
+            </div>
+          </div>
         </div>
-
-        <TokenBalance userId={userId} />
-
-        <div>
-          <CardGoToPantry pantryLink="/members-v2/pantry" />
-        </div>
-
-        {/* Previous Orders Section */}
-        <Suspense fallback={<PreviousOrdersSkeleton />}>
-          <PreviousOrders userId={userId} />
-        </Suspense>
 
       </div>
     </div>

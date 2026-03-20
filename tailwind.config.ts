@@ -29,6 +29,7 @@ export default {
         ebony: '#2A2338',
         lint: '#E5F2C9',
         cream: '#FAF6EC',
+        beige: '#FAF9DF',
         brown: {
           DEFAULT: '#8B5E3C',
           dark: '#5C3A1E',
