@@ -8,6 +8,7 @@ import { CreditsPaymentForm } from './PaymentForm';
 
 export default function TopUpCreditPage({
   userId,
+  membershipId,
   creditBalance,
   amount,
   returnUrl,
@@ -15,6 +16,7 @@ export default function TopUpCreditPage({
   bonusPercentage,
 }: {
   userId: string;
+  membershipId: string;
   creditBalance: number;
   amount?: number;
   returnUrl?: string;
@@ -142,6 +144,7 @@ export default function TopUpCreditPage({
           <div className="w-full">
             <CreditsPaymentForm
               userId={userId}
+              membershipId={membershipId}
               total={currencyAmount}
               returnUrl={returnUrl}
             />

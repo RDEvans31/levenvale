@@ -95,6 +95,7 @@ const createOrderPayload = (
 export const createOrder = async (
   orderInfo: OrderInfo,
   userId: string,
+  membershipId: string,
   userEmail: string,
   userName?: string
 ): Promise<Result<CreateOrderResponse>> => {
@@ -149,7 +150,7 @@ export const createOrder = async (
     }
 
     const orderResponse: CreateOrderResponse = await response.json();
-    revalidateTag(`${userId}-orders`);
+    revalidateTag(`${membershipId}-orders`);
     revalidateTag(`${userId}-shippingData`);
     return {
       success: true,

@@ -53,7 +53,8 @@ export default async function CreditSuccessPage({
 
   const { userId: id } = await params;
   const userId = session?.user.id == id && id;
-  if (!userId) {
+  const membershipId = session?.user.membershipId;
+  if (!userId || !membershipId) {
     return (
       <div className="bg-gray-50">
         <ErrorDisplay errorMsg="No user found in database. Please contact support." />
@@ -107,7 +108,7 @@ export default async function CreditSuccessPage({
   let creditAmount = convertCashToToken(currencyAmount, tokensPerLocalCurrency);
 
   // Check for loyalty bonus and apply it
-  const bonusResponse = await getUserBonusEligibility(userId);
+  const bonusResponse = await getUserBonusEligibility(membershipId);
   let bonusAmount = 0;
   let description = `Stripe payment: ${localCurrencySymbol}${currencyAmount.toFixed(2)}`;
 
@@ -125,7 +126,7 @@ export default async function CreditSuccessPage({
     cashAmount: currencyAmount,
   };
 
-  const result = await addUserTokens(userId, creditData);
+  const result = await addUserTokens(membershipId, creditData);
 
   if (!result.success) {
     console.error('Error calling LF API for credit addition:', result.error);
@@ -170,7 +171,7 @@ export default async function CreditSuccessPage({
 
           <div className="mt-6 mb-6">
             <Suspense fallback={<TotalContributionSkeleton />}>
-              <TotalContribution userId={userId} />
+              <TotalContribution membershipId={membershipId} />
             </Suspense>
           </div>
         </div>

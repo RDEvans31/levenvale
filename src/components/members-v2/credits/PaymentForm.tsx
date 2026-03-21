@@ -18,10 +18,12 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 // this handles all the logic when they click checkout, takes payment then sends them to success page
 function PaymentDetailsForm({
   userId,
+  membershipId,
   clientSecret,
   returnUrl,
 }: {
   userId: string;
+  membershipId: string;
   clientSecret: string;
   returnUrl?: string;
 }) {
@@ -33,7 +35,7 @@ function PaymentDetailsForm({
   const handlePaymentConfirmation = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
-    refreshUserBalance(userId);
+    refreshUserBalance(membershipId);
     try {
       setIsLoading(true);
       setError(null);
@@ -102,10 +104,12 @@ function PaymentDetailsForm({
 
 export function CreditsPaymentForm({
   userId,
+  membershipId,
   total,
   returnUrl,
 }: {
   userId: string;
+  membershipId: string;
   total: number;
   returnUrl?: string;
 }) {
@@ -168,6 +172,7 @@ export function CreditsPaymentForm({
     >
       <PaymentDetailsForm
         userId={userId}
+        membershipId={membershipId}
         clientSecret={clientSecret}
         returnUrl={returnUrl}
       />

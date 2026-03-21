@@ -18,12 +18,14 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
 export default function CartPage({
   userId,
+  membershipId,
   name,
   email,
   shippingData,
   creditBalance,
 }: {
   userId: string;
+  membershipId: string;
   name: string;
   email: string;
   creditBalance: number;
@@ -204,6 +206,7 @@ export default function CartPage({
       const createOrderResult = await createOrder(
         orderInfo,
         userId,
+        membershipId,
         userEmail,
         userName
       );
@@ -212,7 +215,7 @@ export default function CartPage({
         console.error('Order creation failed:', createOrderResult.error);
         setIsLoading(false);
       } else {
-        await refreshUserBalance(userId);
+        await refreshUserBalance(membershipId);
         router.replace(
           `/members-v2/pantry/checkout/${createOrderResult.value.orderId}/success`
         );

@@ -12,10 +12,12 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 export default function SelfTopUpPage({
   userId,
   orgId,
+  membershipId,
   creditBalance,
 }: {
   userId: string;
   orgId: string;
+  membershipId: string;
   creditBalance: number;
 }) {
   const [currencyAmount, setAmount] = useState<number>(0);
@@ -39,7 +41,7 @@ export default function SelfTopUpPage({
 
     const result = await submitSelfTopUp(
       orgId,
-      userId,
+      membershipId,
       currencyAmount,
       description
     );

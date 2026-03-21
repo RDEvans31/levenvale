@@ -27,11 +27,11 @@ interface ChartDataPoint {
 }
 
 interface TotalContributionProps {
-  userId: string;
+  membershipId: string;
 }
 
 export default async function TotalContribution({
-  userId,
+  membershipId,
 }: TotalContributionProps) {
   let chartData: ChartDataPoint[] = [];
 
@@ -41,7 +41,7 @@ export default async function TotalContribution({
     }
 
     const response = await fetch(
-      `${LF_API_URL}/${ORG_ID}/${userId}/credits/contributions-timeseries`,
+      `${LF_API_URL}/${ORG_ID}/${membershipId}/credits/contributions-timeseries`,
       {
         headers: {
           Authorization: `Bearer ${LF_API_KEY}`,

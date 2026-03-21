@@ -10,12 +10,11 @@ interface OrdersResponse {
   success: boolean;
   orders: Order[];
   membershipId: string;
-  userId: string;
   total: number;
 }
 
 export const getUserOrders = async (
-  userId: string
+  membershipId: string
 ): Promise<Result<OrdersResponse>> => {
   try {
     if (!LF_API_URL || !LF_API_KEY || !ORG_ID) {
@@ -25,18 +24,18 @@ export const getUserOrders = async (
       };
     }
 
-    if (!userId) {
+    if (!membershipId) {
       return {
         success: false,
-        error: 'User ID is required',
+        error: 'Membership ID is required',
       };
     }
 
-    const response = await fetch(`${LF_API_URL}/${ORG_ID}/${userId}/orders`, {
+    const response = await fetch(`${LF_API_URL}/${ORG_ID}/${membershipId}/orders`, {
       headers: {
         Authorization: `Bearer ${LF_API_KEY}`,
       },
-      next: { revalidate: 86400, tags: [`${userId}-orders`] },
+      next: { revalidate: 86400, tags: [`${membershipId}-orders`] },
     });
 
     if (!response.ok) {
@@ -73,11 +72,10 @@ interface SingleOrderResponse {
   success: boolean;
   order: Order;
   membershipId: string;
-  userId: string;
 }
 
 export const getUserOrder = async (
-  userId: string,
+  membershipId: string,
   orderId: string
 ): Promise<Result<SingleOrderResponse>> => {
   try {
@@ -88,22 +86,22 @@ export const getUserOrder = async (
       };
     }
 
-    if (!userId || !orderId) {
+    if (!membershipId || !orderId) {
       return {
         success: false,
-        error: 'User ID and Order ID are required',
+        error: 'Membership ID and Order ID are required',
       };
     }
 
     const response = await fetch(
-      `${LF_API_URL}/${ORG_ID}/${userId}/orders/${orderId}`,
+      `${LF_API_URL}/${ORG_ID}/${membershipId}/orders/${orderId}`,
       {
         headers: {
           Authorization: `Bearer ${LF_API_KEY}`,
         },
         next: {
           revalidate: 86400,
-          tags: [`${userId}-order-${orderId}`],
+          tags: [`${membershipId}-order-${orderId}`],
         },
       }
     );

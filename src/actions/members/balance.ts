@@ -11,20 +11,18 @@ interface BonusResponse {
   eligible: boolean;
   bonusPercentage: number;
   membershipId: string;
-  userId: string;
 }
 
 interface BalanceResponse {
   success: boolean;
   balance: number;
   membershipId: string;
-  userId: string;
   loyaltyBonus: boolean;
   canSelfTopUp?: boolean;
 }
 
 export const getUserTokenBalance = async (
-  userId: string
+  membershipId: string
 ): Promise<
   Result<{ balance: number; loyaltyBonus: boolean; canSelfTopUp: boolean }>
 > => {
@@ -36,20 +34,20 @@ export const getUserTokenBalance = async (
       };
     }
 
-    if (!userId) {
+    if (!membershipId) {
       return {
         success: false,
-        error: 'User ID is required',
+        error: 'Membership ID is required',
       };
     }
 
     const response = await fetch(
-      `${LF_API_URL}/${ORG_ID}/${userId}/credits/balance`,
+      `${LF_API_URL}/${ORG_ID}/${membershipId}/credits/balance`,
       {
         headers: {
           Authorization: `Bearer ${LF_API_KEY}`,
         },
-        next: { tags: [`${ORG_ID}-${userId}-balance`] },
+        next: { tags: [`${ORG_ID}-${membershipId}-balance`] },
       }
     );
 
@@ -89,7 +87,7 @@ export const getUserTokenBalance = async (
 };
 
 export const getUserBonusEligibility = async (
-  userId: string
+  membershipId: string
 ): Promise<Result<{ eligible: boolean; bonusPercentage: number }>> => {
   try {
     if (!LF_API_URL || !LF_API_KEY || !ORG_ID) {
@@ -99,15 +97,15 @@ export const getUserBonusEligibility = async (
       };
     }
 
-    if (!userId) {
+    if (!membershipId) {
       return {
         success: false,
-        error: 'User ID is required',
+        error: 'Membership ID is required',
       };
     }
 
     const response = await fetch(
-      `${LF_API_URL}/${ORG_ID}/${userId}/credits/bonus`,
+      `${LF_API_URL}/${ORG_ID}/${membershipId}/credits/bonus`,
       {
         headers: {
           Authorization: `Bearer ${LF_API_KEY}`,
@@ -147,8 +145,8 @@ export const getUserBonusEligibility = async (
   }
 };
 
-export const refreshUserBalance = async (userId: string) => {
-  revalidateTag(`${ORG_ID}-${userId}-balance`);
+export const refreshUserBalance = async (membershipId: string) => {
+  revalidateTag(`${ORG_ID}-${membershipId}-balance`);
 };
 
 interface AddCreditDto {
@@ -167,7 +165,7 @@ interface AddCreditResponse {
 }
 
 export const addUserTokens = async (
-  userId: string,
+  membershipId: string,
   creditData: AddCreditDto
 ): Promise<Result<AddCreditResponse>> => {
   try {
@@ -186,7 +184,7 @@ export const addUserTokens = async (
     }
 
     const response = await fetch(
-      `${LF_API_URL}/${ORG_ID}/${userId}/credits/add`,
+      `${LF_API_URL}/${ORG_ID}/${membershipId}/credits/add`,
       {
         method: 'POST',
         headers: {
@@ -229,7 +227,7 @@ export const addUserTokens = async (
 };
 
 interface TransferCreditDto {
-  toUserId: string;
+  toMembershipId: string;
   total: number;
   description?: string;
 }
@@ -243,7 +241,7 @@ interface TransferCreditResponse {
 }
 
 export const transferUserTokens = async (
-  fromUserId: string,
+  fromMembershipId: string,
   transferData: TransferCreditDto
 ): Promise<Result<TransferCreditResponse>> => {
   try {
@@ -254,7 +252,7 @@ export const transferUserTokens = async (
       };
     }
 
-    if (!fromUserId || !transferData.toUserId || !transferData.total) {
+    if (!fromMembershipId || !transferData.toMembershipId || !transferData.total) {
       return {
         success: false,
         error: 'Required transfer data missing',
@@ -269,7 +267,7 @@ export const transferUserTokens = async (
     }
 
     const response = await fetch(
-      `${LF_API_URL}/${ORG_ID}/${fromUserId}/credits/transfer`,
+      `${LF_API_URL}/${ORG_ID}/${fromMembershipId}/credits/transfer`,
       {
         method: 'POST',
         headers: {

@@ -6,8 +6,8 @@ import { Result } from '@/types/result';
 const ORG_ID = process.env.ORG_ID;
 
 export interface TransferDto {
-  fromUserId: string;
-  toUserId: string;
+  fromMembershipId: string;
+  toMembershipId: string;
   total: number;
   description?: string;
 }
@@ -31,7 +31,7 @@ export const transferTokens = async (
       };
     }
 
-    if (!transfer.fromUserId || !transfer.toUserId || !transfer.total) {
+    if (!transfer.fromMembershipId || !transfer.toMembershipId || !transfer.total) {
       return {
         success: false,
         error: 'Required transfer data missing',
@@ -46,13 +46,13 @@ export const transferTokens = async (
     }
 
     const requestBody = {
-      toUserId: transfer.toUserId,
+      toMembershipId: transfer.toMembershipId,
       total: transfer.total,
       description: transfer.description,
     };
 
     const response = await fetch(
-      `${LF_API_URL}/${ORG_ID}/${transfer.fromUserId}/credits/transfer`,
+      `${LF_API_URL}/${ORG_ID}/${transfer.fromMembershipId}/credits/transfer`,
       {
         method: 'POST',
         headers: {

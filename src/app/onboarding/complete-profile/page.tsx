@@ -26,7 +26,7 @@ export default async function CompleteProfile() {
       }
 
       const response = await fetch(
-        `${LF_API_URL}/${ORG_ID}/${session?.user.id}`,
+        `${LF_API_URL}/${ORG_ID}/user/${session?.user.id}`,
         {
           method: 'POST',
           headers: {

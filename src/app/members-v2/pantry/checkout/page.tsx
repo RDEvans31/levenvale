@@ -9,8 +9,9 @@ import Link from 'next/link';
 export default async function CheckoutPage() {
   const session = await auth();
   const userId = session?.user.id;
+  const membershipId = session?.user.membershipId;
   const userEmail = session?.user.email;
-  if (!userId || !userEmail) {
+  if (!userId || !membershipId || !userEmail) {
     return (
       <>
         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -34,7 +35,7 @@ export default async function CheckoutPage() {
     );
   }
 
-  const creditBalanceResult = await getUserTokenBalance(userId);
+  const creditBalanceResult = await getUserTokenBalance(membershipId);
 
   if (!creditBalanceResult.success) {
     return (

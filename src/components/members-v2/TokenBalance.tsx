@@ -5,10 +5,11 @@ import AutoSignOut from '../shared/AutoSignOut';
 
 interface TokenBalanceProps {
   userId: string;
+  membershipId: string;
 }
 
-export default async function TokenBalance({ userId }: TokenBalanceProps) {
-  const balanceResult = await getUserTokenBalance(userId);
+export default async function TokenBalance({ userId, membershipId }: TokenBalanceProps) {
+  const balanceResult = await getUserTokenBalance(membershipId);
   if (!balanceResult.success) {
     return (
       <AutoSignOut redirect="/login?message=Oops! Something went wrong fetching your balance" />

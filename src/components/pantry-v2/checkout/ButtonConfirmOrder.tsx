@@ -12,6 +12,7 @@ import { OrderInfo } from '../../../app/members-v2/pantry/checkout/types';
 export function ButtonConfirmOrder() {
   const { data: session } = useSession();
   const userId = session?.user.id;
+  const membershipId = session?.user.membershipId;
   const userEmail = session?.user.email;
   const userName = session?.user.name;
   const router = useRouter();
@@ -71,6 +72,7 @@ export function ButtonConfirmOrder() {
       !userOrderInfo.phone ||
       !userOrderInfo.deliveryInstructions ||
       !userId ||
+      !membershipId ||
       !userEmail
     ) {
       return;
@@ -86,6 +88,7 @@ export function ButtonConfirmOrder() {
       const createOrderResult = await createOrder(
         orderInfo,
         userId,
+        membershipId,
         userEmail,
         userName || undefined
       );
@@ -94,7 +97,7 @@ export function ButtonConfirmOrder() {
         console.error('Order creation failed:', createOrderResult.error);
         setIsLoading(false);
       } else {
-        await refreshUserBalance(userId);
+        if (membershipId) await refreshUserBalance(membershipId);
         router.replace(
           `/members-v2/pantry/checkout/${createOrderResult.value.orderId}/success`
         );

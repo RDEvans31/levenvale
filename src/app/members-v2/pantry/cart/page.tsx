@@ -14,15 +14,21 @@ export default async function Page() {
       <ErrorDisplay errorMsg="Something went wrong with your session! Please sign out and sign back in!" />
     );
   }
-  const { id, name, email } = session.user;
+  const { id, name, email, membershipId } = session.user;
 
   if (!name || !email) {
     redirect('/onboarding/complete-profile');
   }
 
+  if (!membershipId) {
+    return (
+      <ErrorDisplay errorMsg="Membership not found. Please contact support." />
+    );
+  }
+
   const [userShippingDataResponse, creditBalanceResult] = await Promise.all([
     fetchUserShippingData(id),
-    getUserTokenBalance(id),
+    getUserTokenBalance(membershipId),
   ]);
 
   if (userShippingDataResponse.success) {
@@ -41,6 +47,7 @@ export default async function Page() {
   return (
     <CartPage
       userId={id}
+      membershipId={membershipId}
       name={name}
       email={email}
       shippingData={shippingData}

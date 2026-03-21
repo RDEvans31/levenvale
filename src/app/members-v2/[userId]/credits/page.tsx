@@ -13,6 +13,7 @@ export default async function CreditsPage({
 }) {
   const session = await auth();
   const { userId } = await params;
+  const membershipId = session?.user.membershipId;
 
   if (!session?.user.id || session.user.id != userId) {
     return (
@@ -22,15 +23,21 @@ export default async function CreditsPage({
     );
   }
 
+  if (!membershipId) {
+    return (
+      <ErrorDisplay errorMsg="Membership not found. Please contact support." />
+    );
+  }
+
   try {
-    await fetch(`${baseUrl}/api/revalidate/user/${userId}/balance`, {
+    await fetch(`${baseUrl}/api/revalidate/user/${membershipId}/balance`, {
       cache: 'no-store',
     });
   } catch (error) {
     console.error('Failed to revalidate balance:', error);
   }
 
-  const creditBalanceResponse = await getUserTokenBalance(userId);
+  const creditBalanceResponse = await getUserTokenBalance(membershipId);
 
   if (!creditBalanceResponse.success) {
     return (
@@ -54,6 +61,7 @@ export default async function CreditsPage({
       creditBalance={creditBalance}
       userId={userId}
       orgId={ORG_ID}
+      membershipId={membershipId}
     />
   );
 }

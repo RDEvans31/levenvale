@@ -1,10 +1,11 @@
 import { getUserTokenBalance } from '@/actions/members/balance';
 import TokenTransferPage from '@/components/members-v2/credits/transfer/TokenTransferPage';
 import ErrorDisplay from '@/components/shared/ErrorDisplay';
+import { auth } from '@/lib/auth';
 import { Result } from '@/types/result';
 
 interface LittleFarmaMember {
-  userId: string;
+  membershipId: string;
   name: string;
   email: string;
 }
@@ -68,11 +69,19 @@ export default async function TokenTransfer({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { userId } = await params;
+  const session = await auth();
+  const membershipId = session?.user.membershipId;
+
+  if (!membershipId) {
+    return (
+      <ErrorDisplay errorMsg="Membership not found. Please contact support." />
+    );
+  }
 
   const queryParams = await searchParams;
   const returnUrl = queryParams.returnUrl as string | undefined;
 
-  const creditBalanceResponse = await getUserTokenBalance(userId);
+  const creditBalanceResponse = await getUserTokenBalance(membershipId);
 
   if (!creditBalanceResponse.success) {
     return (
@@ -95,6 +104,7 @@ export default async function TokenTransfer({
   return (
     <TokenTransferPage
       userId={userId}
+      membershipId={membershipId}
       creditBalance={creditBalance}
       returnUrl={returnUrl}
       members={members}

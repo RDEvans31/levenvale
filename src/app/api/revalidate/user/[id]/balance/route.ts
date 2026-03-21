@@ -6,16 +6,16 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userId = (await params).id;
+    const membershipId = (await params).id;
 
-    if (!userId) {
+    if (!membershipId) {
       return Response.json(
-        { success: false, error: 'User ID is required' },
+        { success: false, error: 'Membership ID is required' },
         { status: 400 }
       );
     }
 
-    await refreshUserBalance(userId);
+    await refreshUserBalance(membershipId);
 
     return Response.json({ success: true });
   } catch (error) {

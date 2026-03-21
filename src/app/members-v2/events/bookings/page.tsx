@@ -9,15 +9,16 @@ import Link from 'next/link';
 export default async function BookingsPage() {
   const session = await auth();
   const userId = session?.user.id;
+  const membershipId = session?.user.membershipId;
 
-  if (!userId) {
+  if (!userId || !membershipId) {
     return (
       <ErrorDisplay errorMsg="We couldn't find you in our database. Please contact Rob @ +447482400662 on WhatsApp" />
     );
   }
 
   const [creditBalanceResponse, bookingsResult] = await Promise.all([
-    getUserTokenBalance(userId),
+    getUserTokenBalance(membershipId),
     getUserBookings(userId),
   ]);
 

@@ -45,7 +45,7 @@ export const getMembershipId = async (
     }
 
     const response = await fetch(
-      `${LF_API_URL}/${ORG_ID}/${userId}/membershipId`,
+      `${LF_API_URL}/${ORG_ID}/user/${userId}/membership`,
       {
         headers: {
           Authorization: `Bearer ${LF_API_KEY}`,

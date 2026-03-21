@@ -5,10 +5,11 @@ import OrderCard from './OrderCard';
 
 interface PreviousOrdersProps {
   userId: string;
+  membershipId: string;
 }
 
-export default async function PreviousOrders({ userId }: PreviousOrdersProps) {
-  const ordersResponse = await getUserOrders(userId);
+export default async function PreviousOrders({ userId, membershipId }: PreviousOrdersProps) {
+  const ordersResponse = await getUserOrders(membershipId);
   const orders = ordersResponse.success ? ordersResponse.value.orders : [];
   const latestOrder = orders[0] ?? null;
   const orderCount = orders.length;

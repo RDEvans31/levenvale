@@ -41,18 +41,20 @@ const successMessageTemplates = [
 type Status = 'new' | 'pending' | 'success';
 
 interface Member {
-  userId: string;
+  membershipId: string;
   name: string;
   email: string;
 }
 
 export default function TokenTransferPage({
   userId,
+  membershipId,
   creditBalance,
   returnUrl,
   members,
 }: {
   userId: string;
+  membershipId: string;
   creditBalance: number;
   returnUrl?: string;
   members: Member[];
@@ -69,10 +71,10 @@ export default function TokenTransferPage({
   console.log(returnUrl);
   console.log(members);
 
-  // Filter members based on search query, excluding current user
+  // Filter members based on search query, excluding current member
   const filteredMembers = members.filter(
     member =>
-      member.userId !== userId &&
+      member.membershipId !== membershipId &&
       member.email.toLowerCase() === searchQuery.toLowerCase()
   );
 
@@ -90,8 +92,8 @@ export default function TokenTransferPage({
   const handleSend = async () => {
     setStatus('pending');
     const transferData: TransferDto = {
-      fromUserId: userId,
-      toUserId: selectedMember?.userId || '',
+      fromMembershipId: membershipId,
+      toMembershipId: selectedMember?.membershipId || '',
       total: amount,
       description: description,
     };
@@ -265,7 +267,7 @@ export default function TokenTransferPage({
                     {filteredMembers.length > 0 ? (
                       filteredMembers.map(member => (
                         <button
-                          key={member.userId}
+                          key={member.membershipId}
                           onClick={() => handleMemberSelect(member)}
                           className="w-full text-left px-4 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none first:rounded-t-lg last:rounded-b-lg"
                         >

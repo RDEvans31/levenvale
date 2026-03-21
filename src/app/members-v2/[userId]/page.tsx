@@ -81,14 +81,14 @@ export default async function MembersPage({
 
         {/* Wallet - full width on mobile, left column on desktop */}
         <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <TokenBalance userId={userId} />
+          <TokenBalance userId={userId} membershipId={session.user.membershipId ?? ''} />
           <div className="grid grid-cols-2 gap-4">
             <CardGoToPantry pantryLink="/members-v2/pantry" />
             <CardEvents />
             {/* Previous Orders - spans both columns */}
             <div className="col-span-2 aspect-[2/1]">
               <Suspense fallback={<PreviousOrdersSkeleton />}>
-                <PreviousOrders userId={userId} />
+                <PreviousOrders userId={userId} membershipId={session.user.membershipId ?? ''} />
               </Suspense>
             </div>
           </div>

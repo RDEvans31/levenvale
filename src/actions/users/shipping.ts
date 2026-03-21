@@ -46,7 +46,7 @@ export async function fetchUserShippingData(
   }
 
   try {
-    const response = await fetch(`${LF_API_URL}/${ORG_ID}/${userId}/shipping`, {
+    const response = await fetch(`${LF_API_URL}/${ORG_ID}/user/${userId}/shipping`, {
       headers: {
         Authorization: `Bearer ${LF_API_KEY}`,
         'Content-Type': 'application/json',

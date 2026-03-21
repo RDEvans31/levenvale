@@ -7,7 +7,7 @@ import { Result } from '@/types/result';
 const ORG_ID = process.env.ORG_ID;
 
 export const getUserTransactions = async (
-  userId: string
+  membershipId: string
 ): Promise<Result<TransactionResponse>> => {
   try {
     if (!LF_API_URL || !LF_API_KEY || !ORG_ID) {
@@ -17,14 +17,14 @@ export const getUserTransactions = async (
       };
     }
 
-    if (!userId) {
+    if (!membershipId) {
       return {
         success: false,
-        error: 'User ID is required',
+        error: 'Membership ID is required',
       };
     }
 
-    const url = `${LF_API_URL}/${ORG_ID}/${userId}/credits/transactions`;
+    const url = `${LF_API_URL}/${ORG_ID}/${membershipId}/credits/transactions`;
 
     const response = await fetch(url, {
       headers: {

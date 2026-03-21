@@ -13,12 +13,19 @@ export default async function HistoryPage({
   const { userId } = await params;
 
   const session = await auth();
-  if (!(session?.user?.id && session?.user?.email)) {
+  if (!(session?.user?.id && session?.user?.email) || session.user.id !== userId) {
     redirect('/login');
   }
 
+  const membershipId = session.user.membershipId;
+  if (!membershipId) {
+    return (
+      <ErrorDisplay errorMsg="Membership not found. Please contact support." />
+    );
+  }
+
   // Get user's current balance
-  const balanceResponse = await getUserTokenBalance(userId);
+  const balanceResponse = await getUserTokenBalance(membershipId);
   if (!balanceResponse.success) {
     return (
       <ErrorDisplay
@@ -28,7 +35,7 @@ export default async function HistoryPage({
   }
 
   // Get transaction history
-  const transactionsResponse = await getUserTransactions(userId);
+  const transactionsResponse = await getUserTransactions(membershipId);
 
   if (!transactionsResponse.success) {
     return (

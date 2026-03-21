@@ -31,8 +31,15 @@ export default async function OrderDetailsPage({
     return <AutoSignOut redirect="/unauthorized" />;
   }
 
+  const membershipId = session.user.membershipId;
+  if (!membershipId) {
+    return (
+      <ErrorDisplay errorMsg="Membership not found. Please contact support." />
+    );
+  }
+
   // Fetch order details
-  const orderResponse = await getUserOrder(userId, orderId);
+  const orderResponse = await getUserOrder(membershipId, orderId);
 
   if (!orderResponse.success) {
     return (
