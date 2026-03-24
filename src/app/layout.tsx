@@ -11,9 +11,7 @@ const lora = Lora({
 
 const requiredEnvVars = [
   'NEXT_PUBLIC_APP_URL',
-  'STRIPE_SECRET_KEY',
   'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY',
-  'STRIPE_WEBHOOK_SECRET',
   'AUTH_SECRET',
   'EMAIL_SERVER_HOST',
   'EMAIL_SERVER_PORT',
@@ -50,9 +48,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${lora.variable} font-serif antialiased`}
-      >
+      <body className={`${lora.variable} font-serif antialiased`}>
         <SessionProvider session={session}>{children}</SessionProvider>
       </body>
     </html>

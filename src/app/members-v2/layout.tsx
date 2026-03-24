@@ -39,11 +39,15 @@ export default async function MembersLayout({
   const localCurrency = orgInfoResult.success
     ? orgInfoResult.value.localCurrency
     : 'AUD';
+  const stripeAccountId = orgInfoResult.success
+    ? orgInfoResult.value.stripeAccountId
+    : '';
 
   return (
     <OrgProvider
       tokensPerLocalCurrency={tokensPerLocalCurrency}
       localCurrency={localCurrency}
+      stripeAccountId={stripeAccountId}
     >
       <Suspense
         fallback={

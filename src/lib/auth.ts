@@ -48,7 +48,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         token.refresh_token = account?.refresh_token;
         token.name = user.name;
         token.role = 'basic';
-        const membershipResult = await getMembershipId(user.id, true);
+        await fetch(
+          `${process.env.NEXT_PUBLIC_APP_URL}/api/revalidate/user/${user.id}/membership`
+        );
+        const membershipResult = await getMembershipId(user.id);
         if (membershipResult.success) {
           token.membershipId = membershipResult.value.membershipId;
           token.role = membershipResult.value.role;

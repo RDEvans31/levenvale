@@ -30,6 +30,7 @@ export interface OrgInfo {
     members: number;
   };
   address: OrgAddress | null;
+  stripeAccountId: string;
 }
 
 export const getOrgInfo = async (): Promise<Result<OrgInfo>> => {

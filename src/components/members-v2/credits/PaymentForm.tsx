@@ -2,6 +2,7 @@
 
 import { refreshUserBalance } from '@/actions/members/balance';
 import LoadingSpinner from '@/components/shared/LoadingSpinner';
+import { useOrg } from '@/context/OrgContext';
 import { getStripe } from '@/lib/stripe-client';
 import {
   Elements,
@@ -9,9 +10,7 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
-import { useCallback, useEffect, useState } from 'react';
-
-const stripePromise = getStripe();
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
@@ -113,6 +112,12 @@ export function CreditsPaymentForm({
   total: number;
   returnUrl?: string;
 }) {
+  const { stripeAccountId } = useOrg();
+  const stripePromise = useMemo(
+    () => getStripe(stripeAccountId),
+    [stripeAccountId]
+  );
+
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [paymentIntentAmount, setPaymentIntentAmount] = useState<
     number | undefined

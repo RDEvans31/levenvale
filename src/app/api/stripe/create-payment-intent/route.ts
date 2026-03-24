@@ -1,5 +1,10 @@
 import { auth } from '@/lib/auth';
-import { formatAmountForStripe, stripe } from '@/lib/stripe';
+import {
+  LF_API_KEY,
+  LF_API_URL,
+  ORG_ID,
+} from '@/lib/little-farma/little-farma';
+import { formatAmountForStripe } from '@/lib/stripe';
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
@@ -8,29 +13,42 @@ export async function POST(req: Request) {
     if (!authSession) {
       return new NextResponse('Unauthorized', { status: 401 });
     }
+
     const body: { total: number } = await req.json();
     const total = body.total;
 
     if (!total) {
       return new NextResponse('Total is required', { status: 500 });
     }
+
     const amount = formatAmountForStripe(total);
 
-    // Create a PaymentIntent
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount,
-      currency: 'gbp',
-      automatic_payment_methods: {
-        enabled: true,
+    const res = await fetch(`${LF_API_URL}/${ORG_ID}/paymentIntent`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${LF_API_KEY}`,
+        'Content-Type': 'application/json',
       },
-      metadata: {
-        note: 'user top up',
-      },
+      body: JSON.stringify({
+        amount,
+        currency: 'gbp',
+        metadata: { note: 'user top up' },
+      }),
     });
 
+    if (!res.ok) {
+      const text = await res.text();
+      console.error('Payment intent API error:', res.status, text);
+      return new NextResponse('Failed to create payment intent', {
+        status: res.status,
+      });
+    }
+
+    const data = await res.json();
+
     return NextResponse.json({
-      clientSecret: paymentIntent.client_secret,
-      amount: paymentIntent.amount,
+      clientSecret: data.clientSecret,
+      amount,
     });
   } catch (error) {
     console.error('Error creating payment intent:', error);

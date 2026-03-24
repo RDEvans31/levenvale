@@ -5,6 +5,7 @@ import { createContext, useContext } from 'react';
 interface OrgContextValue {
   tokensPerLocalCurrency: number;
   localCurrency: string;
+  stripeAccountId: string;
 }
 
 const OrgContext = createContext<OrgContextValue | null>(null);
@@ -13,13 +14,17 @@ export function OrgProvider({
   children,
   tokensPerLocalCurrency,
   localCurrency,
+  stripeAccountId,
 }: {
   children: React.ReactNode;
   tokensPerLocalCurrency: number;
   localCurrency: string;
+  stripeAccountId: string;
 }) {
   return (
-    <OrgContext.Provider value={{ tokensPerLocalCurrency, localCurrency }}>
+    <OrgContext.Provider
+      value={{ tokensPerLocalCurrency, localCurrency, stripeAccountId }}
+    >
       {children}
     </OrgContext.Provider>
   );

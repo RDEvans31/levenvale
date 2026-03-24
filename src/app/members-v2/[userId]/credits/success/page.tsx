@@ -11,7 +11,6 @@ import ErrorDisplay from '@/components/shared/ErrorDisplay';
 import { auth } from '@/lib/auth';
 import convertCashToToken from '@/lib/helper/convertCashToToken';
 import { LF_API_KEY, LF_API_URL } from '@/lib/little-farma/little-farma';
-import { stripe } from '@/lib/stripe';
 import { CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
@@ -77,8 +76,26 @@ export default async function CreditSuccessPage({
     );
   }
   try {
-    paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
-    paymentSucceeded = paymentIntent.status == 'succeeded';
+    const res = await fetch(
+      `${LF_API_URL}/${ORG_ID}/paymentIntent/${paymentIntentId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${LF_API_KEY}`,
+        },
+      }
+    );
+
+    if (!res.ok) {
+      const text = await res.text();
+      return (
+        <ErrorDisplay
+          errorMsg={`Error verifying payment. paymentId: ${paymentIntentId}. ${res.status} ${text}`}
+        />
+      );
+    }
+
+    paymentIntent = (await res.json()) as PaymentIntent;
+    paymentSucceeded = paymentIntent.status === 'succeeded';
   } catch (error) {
     return (
       <ErrorDisplay

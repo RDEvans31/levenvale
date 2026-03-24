@@ -1,5 +1,8 @@
-import { getUserTokenBalance } from '@/actions/members/balance';
-import SelfTopUpPage from '@/components/members-v2/credits/SelfTopUpPage';
+import {
+  getUserTokenBalance,
+  getUserBonusEligibility,
+} from '@/actions/members/balance';
+import CreditsTopUpChooser from '@/components/members-v2/credits/CreditsTopUpChooser';
 import ErrorDisplay from '@/components/shared/ErrorDisplay';
 import { auth } from '@/lib/auth';
 
@@ -37,7 +40,10 @@ export default async function CreditsPage({
     console.error('Failed to revalidate balance:', error);
   }
 
-  const creditBalanceResponse = await getUserTokenBalance(membershipId);
+  const [creditBalanceResponse, bonusResponse] = await Promise.all([
+    getUserTokenBalance(membershipId),
+    getUserBonusEligibility(membershipId),
+  ]);
 
   if (!creditBalanceResponse.success) {
     return (
@@ -47,21 +53,21 @@ export default async function CreditsPage({
     );
   }
 
-  const { balance: creditBalance, canSelfTopUp } =
+  const { balance: creditBalance, canSelfTopUp, loyaltyBonus } =
     creditBalanceResponse.value;
-
-  if (!canSelfTopUp) {
-    return (
-      <ErrorDisplay errorMsg="Self top-up is not enabled for your account." />
-    );
-  }
+  const bonusPercentage = bonusResponse.success
+    ? bonusResponse.value.bonusPercentage
+    : undefined;
 
   return (
-    <SelfTopUpPage
+    <CreditsTopUpChooser
       creditBalance={creditBalance}
       userId={userId}
       orgId={ORG_ID}
       membershipId={membershipId}
+      canSelfTopUp={canSelfTopUp}
+      loyaltyBonus={loyaltyBonus}
+      bonusPercentage={bonusPercentage}
     />
   );
 }

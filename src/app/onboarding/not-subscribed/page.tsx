@@ -1,4 +1,6 @@
+import { getSubscriptions } from '@/actions/members/subscriptions';
 import CardSubscription from '@/components/CardSubscriptions';
+import { SignOut } from '@/components/navbar/ButtonSignOut';
 import { auth } from '@/lib/auth';
 import { UserRole } from '@/lib/roles';
 import Image from 'next/image';
@@ -17,6 +19,10 @@ export default async function NotSubscribedPage() {
   if (!session?.user.id || !session?.user?.email) {
     redirect('/login');
   }
+
+  const result = await getSubscriptions();
+  console.log(session.user);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Top navbar */}
@@ -50,7 +56,26 @@ export default async function NotSubscribedPage() {
         </p>
       </div>
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <CardSubscription />
+        {result.success && result.value && result.value.length > 0 ? (
+          <div className="flex flex-wrap gap-6 justify-center">
+            {result.value.map(sub => (
+              <CardSubscription
+                key={sub.id}
+                name={sub.name}
+                description={sub.description}
+                features={sub.features}
+                lookupKey={sub.lookupKey}
+                backgroundColor={sub.backgroundColor}
+                accentColor={sub.accentColor}
+                textColor={sub.textColor}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="text-gray-500 text-center">
+            No subscription plans available at the moment.
+          </p>
+        )}
         <div className="flex justify-center mt-4">
           <Link
             href="/onboarding/not-subscribed/co-owner-onboarding"
@@ -58,6 +83,10 @@ export default async function NotSubscribedPage() {
           >
             You&apos;re a co-owner?
           </Link>
+        </div>
+        <div className="flex justify-center mt-4">
+          <p className="text-gray-600 mr-2">Not for you?</p>
+          <SignOut className="text-gray-600" />
         </div>
       </div>
     </div>

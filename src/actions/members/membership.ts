@@ -6,7 +6,6 @@ import {
   ORG_ID,
 } from '@/lib/little-farma/little-farma';
 import { Result } from '@/types/result';
-import { revalidateTag } from 'next/cache';
 
 interface MembershipResponse {
   membershipId: string;
@@ -22,8 +21,7 @@ type MembershipValue = {
 };
 
 export const getMembershipId = async (
-  userId: string,
-  revalidate: boolean = false
+  userId: string
 ): Promise<Result<MembershipValue>> => {
   try {
     if (!LF_API_URL || !LF_API_KEY || !ORG_ID) {
@@ -40,16 +38,13 @@ export const getMembershipId = async (
       };
     }
 
-    if (revalidate) {
-      revalidateTag(`membershipId-${userId}`);
-    }
-
     const response = await fetch(
       `${LF_API_URL}/${ORG_ID}/user/${userId}/membership`,
       {
         headers: {
           Authorization: `Bearer ${LF_API_KEY}`,
         },
+        // cache: 'no-store',
         cache: 'force-cache',
         next: { tags: [`membershipId-${userId}`] },
       }
