@@ -56,9 +56,9 @@ export default function Loading() {
             <div className="text-left space-y-1 text-gray-700">
               <p>John Smith</p>
               <p>123 Sample Street</p>
-              <p>London, SW1</p>
-              <p>2AB</p>
-              <p>United Kingdom</p>
+              <p>Bellingen, NSW</p>
+              <p>2454</p>
+              <p>Australia</p>
             </div>
           </div>
         </div>

@@ -132,16 +132,18 @@ export default async function ShopPage() {
             <div className="text-center">
               <h1 className="text-3xl font-bold text-black">Levenvale Farm</h1>
               <Link
-                href={'https://maps.app.goo.gl/VDQeWtp7Vo8yLVEB8'}
+                href={
+                  'https://www.google.com/maps/search/?api=1&query=347+Hydes+Creek+Rd,+Hydes+Creek+NSW+2454'
+                }
                 className="flex items-center justify-center mt-2 text-gray-600"
               >
                 <span className="flex items-center text-green-700 font-medium">
                   <MapPinCheck />
-                  Somerset, UK
+                  Bellingen, NSW
                 </span>
                 <span className="mx-1">•</span>
                 <span className="flex items-center text-green-700 font-medium">
-                  TA3 6FH
+                  2454
                 </span>
               </Link>
             </div>

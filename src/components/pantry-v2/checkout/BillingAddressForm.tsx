@@ -23,7 +23,7 @@ export function BillingAddressForm() {
       city: '',
       state: '',
       postcode: '',
-      country: 'GB',
+      country: 'AU',
       email: '',
       phone: '',
     },
@@ -190,6 +190,7 @@ export function BillingAddressForm() {
                   {...register('country', { required: 'Country is required' })}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
                 >
+                  <option value="AU">Australia</option>
                   <option value="US">United States</option>
                   <option value="GB">United Kingdom</option>
                 </select>

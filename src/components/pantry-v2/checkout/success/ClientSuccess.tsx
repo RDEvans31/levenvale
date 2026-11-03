@@ -123,8 +123,8 @@ export default function ClientSuccess({ orderData }: { orderData: OrderData }) {
               </h3>
               <div className="text-left space-y-1 text-gray-700">
                 <p>Levenvale Farm</p>
-                <p>Knapp Road</p>
-                <p>TA3 6FH</p>
+                <p>347 Hydes Creek Road</p>
+                <p>Bellingen, NSW 2454</p>
               </div>
             </>
           ) : (

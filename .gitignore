@@ -44,3 +44,5 @@ scripts/test-smtp.js
 /exports
 swapping-out-supabase.md
 data/
+# Playwright CLI output (may contain credentials)
+.playwright-cli/

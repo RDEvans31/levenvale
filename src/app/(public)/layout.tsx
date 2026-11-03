@@ -1,5 +1,10 @@
+import SiteFooter from '@/components/site/SiteFooter';
+import SiteHeader from '@/components/site/SiteHeader';
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import '../globals.css';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Levenvale Farm',
@@ -12,5 +17,11 @@ export default async function PublicLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <div className={`${inter.className} text-neutral-900`}>
+      <SiteHeader />
+      <main>{children}</main>
+      <SiteFooter />
+    </div>
+  );
 }

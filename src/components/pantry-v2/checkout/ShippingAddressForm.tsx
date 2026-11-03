@@ -49,7 +49,7 @@ function AddNewAddressForm({
       city: '',
       state: '',
       postcode: '',
-      country: 'GB',
+      country: 'AU',
     },
   });
   return (
@@ -165,7 +165,7 @@ function AddNewAddressForm({
               {...register('country', { required: 'Country is required' })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
             >
-              <option value="GB">United Kingdom</option>
+              <option value="AU">Australia</option>
             </select>
             {errors.country && (
               <p className="mt-1 text-sm text-red-600">
@@ -210,7 +210,7 @@ export function ShippingAddressForm({
       city: '',
       state: '',
       postcode: '',
-      country: 'GB',
+      country: 'AU',
     },
   });
 

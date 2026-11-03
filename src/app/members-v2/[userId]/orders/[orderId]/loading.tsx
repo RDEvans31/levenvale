@@ -127,9 +127,9 @@ export default function OrderDetailsLoading() {
               <div className="text-gray-600 text-sm">
                 <p>John Smith</p>
                 <p>123 Main Street</p>
-                <p>London, England SW1A 1AA</p>
-                <p>United Kingdom</p>
-                <p>+44 7700 900123</p>
+                <p>Bellingen, NSW 2454</p>
+                <p>Australia</p>
+                <p>+61 400 000 000</p>
               </div>
             </div>
 

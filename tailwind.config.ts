@@ -30,6 +30,10 @@ export default {
         lint: '#E5F2C9',
         cream: '#FAF6EC',
         beige: '#FAF9DF',
+        leaf: {
+          DEFAULT: '#8DC63F',
+          dark: '#7AB22E',
+        },
         brown: {
           DEFAULT: '#8B5E3C',
           dark: '#5C3A1E',

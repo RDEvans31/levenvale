@@ -41,7 +41,7 @@ export default function Loading() {
           <h1 className="text-2xl font-bold mb-2">Events</h1>
           <div className="flex items-center justify-center text-green-700 font-medium">
             <MapPin size={16} className="mr-1" />
-            Somerset, UK • TA3 6FH
+            Bellingen, NSW • 2454
           </div>
         </div>
 
