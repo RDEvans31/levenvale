@@ -1,6 +1,10 @@
 'use server';
 
-import { LF_API_KEY, LF_API_URL, ORG_ID } from '@/lib/little-farma/little-farma';
+import {
+  LF_API_KEY,
+  LF_API_URL,
+  ORG_ID,
+} from '@/lib/little-farma/little-farma';
 import { Result } from '@/types/result';
 
 interface OrgAddress {
@@ -24,6 +28,7 @@ export interface OrgInfo {
   logoUrl: string | null;
   tokensPerLocalCurrency: number;
   localCurrency: string;
+  stripeAccountId: string | null;
   orderCounter: number;
   config: Record<string, unknown>;
   _count: {

@@ -10,7 +10,6 @@ npm run build        # Production build
 npm run lint         # Run ESLint + TypeScript checking
 npm run format       # Format code with Prettier
 npm run format:check # Check Prettier formatting without fixing
-npm run stripe:listen # Start Stripe CLI webhook listener (run separately)
 ```
 
 For local PostgreSQL setup:
@@ -27,7 +26,7 @@ Next.js 15 e-commerce platform for Levenvale Farm (Bellingen, NSW, Australia):
 - **Backend API**: Little Farma API for user/membership data (`src/lib/little-farma/`)
 - **Authentication**: NextAuth.js v5 with passwordless email authentication
 - **State Management**: Zustand with localStorage persistence
-- **Payments**: Stripe integration for subscriptions, credit top-ups, public shop purchases, and self top-up (honesty box)
+- **Payments**: Stripe Connect via the Little Farma API. The platform creates PaymentIntents and Checkout Sessions on the farm's connected account and receives the Stripe webhooks. This app has no Stripe secret key or server SDK; it only loads Stripe.js (`src/lib/stripe-client.ts`) with the platform publishable key and the org's `stripeAccountId` to render the credit top-up Payment Element. Self top-up (honesty box) does not use Stripe.
 - **Styling**: Tailwind CSS with Framer Motion animations
 - **Forms**: React Hook Form
 - **Charts**: Recharts for credit transaction visualization
@@ -53,7 +52,7 @@ Users have credit balances tracked in `CreditTransaction` table:
 
 ### Org Context
 
-Organisation info (exchange rate, currency) is fetched via `getOrgInfo()` (`src/actions/members/org-info.ts`), cached with the `orgInfo` tag, and provided to client components via `OrgProvider` (`src/context/OrgContext.tsx`) in the members-v2 layout. Use `useOrg()` hook in client components to access `tokensPerLocalCurrency` and `localCurrency`. Server components should call `getOrgInfo()` directly.
+Organisation info (exchange rate, currency) is fetched via `getOrgInfo()` (`src/actions/members/org-info.ts`), cached with the `orgInfo` tag, and provided to client components via `OrgProvider` (`src/context/OrgContext.tsx`) in the members-v2 layout. Use `useOrg()` hook in client components to access `tokensPerLocalCurrency`, `localCurrency`, and `stripeAccountId`. Server components should call `getOrgInfo()` directly.
 
 ### Role-Based Access Control
 
@@ -181,10 +180,8 @@ EMAIL_SERVER_USER=
 EMAIL_SERVER_PASSWORD=
 EMAIL_FROM=
 
-# Stripe
-STRIPE_SECRET_KEY=
+# Stripe (Little Farma platform publishable key, not the farm's own)
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-STRIPE_WEBHOOK_SECRET=
 
 # Little Farma API
 LF_API_URL=
@@ -223,6 +220,6 @@ refactor: extract checkout logic into shared hook
 ## Development Notes
 
 - Server actions go in `src/actions/` - always use the `Result<T>` pattern
-- Stripe CLI required for webhook testing (`npm run stripe:listen` in separate terminal)
+- Stripe webhooks are handled by the Little Farma platform, not this app
 - Husky pre-commit hooks enforce lint + format
 - Database access uses raw `pg` queries (no ORM) — see `src/lib/helper/dbConfig.ts` for connection config

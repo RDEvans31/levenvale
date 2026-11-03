@@ -17,12 +17,6 @@ docker-compose up -d     # Start local PostgreSQL
 npm run dev              # Start dev server (Turbopack)
 ```
 
-For Stripe webhook testing, run in a separate terminal:
-
-```bash
-npm run stripe:listen
-```
-
 ## Architecture
 
 See [CLAUDE.md](./CLAUDE.md) for detailed architecture docs, code patterns, and conventions.

@@ -9,8 +9,7 @@
     "lint": "next lint && tsc --noEmit",
     "prepare": "husky",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "stripe:listen": "stripe listen --forward-to http://localhost:3000/api/stripe/webhook"
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^3.6.0",
@@ -27,7 +26,6 @@
     "react-dom": "^19.2.1",
     "react-hook-form": "^7.55.0",
     "recharts": "^3.1.2",
-    "stripe": "^17.7.0",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

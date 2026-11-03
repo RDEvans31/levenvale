@@ -2,6 +2,7 @@
 
 import { refreshUserBalance } from '@/actions/members/balance';
 import LoadingSpinner from '@/components/shared/LoadingSpinner';
+import { useOrg } from '@/context/OrgContext';
 import { getStripe } from '@/lib/stripe-client';
 import {
   Elements,
@@ -9,9 +10,7 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
-import { useCallback, useEffect, useState } from 'react';
-
-const stripePromise = getStripe();
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
@@ -113,9 +112,17 @@ export function CreditsPaymentForm({
   total: number;
   returnUrl?: string;
 }) {
+  const { stripeAccountId } = useOrg();
+  const stripePromise = useMemo(
+    () => (stripeAccountId ? getStripe(stripeAccountId) : null),
+    [stripeAccountId]
+  );
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [paymentIntentAmount, setPaymentIntentAmount] = useState<
     number | undefined
+  >(undefined);
+  const [paymentIntentCurrency, setPaymentIntentCurrency] = useState<
+    string | undefined
   >(undefined);
 
   const fetchPaymentIntent = useCallback(async (amount: number) => {
@@ -135,10 +142,11 @@ export function CreditsPaymentForm({
         throw new Error('Network response was not ok');
       }
 
-      const data: { clientSecret: string; amount: number } =
+      const data: { clientSecret: string; amount: number; currency: string } =
         await response.json();
       setClientSecret(data.clientSecret);
       setPaymentIntentAmount(data.amount);
+      setPaymentIntentCurrency(data.currency);
     } catch (error) {
       console.error('Error fetching payment intent:', error);
     }
@@ -154,6 +162,14 @@ export function CreditsPaymentForm({
     return () => clearTimeout(timeoutId);
   }, [total, fetchPaymentIntent]);
 
+  if (!stripePromise) {
+    return (
+      <div className="bg-red-50 border border-red-200 text-red-600 p-4 rounded-lg">
+        Card payments are not available yet. Please contact the farm.
+      </div>
+    );
+  }
+
   if (!clientSecret) {
     return <LoadingSpinner />;
   }
@@ -164,7 +180,7 @@ export function CreditsPaymentForm({
       options={{
         mode: 'payment',
         amount: paymentIntentAmount,
-        currency: 'gbp',
+        currency: paymentIntentCurrency,
         appearance: {
           theme: 'flat',
         },
