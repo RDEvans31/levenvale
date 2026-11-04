@@ -1,4 +1,5 @@
 import Testimonials from '@/components/site/Testimonials';
+import { BELLO_BEEF_STORE_URL } from '@/lib/site-links';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,26 +17,35 @@ const section = 'py-16 md:py-28';
 const h2 =
   'text-[28px] font-medium leading-[1.15] tracking-[-0.03em] md:text-[45px]';
 const body =
-  'text-pretty text-base leading-normal text-neutral-700 md:text-[17.5px]';
+  'text-pretty text-base leading-relaxed text-neutral-700 md:text-lg';
 
 const btn =
-  'inline-flex h-9 items-center justify-center rounded-[3px] px-3 text-sm font-medium uppercase transition sm:h-8 sm:w-[166px] sm:px-0 sm:text-base';
+  'inline-flex h-9 items-center justify-center rounded-[3px] px-3 text-sm font-medium uppercase transition sm:w-[166px] sm:px-0 sm:text-base';
 const btnLeaf = `${btn} bg-leaf text-neutral-900 hover:bg-leaf-dark`;
 const btnOutlineLight = `${btn} border border-white text-white hover:bg-white/10`;
 const btnOutlineDark = `${btn} border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white`;
 
-function CtaButtons() {
+function CtaButtons({
+  className = 'mt-8',
+  tone = 'light',
+}: {
+  className?: string;
+  tone?: 'light' | 'dark';
+}) {
   return (
-    <div className="mt-8 flex flex-wrap justify-center gap-2">
+    <div className={`${className} flex flex-wrap justify-center gap-2`}>
       <Link href="/stay" className={btnLeaf}>
         Stay
       </Link>
       <Link href="/experiences" className={btnLeaf}>
         Experience
       </Link>
-      <Link href="/shop-bello-beef" className={btnOutlineLight}>
+      <a
+        href={BELLO_BEEF_STORE_URL}
+        className={tone === 'light' ? btnOutlineLight : btnOutlineDark}
+      >
         Shop Bello Beef
-      </Link>
+      </a>
     </div>
   );
 }
@@ -64,12 +74,16 @@ export default function Home() {
             paddock-to-plate experiences, learn practical skills and discover
             where real food comes from.
           </p>
-          <CtaButtons />
         </div>
       </section>
 
+      {/* Hero calls to action */}
+      <section className="pt-8 md:pt-10">
+        <CtaButtons className="px-4" tone="dark" />
+      </section>
+
       {/* Intro */}
-      <section className="py-16 md:py-[100px]">
+      <section className="pb-16 pt-12 md:pb-[100px] md:pt-16">
         <div className={container}>
           <h2 className="text-2xl font-medium leading-[1.35] tracking-[-0.03em] md:text-[48px]">
             Levenvale Farm is a working regenerative farm where people can slow
@@ -161,9 +175,9 @@ export default function Home() {
               Good food starts with healthy soil, happy animals and a farm cared
               for with intention.
             </p>
-            <Link href="/shop-bello-beef" className={`${btnOutlineDark} mt-8`}>
+            <a href={BELLO_BEEF_STORE_URL} className={`${btnOutlineDark} mt-8`}>
               Shop Bello Beef
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -178,11 +192,11 @@ export default function Home() {
       {/* Valley Views CTA */}
       <section className="relative flex h-[520px] items-end md:h-[600px]">
         <Image
-          src="/home/levenvale-hero-mobile.jpg"
-          alt="Cabin overlooking the Bellingen valley"
+          src="/stay/hero.jpg"
+          alt="Tin hut beneath an old gum tree at sunset on Levenvale Farm"
           fill
           sizes="100vw"
-          className="object-cover object-bottom"
+          className="object-cover object-[center_60%]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% to-black/70" />
         <div className="relative z-10 mx-auto w-full max-w-2xl px-4 pb-12 text-center text-white md:pb-[60px]">

@@ -7,10 +7,9 @@ export const metadata: Metadata = { title: 'Stay | Levenvale Farm' };
 type Card = {
   id: string;
   name: string;
-  image: string;
+  images: { src: string; alt: string }[];
   description: string[];
-  cta: string;
-  href: string;
+  actions: { label: string; href: string }[];
 };
 
 const bookingUrl = (roomTypeCode: string) =>
@@ -18,93 +17,113 @@ const bookingUrl = (roomTypeCode: string) =>
 
 const stays: Card[] = [
   {
-    id: 'bakers-hut',
-    name: "Baker's Hut",
-    image: '/stay/bakers-hut.jpg',
-    description: [
-      'Perched high on the hill overlooking the farm, Baker’s Hut is fully off-grid with no mains power. Furnished with a King and a Single, it fits up to 3 people, with breathtaking views over the farm and beyond to the Dorrigo Plateau.',
-      'The hut features a simple kitchen and bathroom and a small deck out the front. Light a fire, take a bath, cook some Bello Beef and watch the mist roll in.',
-    ],
-    cta: 'Book',
-    href: bookingUrl('BAKERS-HUT'),
-  },
-  {
-    id: 'bickells-hut',
-    name: "Bickell's Hut",
-    image: '/stay/bickells-hut.jpg',
-    description: [
-      'Overlooking the farm, Bickell’s Hut is our family-size, off-grid hut with no mains power. Furnished for up to 4 people with a Queen and fold-out sofa, it features a simple kitchen and bathroom and a large deck with views over the farm and beyond to The Promised Land.',
-      'Light a fire, watch the stars and switch off — reconnect with yourself and with nature.',
-    ],
-    cta: 'Book',
-    href: bookingUrl('BICKELLS-HUT'),
-  },
-  {
     id: 'farmhouse',
-    name: 'The Farmhouse',
-    image: '/stay/farmhouse.jpg',
+    name: 'The Farm House',
+    images: [{ src: '/stay/farmhouse.jpg', alt: 'The Farm House' }],
     description: [
       'Stay in our beautifully restored 1906 farmhouse, where timeless country charm meets modern comfort. With four spacious bedrooms, sweeping farm views and just 5 km from Bellingen, it’s the perfect base to slow down, reconnect and experience life on a working regenerative farm.',
     ],
-    cta: 'Book',
-    href: 'https://www.coffscoastaccommodation.com.au/listings/the-farmhouse-at-levenvale-farm/',
+    actions: [
+      {
+        label: 'Book',
+        href: 'https://www.coffscoastaccommodation.com.au/listings/the-farmhouse-at-levenvale-farm/',
+      },
+    ],
+  },
+  {
+    id: 'huts',
+    name: 'The Huts',
+    images: [
+      { src: '/stay/bakers-hut.jpg', alt: "Baker's Hut" },
+      { src: '/stay/bickells-hut.jpg', alt: "Bickell's Hut" },
+    ],
+    description: [
+      'Two off-grid huts on the hill overlooking the farm, with no mains power. Each has a simple kitchen and bathroom and a deck with views beyond the farm. Light a fire, watch the stars and switch off.',
+      'Baker’s Hut sleeps up to 3 (a King and a Single) and looks out to the Dorrigo Plateau. Bickell’s Hut is our family-size hut for up to 4 (a Queen and a fold-out sofa), with a large deck facing The Promised Land.',
+    ],
+    actions: [
+      { label: "Baker's Hut", href: bookingUrl('BAKERS-HUT') },
+      { label: "Bickell's Hut", href: bookingUrl('BICKELLS-HUT') },
+    ],
   },
   {
     id: 'tiny-nancy',
     name: 'Tiny Nancy',
-    image: '/stay/tiny-nancy.jpg',
+    images: [{ src: '/stay/tiny-nancy.jpg', alt: 'Tiny Nancy' }],
     description: [
       'Tiny Nancy is poised high on a hill of Levenvale Farm in complete privacy, surrounded by rainforest and incredible views.',
       'With the luxury of air conditioning, a fridge and warm showers, Tiny Nancy is your excuse to shake off the confinement of modern life and strip back to your most raw and natural self.',
     ],
-    cta: 'Book',
-    href: 'https://intothewildescapes.com/property/61bb7bcd46a1d0003a7abb97',
+    actions: [
+      {
+        label: 'Book',
+        href: 'https://intothewildescapes.com/property/61bb7bcd46a1d0003a7abb97',
+      },
+    ],
   },
   {
     id: 'camping',
-    name: 'Campsites',
-    image: '/stay/campsites.jpg',
+    name: 'Campsites — Beyond the Bridge & Old Flat',
+    images: [
+      { src: '/stay/campsites.jpg', alt: 'Campsites at Levenvale Farm' },
+    ],
     description: [
       'Slow down and embrace the rhythms of country life at one of our two camping areas. Choose the peaceful seclusion of Beyond the Bridge or the open space of Old Flat.',
       'Enjoy crackling campfires, star-filled skies, swimming holes, creek adventures and the chance to truly disconnect — all just minutes from Bellingen.',
     ],
-    cta: 'Book',
-    href: 'https://www.hipcamp.com/en-AU/land/new-south-wales-levenvale-farm-in-bellingen-ozxhnod6',
+    actions: [
+      {
+        label: 'Book',
+        href: 'https://www.hipcamp.com/en-AU/land/new-south-wales-levenvale-farm-in-bellingen-ozxhnod6',
+      },
+    ],
   },
   {
     id: 'bell-tents',
-    name: 'Bell Tents',
-    image: '/stay/bell-tents.jpg',
+    name: 'Bell Tent Glamping',
+    images: [{ src: '/stay/bell-tents.jpg', alt: 'Glamping bell tents' }],
     description: [
       'No tent? No problem. Stay in one of our beautifully furnished glamping bell tents, available through our partner Stylish Camping and fully set up on our campsites before you arrive.',
       'Couples, families and groups of all sizes are welcome, with full access to our shared campsite amenities.',
     ],
-    cta: 'Enquire',
-    href: 'mailto:visit@levenvalefarm.com.au?subject=Bell%20tent%20enquiry',
+    actions: [
+      {
+        label: 'Enquire',
+        href: 'mailto:visit@levenvalefarm.com.au?subject=Bell%20tent%20enquiry',
+      },
+    ],
   },
 ];
 
 const extras: Card[] = [
   {
-    id: 'hampers',
-    name: 'Hampers',
-    image: '/stay/hampers.jpg',
-    description: [
-      'Make your stay even more delicious with farm-fresh and locally sourced hampers, ready and waiting when you arrive. From a proper Farm Breakfast and Bread, Butter & Jam to an afternoon graze, sausages at sunset or Bello Beef steaks cooked over the fire.',
-    ],
-    cta: 'Shop',
-    href: 'https://levenvalefarm.com.au/collections/hampers',
-  },
-  {
     id: 'farm-map',
-    name: 'Explore the Farm',
-    image: '/stay/explore-the-farm.jpg',
+    name: 'Explore the Farm — Map & Amenities',
+    images: [{ src: '/stay/explore-the-farm.jpg', alt: 'Explore the farm' }],
     description: [
       'Find your campsite or farm stay, the farm shop, walking tracks, creek access and shared amenities on our farm map.',
       'Every campsite is a short stroll from our facilities, including our converted horse float and outdoor ensuite — both with custom-built composting toilets, hand basins and gas hot showers.',
     ],
-    cta: 'Farm Map',
-    href: 'https://levenvalefarm.com.au/pages/farm-map',
+    actions: [
+      {
+        label: 'Farm Map',
+        href: 'https://levenvalefarm.com.au/pages/farm-map',
+      },
+    ],
+  },
+  {
+    id: 'hampers',
+    name: 'Farm Stay Hampers & Extras',
+    images: [{ src: '/stay/hampers.jpg', alt: 'Farm stay hampers' }],
+    description: [
+      'Make your stay even more delicious with farm-fresh and locally sourced hampers, ready and waiting when you arrive. From a proper Farm Breakfast and Bread, Butter & Jam to an afternoon graze, sausages at sunset or Bello Beef steaks cooked over the fire.',
+    ],
+    actions: [
+      {
+        label: 'Shop',
+        href: 'https://levenvalefarm.com.au/collections/hampers',
+      },
+    ],
   },
 ];
 
@@ -129,15 +148,15 @@ const body =
 const btnLeaf =
   'inline-flex h-9 items-center justify-center rounded-[3px] bg-leaf px-6 text-sm font-medium uppercase text-neutral-900 transition hover:bg-leaf-dark sm:h-8 sm:w-[166px] sm:px-0 sm:text-base';
 
-function CardLink({ card }: { card: Card }) {
-  const external = card.href.startsWith('http');
+function CardAction({ href, label }: { href: string; label: string }) {
+  const external = href.startsWith('http');
   return (
     <a
-      href={card.href}
+      href={href}
       className={btnLeaf}
       {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
     >
-      {card.cta}
+      {label}
     </a>
   );
 }
@@ -151,14 +170,26 @@ function StayCard({
 }) {
   return (
     <article id={card.id} className="flex scroll-mt-8 flex-col">
-      <div className={`relative ${aspect} overflow-hidden rounded-md`}>
-        <Image
-          src={card.image}
-          alt={card.name}
-          fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
-        />
+      <div
+        className={`relative grid ${aspect} gap-1 overflow-hidden rounded-md ${
+          card.images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'
+        }`}
+      >
+        {card.images.map(image => (
+          <div key={image.src} className="relative">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes={
+                card.images.length > 1
+                  ? '(min-width: 1024px) 17vw, (min-width: 640px) 25vw, 50vw'
+                  : '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw'
+              }
+              className="object-cover"
+            />
+          </div>
+        ))}
       </div>
       <h3 className="mt-6 text-2xl font-medium tracking-[-0.02em]">
         {card.name}
@@ -170,8 +201,10 @@ function StayCard({
           </p>
         ))}
       </div>
-      <div className="mt-6">
-        <CardLink card={card} />
+      <div className="mt-6 flex flex-wrap gap-2">
+        {card.actions.map(action => (
+          <CardAction key={action.href} {...action} />
+        ))}
       </div>
     </article>
   );

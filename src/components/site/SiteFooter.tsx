@@ -1,5 +1,6 @@
 import { Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
+import { BELLO_BEEF_STORE_URL } from '@/lib/site-links';
 import Link from 'next/link';
 import { Logo, stayLinks } from './SiteHeader';
 
@@ -8,21 +9,21 @@ const columns = [
   {
     title: 'Experience',
     links: [
-      { name: 'Farm Tours', href: '/experiences' },
-      { name: 'Workshops', href: '/experiences' },
-      { name: 'Events', href: '/experiences' },
-      { name: 'Weddings', href: '/experiences' },
-      { name: 'Venue Hire', href: '/experiences' },
+      { name: 'Events', href: '/experiences#events' },
+      { name: 'Education', href: '/experiences#education' },
+      { name: 'Consultancy', href: '/experiences#consultancy' },
+      { name: 'Venue Hire + Celebrations', href: '/experiences#venue-hire' },
+      { name: 'Group Farm Tours', href: '/experiences/group-farm-tours' },
     ],
   },
   {
     title: 'Our Story',
     links: [
-      { name: 'Our Farm', href: '/our-story' },
-      { name: 'Our Values', href: '/our-story' },
-      { name: 'Bello Beef', href: '/shop-bello-beef' },
+      { name: 'Our Farm', href: '/our-farm' },
+      { name: 'Our Practices', href: '/our-farm#regenerative-agriculture' },
+      { name: 'Bello Beef', href: BELLO_BEEF_STORE_URL },
       { name: 'Farm Shop', href: '/shop-bello-beef' },
-      { name: 'Community', href: '/our-story' },
+      { name: 'Community', href: '/our-farm#community-and-partnerships' },
     ],
   },
   {
@@ -96,8 +97,8 @@ export default function SiteFooter() {
         <div className="mt-14 flex flex-col gap-5 border-t border-gray-200 pt-6 text-sm text-neutral-900 md:mt-[78px] md:flex-row md:items-center md:justify-between md:pt-8">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-[25px]">
             <p>
-              Copyright © {new Date().getFullYear()} Levenvale Farm · Bellingen,
-              NSW. All rights reserved.
+              Copyright © {new Date().getFullYear()} Levenvale Farm ·
+              Bellingen, NSW. All rights reserved.
             </p>
             <ul className="flex flex-wrap gap-x-[25px] gap-y-2">
               {policies.map(policy => (

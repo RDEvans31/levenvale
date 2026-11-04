@@ -1,21 +1,29 @@
 import { ChevronDown, Heart, Menu, Search, ShoppingBasket } from 'lucide-react';
 import Image from 'next/image';
+import { BELLO_BEEF_STORE_URL } from '@/lib/site-links';
 import Link from 'next/link';
 
 const announcement = 'Farm stays. Real experiences. Reconnect in Bellingen.';
 
-export const stayLinks = [
-  { name: 'Farm Stays', href: '/stay' },
-  { name: "Bickell's Hut", href: '/stay#bickells-hut' },
-  { name: "Baker's Hut", href: '/stay#bakers-hut' },
-  { name: 'Farmhouse', href: '/stay#farmhouse' },
-  { name: 'Camping', href: '/stay#camping' },
+type NavLink = { name: string; href: string };
+type NavItem = NavLink & { links?: NavLink[] };
+
+export const stayLinks: NavLink[] = [
+  { name: 'The Farm House', href: '/stay#farmhouse' },
+  { name: 'The Huts', href: '/stay#huts' },
+  { name: 'Tiny Nancy', href: '/stay#tiny-nancy' },
+  { name: 'Campsites — Beyond the Bridge & Old Flat', href: '/stay#camping' },
+  { name: 'Bell Tent Glamping', href: '/stay#bell-tents' },
+  { name: 'Explore the Farm — Map & Amenities', href: '/stay#farm-map' },
+  { name: 'Farm Stay Hampers & Extras', href: '/stay#hampers' },
 ];
 
-const navLinks = [
-  { name: 'Our Story', href: '/our-story' },
+// Only Stay has a dropdown.
+export const siteNav: NavItem[] = [
+  { name: 'Our Story', href: '/our-farm' },
+  { name: 'Stay', href: '/stay', links: stayLinks },
   { name: 'Experiences', href: '/experiences' },
-  { name: 'Shop Bello Beef', href: '/shop-bello-beef' },
+  { name: 'Shop Bello Beef', href: BELLO_BEEF_STORE_URL },
 ];
 
 export function Logo({ className }: { className?: string }) {
@@ -71,21 +79,21 @@ export default function SiteHeader() {
         </form>
 
         <div className="flex items-center justify-end gap-[15px] text-neutral-900">
-          <Link
-            href="/shop-bello-beef"
+          <a
+            href={BELLO_BEEF_STORE_URL}
             aria-label="Wishlist"
             className="hidden hover:text-forest sm:block"
           >
             <Heart className="h-5 w-5" strokeWidth={1.75} />
-          </Link>
-          <Link
-            href="/shop-bello-beef"
+          </a>
+          <a
+            href={BELLO_BEEF_STORE_URL}
             aria-label="Cart"
             className="relative hover:text-forest"
           >
             <ShoppingBasket className="h-5 w-5" strokeWidth={1.75} />
             <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-leaf" />
-          </Link>
+          </a>
           <a
             href="https://littlefarma.io/bello_beef"
             className="inline-flex h-8 items-center justify-center whitespace-nowrap rounded-[3px] bg-leaf px-3 text-xs font-medium uppercase text-neutral-900 transition hover:bg-leaf-dark sm:px-4 sm:text-sm"
@@ -98,34 +106,26 @@ export default function SiteHeader() {
             <summary className="cursor-pointer list-none" aria-label="Menu">
               <Menu className="h-6 w-6" />
             </summary>
-            <nav className="absolute right-0 top-9 z-50 w-56 rounded border border-gray-200 bg-white py-2 shadow-lg">
-              <Link
-                href="/our-story"
-                className="block px-4 py-2 text-sm hover:bg-beige"
-              >
-                Our Story
-              </Link>
-              {stayLinks.map(link => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="block px-4 py-2 text-sm hover:bg-beige"
-                >
-                  {link.name === 'Farm Stays' ? 'Stay' : `— ${link.name}`}
-                </Link>
+            <nav className="absolute right-0 top-9 z-50 max-h-[75vh] w-72 overflow-y-auto rounded border border-gray-200 bg-white py-2 shadow-lg">
+              {siteNav.map(section => (
+                <div key={section.name} className="py-1">
+                  <Link
+                    href={section.href}
+                    className="block px-4 py-2 text-sm font-semibold uppercase hover:bg-beige"
+                  >
+                    {section.name}
+                  </Link>
+                  {section.links?.map(link => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="block py-1.5 pl-7 pr-4 text-sm text-neutral-700 hover:bg-beige"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
               ))}
-              <Link
-                href="/experiences"
-                className="block px-4 py-2 text-sm hover:bg-beige"
-              >
-                Experiences
-              </Link>
-              <Link
-                href="/shop-bello-beef"
-                className="block px-4 py-2 text-sm hover:bg-beige"
-              >
-                Shop Bello Beef
-              </Link>
             </nav>
           </details>
         </div>
@@ -134,38 +134,35 @@ export default function SiteHeader() {
       {/* Desktop nav */}
       <nav className="hidden md:block">
         <ul className="flex h-[67px] items-center justify-center gap-14 text-base font-medium uppercase text-neutral-900">
-          <li>
-            <Link href={navLinks[0].href} className="hover:text-forest">
-              {navLinks[0].name}
-            </Link>
-          </li>
-          <li className="group relative">
-            <Link
-              href="/stay"
-              className="flex items-center gap-2 hover:text-forest"
-            >
-              Stay{' '}
-              <ChevronDown className="h-[18px] w-[18px]" strokeWidth={2.5} />
-            </Link>
-            <ul className="invisible absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 pt-4 opacity-0 transition group-hover:visible group-hover:opacity-100">
-              <li className="rounded border border-gray-200 bg-white py-2 shadow-lg">
-                {stayLinks.map(link => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="block px-4 py-2 text-base normal-case hover:bg-beige"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </li>
-            </ul>
-          </li>
-          {navLinks.slice(1).map(link => (
-            <li key={link.name}>
-              <Link href={link.href} className="hover:text-forest">
-                {link.name}
+          {siteNav.map(section => (
+            <li key={section.name} className="group relative">
+              <Link
+                href={section.href}
+                className="flex items-center gap-2 hover:text-forest"
+              >
+                {section.name}
+                {section.links && (
+                  <ChevronDown
+                    className="h-[18px] w-[18px]"
+                    strokeWidth={2.5}
+                  />
+                )}
               </Link>
+              {section.links && (
+                <ul className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                  <li className="rounded border border-gray-200 bg-white py-2 shadow-lg">
+                    {section.links.map(link => (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="block px-4 py-2 text-base normal-case hover:bg-beige"
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </li>
+                </ul>
+              )}
             </li>
           ))}
         </ul>
