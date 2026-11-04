@@ -46,9 +46,9 @@ export default async function OrderDetailsPage({
       <div className="min-h-screen bg-white">
         <div className="border-b border-gray-200 px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-forest rounded-md flex items-center justify-center">
+            <div className="w-8 h-8 rounded-md flex items-center justify-center">
               <Image
-                src="/levenvale-logo.png"
+                src="/brand/levenvale-emblem.svg"
                 alt="Levenvale Farm"
                 width={32}
                 height={32}
@@ -79,10 +79,10 @@ export default async function OrderDetailsPage({
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
       case 'processing':
-        return 'bg-yellow-100 text-yellow-800';
+        return 'bg-brand-white text-brand-black ring-1 ring-inset ring-brand-black';
       case 'completed':
       case 'delivered':
-        return 'bg-green-100 text-green-800';
+        return 'bg-brand-green text-brand-black';
       case 'cancelled':
         return 'bg-red-100 text-red-800';
       default:
@@ -104,9 +104,9 @@ export default async function OrderDetailsPage({
             <ArrowLeft className="text-gray-600" size={24} />
           </Link>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-forest rounded-md flex items-center justify-center">
+            <div className="w-8 h-8 rounded-md flex items-center justify-center">
               <Image
-                src="/levenvale-logo.png"
+                src="/brand/levenvale-emblem.svg"
                 alt="Levenvale Farm"
                 width={32}
                 height={32}
@@ -153,7 +153,7 @@ export default async function OrderDetailsPage({
         </div>
 
         {/* Order Details */}
-        <div className="bg-green-50 rounded-lg p-6">
+        <div className="bg-brand-white border-2 border-brand-green rounded-lg p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
             Order details
           </h2>
@@ -162,7 +162,7 @@ export default async function OrderDetailsPage({
             <div className="flex justify-between text-gray-600">
               <span>Items total</span>
               <div className="flex items-center gap-1">
-                <Coins size={16} className="text-green-600" />
+                <Coins size={16} className="text-brand-black" />
                 <span>{itemsTotal.toFixed(2)}</span>
               </div>
             </div>
@@ -171,7 +171,7 @@ export default async function OrderDetailsPage({
               <div key={fee.id} className="flex justify-between text-gray-600">
                 <span>{fee.feeName}</span>
                 <div className="flex items-center gap-1">
-                  <Coins size={16} className="text-green-600" />
+                  <Coins size={16} className="text-brand-black" />
                   <span>{fee.amount.toFixed(2)}</span>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default async function OrderDetailsPage({
             <div className="flex justify-between font-semibold text-gray-900">
               <span>Order total</span>
               <div className="flex items-center gap-1">
-                <Coins size={16} className="text-green-600" />
+                <Coins size={16} className="text-brand-black" />
                 <span>{order.total.toFixed(2)}</span>
               </div>
             </div>

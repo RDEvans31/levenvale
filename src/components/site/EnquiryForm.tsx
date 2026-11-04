@@ -7,7 +7,7 @@ import { useActionState } from 'react';
 const initialState: EnquiryState = { status: 'idle' };
 
 const input =
-  'mt-1 block w-full rounded-[3px] border border-gray-300 bg-white px-3 py-2 text-base text-neutral-900 placeholder:text-gray-400 focus:border-leaf focus:outline-none focus:ring-1 focus:ring-leaf';
+  'mt-1 block w-full rounded-[3px] border border-gray-300 bg-white px-3 py-2 text-base text-brand-black placeholder:text-gray-400 focus:border-brand-black focus:outline-none focus:ring-1 focus:ring-brand-green';
 const label = 'block text-sm font-medium text-neutral-800';
 
 function FieldError({ message }: { message?: string }) {
@@ -38,9 +38,9 @@ export default function EnquiryForm({
     return (
       <div
         role="status"
-        className="flex items-start gap-3 rounded-md border border-leaf bg-white p-5"
+        className="flex items-start gap-3 rounded-md border border-brand-green bg-white p-5"
       >
-        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-forest" />
+        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-brand-black" />
         <p className="text-base text-neutral-800">
           Thanks for getting in touch! We&apos;ve received your enquiry and will
           be back to you soon.
@@ -154,7 +154,7 @@ export default function EnquiryForm({
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex h-10 items-center justify-center rounded-[3px] bg-leaf px-6 text-sm font-medium uppercase text-neutral-900 transition hover:bg-leaf-dark disabled:opacity-60 sm:text-base"
+        className="inline-flex h-10 items-center justify-center rounded-[3px] bg-brand-green px-6 text-sm font-medium uppercase text-brand-black transition hover:bg-brand-black hover:text-brand-white disabled:opacity-60 sm:text-base"
       >
         {pending ? 'Sending…' : submitLabel}
       </button>

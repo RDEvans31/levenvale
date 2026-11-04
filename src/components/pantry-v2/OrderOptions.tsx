@@ -12,7 +12,7 @@ export default function OrderOptions() {
         onClick={() => setOrderType(OrderType.DELIVERY)}
         className={`flex-1 py-2 px-6 rounded-full transition-colors ${
           orderType === OrderType.DELIVERY
-            ? 'bg-black text-white'
+            ? 'bg-brand-black text-brand-white'
             : 'bg-gray-200'
         }`}
       >
@@ -21,7 +21,9 @@ export default function OrderOptions() {
       <button
         onClick={() => setOrderType(OrderType.PICKUP)}
         className={`flex-1 py-2 px-6 rounded-full transition-colors ${
-          orderType === OrderType.PICKUP ? 'bg-black text-white' : 'bg-gray-200'
+          orderType === OrderType.PICKUP
+            ? 'bg-brand-black text-brand-white'
+            : 'bg-gray-200'
         }`}
       >
         Pick-up

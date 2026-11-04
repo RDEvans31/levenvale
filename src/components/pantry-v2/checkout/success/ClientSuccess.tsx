@@ -59,9 +59,9 @@ export default function ClientSuccess({ orderData }: { orderData: OrderData }) {
   const { order, userBalance } = orderData;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-100 to-green-700 flex flex-col items-center justify-center p-4 space-y-6">
+    <div className="min-h-screen bg-brand-green flex flex-col items-center justify-center p-4 space-y-6">
       {/* Green checkmark icon */}
-      <div className="bg-green-400 rounded-full p-4">
+      <div className="bg-brand-black rounded-full p-4">
         <Check className="w-12 h-12" color="#fff" />
       </div>
 
@@ -178,7 +178,7 @@ export default function ClientSuccess({ orderData }: { orderData: OrderData }) {
 
       {/* Action buttons */}
       <div className="flex flex-col space-y-4 max-w-lg w-full">
-        {/* <button className="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-4 px-8 rounded-xl text-lg transition-colors">
+        {/* <button className="bg-brand-black hover:bg-brand-white hover:text-brand-black text-brand-white font-semibold py-4 px-8 rounded-xl text-lg transition-colors">
           Top up now for an extra 5%
         </button> */}
 
@@ -191,7 +191,7 @@ export default function ClientSuccess({ orderData }: { orderData: OrderData }) {
 
         <Link
           href="/members-v2"
-          className="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-4 px-8 rounded-xl text-lg transition-colors text-center"
+          className="bg-brand-black hover:bg-brand-white hover:text-brand-black text-brand-white font-semibold py-4 px-8 rounded-xl text-lg transition-colors text-center"
         >
           Back to Members Portal
         </Link>

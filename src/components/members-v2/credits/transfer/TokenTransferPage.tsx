@@ -160,7 +160,7 @@ export default function TokenTransferPage({
             animation: bounceOnce 1s ease-in-out;
           }
         `}</style>
-        <div className="min-h-screen bg-gradient-to-b from-emerald-100 to-emerald-700 px-4 py-8 flex flex-col">
+        <div className="min-h-screen bg-brand-green px-4 py-8 flex flex-col">
           <div className="flex-1 flex flex-col justify-center items-center text-center">
             {/* Success Icon and Messages */}
             <div className="inline-flex items-center justify-center w-24 h-24 rounded-full animate-bounce-once mb-6">
@@ -195,7 +195,7 @@ export default function TokenTransferPage({
           <div className="max-w-md mx-auto w-full space-y-3">
             <Link
               href="/members-v2/pantry"
-              className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-4 rounded-lg text-center transition-colors block"
+              className="w-full bg-brand-black hover:bg-brand-white hover:text-brand-black text-brand-white font-semibold py-4 rounded-lg text-center transition-colors block"
             >
               Access the pantry now
             </Link>
@@ -214,7 +214,7 @@ export default function TokenTransferPage({
 
   if (status === 'pending') {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-emerald-100 to-emerald-700 flex items-center justify-center">
+      <div className="min-h-screen bg-brand-green flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="inline-flex items-center justify-center w-24 h-24 rounded-full animate-bounce">
             <Send className="w-12 h-12 text-black" />
@@ -324,7 +324,7 @@ export default function TokenTransferPage({
                       You have {creditBalance} Tokens.
                     </p>
                     {amount > 0 && (
-                      <p className="text-sm text-green-500">
+                      <p className="text-sm text-brand-black">
                         Sending {amount} tokens to {firstName}.
                       </p>
                     )}
@@ -363,7 +363,7 @@ export default function TokenTransferPage({
           {amount > 0 && selectedMember && error === '' && (
             <button
               onClick={handleSend}
-              className="w-full bg-forest text-white py-4 px-6 mb-4 rounded-lg font-semibold text-lg hover:bg-forestDark transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-brand-green text-brand-black py-4 px-6 mb-4 rounded-lg font-semibold text-lg hover:bg-brand-black hover:text-brand-white transition-colors flex items-center justify-center gap-2"
             >
               Send <Send size={18} />
             </button>

@@ -124,22 +124,10 @@ export function ProductCard({ product }: ProductCardProps) {
             className="object-cover rounded-lg hover:opacity-90 transition-opacity"
           />
           {productOnDiscount && (
-            <div className="absolute top-0 left-0 right-0 isolate flex items-center gap-x-6 overflow-hidden bg-green-500 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 rounded-t-lg">
-              <div
-                className="absolute top-1/2 left-[max(-7rem,calc(50%-52rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-                aria-hidden="true"
-              >
-                <div className="aspect-[577/310] w-[36.0625rem] bg-green-300 opacity-30"></div>
-              </div>
-              <div
-                className="absolute top-1/2 left-[max(45rem,calc(50%+8rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-                aria-hidden="true"
-              >
-                <div className="aspect-[577/310] w-[36.0625rem] bg-green-500 opacity-30"></div>
-              </div>
+            <div className="absolute top-0 left-0 right-0 flex items-center justify-center bg-brand-green px-6 py-2.5 sm:px-3.5 rounded-t-lg">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <p className="text-sm text-gray-900">
-                  <strong className="font-semibold">Special Offer</strong>
+                <p className="text-sm text-brand-black">
+                  <strong className="font-bold">Special Offer</strong>
                 </p>
               </div>
             </div>
@@ -160,7 +148,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 </p>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="text-blue-600 text-xs hover:underline flex-shrink-0"
+                  className="text-brand-black text-xs hover:underline flex-shrink-0"
                 >
                   more
                 </button>
@@ -180,7 +168,7 @@ export function ProductCard({ product }: ProductCardProps) {
               </span>
             </p>
             {isInStock ? (
-              <p className="text-green-600 text-xs font-medium">In Stock</p>
+              <p className="text-brand-black text-xs font-medium">In Stock</p>
             ) : (
               <p className="text-red-600 text-xs font-medium">Out of Stock</p>
             )}
@@ -209,12 +197,14 @@ export function ProductCard({ product }: ProductCardProps) {
             onClick={handleAddToCart}
             disabled={!isInStock || isAdding}
             className={`p-2 bg-white shadow rounded-full flex-shrink-0 hover:bg-gray-50 active:bg-gray-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
-              isAdding ? 'scale-90 rotate-12 bg-green-50' : ''
+              isAdding
+                ? 'scale-90 rotate-12 bg-brand-white border-2 border-brand-green'
+                : ''
             }`}
             aria-label="Add to cart"
           >
             {isAdding ? (
-              <Check size={20} className="text-green-600" />
+              <Check size={20} className="text-brand-black" />
             ) : (
               <Plus size={20} className="text-gray-700" />
             )}

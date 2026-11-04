@@ -30,10 +30,10 @@ export function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className="block shrink-0">
       <Image
-        src="/levenvale-wordmark.png"
+        src="/brand/levenvale-logo.svg"
         alt="Levenvale Farm, Bellingen"
-        width={244}
-        height={134}
+        width={400}
+        height={212}
         priority
         className={className}
       />
@@ -45,11 +45,11 @@ export default function SiteHeader() {
   return (
     <header className="bg-white">
       {/* Announcement ticker */}
-      <div className="flex h-[31px] items-center overflow-hidden bg-forest text-[15px] text-white">
+      <div className="flex h-[31px] items-center overflow-hidden bg-brand-green text-[15px] text-brand-black">
         <div className="flex w-max animate-marquee-slow whitespace-nowrap">
           {Array.from({ length: 12 }).map((_, i) => (
             <span key={i} className="flex items-center gap-3 px-6">
-              <span className="h-1 w-1 rounded-full bg-white" />
+              <span className="h-1 w-1 rounded-full bg-brand-black" />
               {announcement}
             </span>
           ))}
@@ -67,36 +67,36 @@ export default function SiteHeader() {
             type="search"
             name="q"
             placeholder="Search..."
-            className="h-full w-full rounded-[3px] border border-gray-300 pl-3 pr-9 text-[13px] placeholder:text-gray-800 focus:border-leaf focus:outline-none"
+            className="h-full w-full rounded-[3px] border border-gray-300 pl-3 pr-9 text-[13px] placeholder:text-gray-800 focus:border-brand-black focus:outline-none"
           />
           <button
             type="submit"
             aria-label="Search"
-            className="absolute right-[3px] top-[3px] flex h-[22px] w-[22px] items-center justify-center rounded-[3px] bg-leaf text-neutral-900 hover:bg-leaf-dark"
+            className="absolute right-[3px] top-[3px] flex h-[22px] w-[22px] items-center justify-center rounded-[3px] bg-brand-green text-brand-black hover:bg-brand-black hover:text-brand-white"
           >
             <Search className="h-3 w-3" strokeWidth={2.5} />
           </button>
         </form>
 
-        <div className="flex items-center justify-end gap-[15px] text-neutral-900">
+        <div className="flex items-center justify-end gap-[15px] text-brand-black">
           <a
             href={BELLO_BEEF_STORE_URL}
             aria-label="Wishlist"
-            className="hidden hover:text-forest sm:block"
+            className="hidden link-hover sm:block"
           >
             <Heart className="h-5 w-5" strokeWidth={1.75} />
           </a>
           <a
             href={BELLO_BEEF_STORE_URL}
             aria-label="Cart"
-            className="relative hover:text-forest"
+            className="relative link-hover"
           >
             <ShoppingBasket className="h-5 w-5" strokeWidth={1.75} />
-            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-leaf" />
+            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-brand-green" />
           </a>
           <a
             href="https://littlefarma.io/bello_beef"
-            className="inline-flex h-8 items-center justify-center whitespace-nowrap rounded-[3px] bg-leaf px-3 text-xs font-medium uppercase text-neutral-900 transition hover:bg-leaf-dark sm:px-4 sm:text-sm"
+            className="inline-flex h-8 items-center justify-center whitespace-nowrap rounded-[3px] bg-brand-green px-3 text-xs font-medium uppercase text-brand-black transition hover:bg-brand-black hover:text-brand-white sm:px-4 sm:text-sm"
           >
             Members Portal
           </a>
@@ -111,7 +111,7 @@ export default function SiteHeader() {
                 <div key={section.name} className="py-1">
                   <Link
                     href={section.href}
-                    className="block px-4 py-2 text-sm font-semibold uppercase hover:bg-beige"
+                    className="block px-4 py-2 text-sm font-semibold uppercase hover:bg-brand-green"
                   >
                     {section.name}
                   </Link>
@@ -119,7 +119,7 @@ export default function SiteHeader() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className="block py-1.5 pl-7 pr-4 text-sm text-neutral-700 hover:bg-beige"
+                      className="block py-1.5 pl-7 pr-4 text-sm text-neutral-700 hover:bg-brand-green"
                     >
                       {link.name}
                     </Link>
@@ -133,12 +133,12 @@ export default function SiteHeader() {
 
       {/* Desktop nav */}
       <nav className="hidden md:block">
-        <ul className="flex h-[67px] items-center justify-center gap-14 text-base font-medium uppercase text-neutral-900">
+        <ul className="flex h-[67px] items-center justify-center gap-14 text-base font-medium uppercase text-brand-black">
           {siteNav.map(section => (
             <li key={section.name} className="group relative">
               <Link
                 href={section.href}
-                className="flex items-center gap-2 hover:text-forest"
+                className="flex items-center gap-2 link-hover"
               >
                 {section.name}
                 {section.links && (
@@ -155,7 +155,7 @@ export default function SiteHeader() {
                       <Link
                         key={link.name}
                         href={link.href}
-                        className="block px-4 py-2 text-base normal-case hover:bg-beige"
+                        className="block px-4 py-2 text-base normal-case hover:bg-brand-green"
                       >
                         {link.name}
                       </Link>

@@ -51,7 +51,7 @@ export default async function BookingsPage() {
           </Link>
         </button>
 
-        <div className="bg-black text-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:bg-gray-800 transition-colors ml-auto">
+        <div className="bg-brand-black text-brand-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:ring-2 hover:ring-brand-green transition-colors ml-auto">
           <div className="flex items-center gap-2">
             <Wallet size={24} />
             <span className="font-bold">{creditBalance}</span>
@@ -70,7 +70,7 @@ export default async function BookingsPage() {
             <p className="text-gray-600 mb-4">No bookings yet</p>
             <Link
               href="/members-v2/events"
-              className="text-forest font-medium hover:underline"
+              className="text-brand-black font-medium hover:underline"
             >
               Browse events
             </Link>

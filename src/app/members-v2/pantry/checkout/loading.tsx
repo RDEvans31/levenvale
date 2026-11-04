@@ -105,7 +105,7 @@ export default function Loading() {
                     </div>
                   </div>
 
-                  <button className="w-full bg-black text-white py-3 rounded-lg font-medium mt-6">
+                  <button className="w-full bg-brand-black text-brand-white py-3 rounded-lg font-medium mt-6">
                     Place Order
                   </button>
                 </div>

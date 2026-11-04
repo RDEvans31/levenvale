@@ -12,7 +12,7 @@ export default function CardGoToPantry({ pantryLink }: { pantryLink: string }) {
       </div>
       <button
         onClick={() => router.push(pantryLink)}
-        className="px-8 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 font-semibold text-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600 transition mb-2"
+        className="px-8 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 font-semibold text-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-black transition mb-2"
       >
         Go to Pantry
       </button>

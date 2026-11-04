@@ -146,7 +146,7 @@ export function ButtonConfirmOrder() {
     <button
       onClick={handleConfirmOrder}
       disabled={isLoading}
-      className="w-full block bg-black text-white py-4 rounded-lg font-medium text-center"
+      className="w-full block bg-brand-black text-brand-white py-4 rounded-lg font-medium text-center"
     >
       {isLoading ? (
         <div className="flex items-center justify-center">

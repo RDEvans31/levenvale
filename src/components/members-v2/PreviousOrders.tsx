@@ -8,7 +8,10 @@ interface PreviousOrdersProps {
   membershipId: string;
 }
 
-export default async function PreviousOrders({ userId, membershipId }: PreviousOrdersProps) {
+export default async function PreviousOrders({
+  userId,
+  membershipId,
+}: PreviousOrdersProps) {
   const ordersResponse = await getUserOrders(membershipId);
   const orders = ordersResponse.success ? ordersResponse.value.orders : [];
   const latestOrder = orders[0] ?? null;
@@ -22,9 +25,9 @@ export default async function PreviousOrders({ userId, membershipId }: PreviousO
         </h2>
         <Link
           href={`/members-v2/${userId}/orders`}
-          className="flex items-center justify-center px-2 bg-forest bg-opacity-10 rounded-full hover:bg-opacity-20 transition-colors"
+          className="flex items-center justify-center px-2 bg-brand-green rounded-full hover:ring-2 hover:ring-brand-black transition-colors"
         >
-          See more <ArrowRight size={16} className="text-forest" />
+          See more <ArrowRight size={16} className="text-brand-black" />
         </Link>
       </div>
       {latestOrder ? (

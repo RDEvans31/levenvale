@@ -44,11 +44,11 @@ export default async function TransferSuccessPage({
   const firstName = recipientName.split(' ')[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-700 px-4 py-8">
+    <div className="min-h-screen bg-brand-green px-4 py-8">
       <div className="max-w-md mx-auto space-y-8">
         {/* Success Icon */}
         <div className="text-center pt-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-black rounded-full mb-6">
             <Send className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -62,8 +62,8 @@ export default async function TransferSuccessPage({
         {/* Transfer Details Card */}
         <div className="bg-white rounded-xl shadow-lg p-6 mx-4">
           <div className="text-center space-y-4">
-            <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mx-auto">
-              <CheckCircle className="w-6 h-6 text-green-600" />
+            <div className="flex items-center justify-center w-12 h-12 bg-brand-green rounded-full mx-auto">
+              <CheckCircle className="w-6 h-6 text-brand-black" />
             </div>
 
             <div>
@@ -85,7 +85,7 @@ export default async function TransferSuccessPage({
                 </div>
                 <div className="flex justify-between items-center border-t pt-2 mt-3">
                   <span>Your new balance:</span>
-                  <span className="font-bold text-green-600">
+                  <span className="font-bold text-brand-black">
                     {newBalance} tokens
                   </span>
                 </div>
@@ -110,7 +110,7 @@ export default async function TransferSuccessPage({
         <div className="px-4 space-y-3">
           <Link
             href="/members-v2/pantry"
-            className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-4 rounded-lg text-center transition-colors block"
+            className="w-full bg-brand-black hover:bg-brand-white hover:text-brand-black text-brand-white font-semibold py-4 rounded-lg text-center transition-colors block"
           >
             Access the pantry now
           </Link>

@@ -1,6 +1,6 @@
 export default function TotalContributionSkeleton() {
   return (
-    <div className="rounded-lg bg-ebony/70 text-white animate-pulse">
+    <div className="rounded-lg bg-brand-black text-white animate-pulse">
       <div className="flex flex-col items-stretch border-b border-gray-700 sm:flex-row">
         {/* Header section */}
         <div className="flex flex-1 flex-col mx-auto justify-center gap-1 px-6 py-4 sm:py-6">

@@ -64,7 +64,7 @@ export default function LoginPageClientComponent({
                     placeholder="Email"
                     value={email}
                     onChange={handleEmailChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#064526]"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green"
                   />
                 </div>
                 <SubmitButton />

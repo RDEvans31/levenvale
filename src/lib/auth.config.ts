@@ -28,8 +28,8 @@ const providers: Provider[] = [
         url,
         provider: { server, from },
         theme: {
-          brandColor: '#064526',
-          buttonText: '#ffffff',
+          brandColor: '#95C93D',
+          buttonText: '#000000',
         },
       });
     },

@@ -71,7 +71,7 @@ export async function CollectionDisplay({
         <h2 className="text-xl font-bold">{collection.name}</h2>
         <Link
           href={`/members-v2/pantry/collection/${collection.id}`}
-          className="flex items-center text-blue-600 hover:text-blue-800 font-medium"
+          className="flex items-center text-brand-black underline decoration-brand-green decoration-2 underline-offset-4 hover:decoration-brand-black font-medium"
         >
           <ArrowRight size={20} />
         </Link>
@@ -91,7 +91,7 @@ export async function CollectionDisplay({
         <div className="mt-4 text-center">
           <Link
             href={`/members-v2/pantry/collection/${collection.id}`}
-            className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+            className="text-brand-black underline decoration-brand-green decoration-2 underline-offset-4 hover:decoration-brand-black text-sm font-medium"
           >
             View all {collection.count} products
           </Link>

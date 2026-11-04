@@ -10,7 +10,7 @@ export default function CardSubscription() {
   const bothChecked = constitutionChecked && handbookChecked;
 
   return (
-    <div className="relative max-w-sm w-full rounded-3xl shadow-xl overflow-hidden bg-gradient-to-br from-[#053a20] to-[#176a3c] p-8 text-white flex flex-col gap-6">
+    <div className="relative max-w-sm w-full rounded-3xl shadow-xl overflow-hidden bg-brand-black p-8 text-brand-white flex flex-col gap-6">
       {/* Icon */}
       <div className="flex justify-center mb-2">
         <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center">
@@ -75,7 +75,7 @@ export default function CardSubscription() {
             type="checkbox"
             checked={constitutionChecked}
             onChange={e => setConstitutionChecked(e.target.checked)}
-            className="mt-1 h-5 w-5 accent-[#3ad29f] rounded shrink-0"
+            className="mt-1 h-5 w-5 accent-brand-green rounded shrink-0"
           />
           <span className="text-sm text-white/90">
             I confirm that I have read and signed the Constitution
@@ -86,7 +86,7 @@ export default function CardSubscription() {
             type="checkbox"
             checked={handbookChecked}
             onChange={e => setHandbookChecked(e.target.checked)}
-            className="mt-1 h-5 w-5 accent-[#3ad29f] rounded shrink-0"
+            className="mt-1 h-5 w-5 accent-brand-green rounded shrink-0"
           />
           <span className="text-sm text-white/90">
             I confirm that I have read and signed the Members Handbook
@@ -94,10 +94,10 @@ export default function CardSubscription() {
         </label>
       </div>
       <div
-        className={`mt-auto block w-full bg-gradient-to-r font-semibold py-3 rounded-full text-center text-lg flex items-center justify-center gap-2 transition-colors ${
+        className={`mt-auto block w-full font-semibold py-3 rounded-full text-center text-lg flex items-center justify-center gap-2 transition-colors ${
           bothChecked
-            ? 'from-[#3ad29f] to-[#53e7c9] text-[#053a20] hover:from-[#53e7c9] hover:to-[#3ad29f] cursor-pointer'
-            : 'from-gray-400 to-gray-500 text-gray-200 cursor-not-allowed'
+            ? 'bg-brand-green text-brand-black hover:bg-brand-white cursor-pointer'
+            : 'bg-gray-500 text-gray-200 cursor-not-allowed'
         }`}
       >
         <form action="/api/stripe/create-checkout-session" method="POST">

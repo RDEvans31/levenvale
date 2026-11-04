@@ -26,7 +26,7 @@ export default function OrderItemCard({ item }: OrderItemCardProps) {
   };
 
   return (
-    <div className="bg-green-50 rounded-lg p-4 flex items-center gap-4">
+    <div className="bg-brand-white border-2 border-brand-green rounded-lg p-4 flex items-center gap-4">
       {/* Product Image */}
       <div className="w-16 h-16 relative flex-shrink-0">
         <Image
@@ -54,7 +54,7 @@ export default function OrderItemCard({ item }: OrderItemCardProps) {
 
       {/* Price */}
       <div className="flex items-center gap-1 text-lg font-semibold text-gray-900">
-        <Coins size={16} className="text-green-600" />
+        <Coins size={16} className="text-brand-black" />
         <span>{(item.price * item.quantity).toFixed(2)}</span>
       </div>
     </div>

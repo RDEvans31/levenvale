@@ -23,12 +23,12 @@ export default function Loading() {
                   <p className="text-sm text-gray-500">
                     You have 156.50 Tokens.
                   </p>
-                  <p className="text-sm text-green-500">+50.00 Tokens.</p>
+                  <p className="text-sm text-brand-black">+50.00 Tokens.</p>
                 </div>
               </div>
             </div>
             <div className="w-full">
-              <div className="bg-black text-white py-3 px-6 rounded-lg text-center font-medium">
+              <div className="bg-brand-black text-brand-white py-3 px-6 rounded-lg text-center font-medium">
                 Top Up Tokens
               </div>
               <div className="flex flex-col text-center items-center justify-between mt-8 mb-8">

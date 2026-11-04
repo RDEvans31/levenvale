@@ -16,7 +16,7 @@ export function SignOut({ className }: { className?: string }) {
     <form action={handleSignOutAction}>
       <button
         type="submit"
-        className={`${className} hover:text-green-900 hover:underline font-medium transition duration-150 flex items-center gap-2`}
+        className={`${className} hover:text-brand-black hover:underline font-medium transition duration-150 flex items-center gap-2`}
       >
         Sign Out
         <LogOut className="h-4 w-4" />

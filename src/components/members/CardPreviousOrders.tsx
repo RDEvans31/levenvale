@@ -24,9 +24,9 @@ export default function CardPreviousOrders({
                 <span
                   className={`font-medium ${
                     order.status === 'completed'
-                      ? 'text-green-600'
+                      ? 'text-brand-black'
                       : order.status === 'processing'
-                        ? 'text-yellow-500'
+                        ? 'text-brand-black'
                         : 'text-gray-600'
                   }`}
                 >
@@ -39,7 +39,7 @@ export default function CardPreviousOrders({
               <span className="font-semibold">{order.total} tokens</span>
             </div>
             {/* <div className="mt-2 md:mt-0">
-              <button className="px-8 py-3 flex gap-2 rounded-lg border border-gray-300 bg-white text-gray-900 font-semibold text-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600 transition mb-2">
+              <button className="px-8 py-3 flex gap-2 rounded-lg border border-gray-300 bg-white text-gray-900 font-semibold text-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-black transition mb-2">
                 Reorder{' '}
                 <div className="my-auto">
                   <RefreshCcw size={15} />

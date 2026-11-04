@@ -52,16 +52,15 @@ const venueOptions = [
 
 const container = 'mx-auto max-w-[1440px] px-4 sm:px-8';
 const section = 'scroll-mt-8 py-16 md:py-28';
-const eyebrow = 'text-sm font-medium uppercase tracking-wide text-forest';
-const h2 =
-  'mt-3 text-[28px] font-medium leading-[1.15] tracking-[-0.03em] md:text-[45px]';
-const h3 = 'text-2xl font-medium tracking-[-0.02em]';
+const eyebrow = 'heading-display text-sm text-brand-black';
+const h2 = 'mt-3 text-[28px] font-bold leading-[1.15] md:text-[45px]';
+const h3 = 'text-2xl font-bold';
 const body =
   'text-pretty text-base leading-relaxed text-neutral-700 md:text-lg';
 const btnLeaf =
-  'inline-flex h-9 items-center justify-center rounded-[3px] bg-leaf px-6 text-sm font-medium uppercase text-neutral-900 transition hover:bg-leaf-dark sm:text-base';
+  'inline-flex h-9 items-center justify-center rounded-[3px] bg-brand-green px-6 text-sm font-medium uppercase text-brand-black transition hover:bg-brand-black hover:text-brand-white sm:text-base';
 const btnOutlineDark =
-  'inline-flex h-9 items-center justify-center rounded-[3px] border border-neutral-900 px-6 text-sm font-medium uppercase text-neutral-900 transition hover:bg-neutral-900 hover:text-white sm:text-base';
+  'inline-flex h-9 items-center justify-center rounded-[3px] border border-brand-black px-6 text-sm font-medium uppercase text-brand-black transition hover:bg-brand-black hover:text-brand-white sm:text-base';
 
 function SectionHeading({
   label,
@@ -106,7 +105,7 @@ export default function ExperiencesPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% to-black/70" />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 text-center text-white md:pb-[60px]">
-          <h1 className="text-[36px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[69px]">
+          <h1 className="text-[36px] heading-display leading-[1.15] md:text-[56px]">
             Experiences
           </h1>
           <p className="mx-auto mt-5 max-w-[640px] text-base leading-normal text-white/90 md:text-[19px]">
@@ -128,7 +127,7 @@ export default function ExperiencesPage() {
             <li key={item.id} className="shrink-0">
               <a
                 href={`#${item.id}`}
-                className="inline-flex h-8 items-center rounded-full border border-gray-300 px-4 text-sm font-medium text-neutral-900 transition hover:border-forest hover:text-forest"
+                className="inline-flex h-8 items-center rounded-full border border-gray-300 px-4 text-sm font-medium text-brand-black transition hover:border-brand-black link-hover"
               >
                 {item.name}
               </a>
@@ -138,7 +137,10 @@ export default function ExperiencesPage() {
       </nav>
 
       {/* Events */}
-      <section id="events" className={`${section} bg-beige`}>
+      <section
+        id="events"
+        className={`${section} border-t border-gray-200 bg-white`}
+      >
         <div className={container}>
           <SectionHeading
             label="Events"
@@ -170,7 +172,7 @@ export default function ExperiencesPage() {
             <EventGrid events={mockCourses} />
           </div>
 
-          <div className="mt-14 flex flex-col gap-6 rounded-md bg-beige p-6 md:mt-20 md:flex-row md:items-center md:justify-between md:p-10">
+          <div className="mt-14 flex flex-col gap-6 rounded-md border-2 border-brand-green bg-white p-6 md:mt-20 md:flex-row md:items-center md:justify-between md:p-10">
             <div className="max-w-[680px]">
               <h3 className={h3}>Host Education at Levenvale</h3>
               <p className={`${body} mt-3`}>
@@ -190,7 +192,10 @@ export default function ExperiencesPage() {
       </section>
 
       {/* Consultancy */}
-      <section id="consultancy" className={`${section} bg-beige`}>
+      <section
+        id="consultancy"
+        className={`${section} border-t border-gray-200 bg-white`}
+      >
         <div className={container}>
           <SectionHeading
             label="Consultancy"
@@ -201,7 +206,7 @@ export default function ExperiencesPage() {
             {consultancyOptions.map(option => (
               <article
                 key={option.id}
-                className="flex flex-col rounded-md bg-white p-6 md:p-8"
+                className="flex flex-col rounded-md border-2 border-brand-green bg-white p-6 md:p-8"
               >
                 <h3 className={h3}>{option.name}</h3>
                 <p className={`${body} mt-3`}>{option.description}</p>
@@ -211,7 +216,7 @@ export default function ExperiencesPage() {
                       key={item}
                       className="flex items-start gap-3 text-base text-neutral-800"
                     >
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-leaf">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-green">
                         <Check className="h-3 w-3" strokeWidth={3} />
                       </span>
                       {item}
@@ -227,7 +232,7 @@ export default function ExperiencesPage() {
                       <dt className="text-base text-neutral-700">
                         {price.label}
                       </dt>
-                      <dd className="text-lg font-semibold text-neutral-900">
+                      <dd className="text-lg font-semibold text-brand-black">
                         {price.price}
                       </dd>
                     </div>
@@ -271,7 +276,7 @@ export default function ExperiencesPage() {
                 </div>
                 <h3 className={`${h3} mt-6`}>{option.name}</h3>
                 <p className={`${body} mt-3 flex-1`}>{option.description}</p>
-                <div className="mt-8 rounded-md bg-beige p-5 md:p-8">
+                <div className="mt-8 rounded-md border-2 border-brand-green bg-white p-5 md:p-8">
                   <EnquiryForm
                     type={option.type}
                     dateLabel={option.dateLabel}
@@ -285,7 +290,10 @@ export default function ExperiencesPage() {
       </section>
 
       {/* Group Farm Tours */}
-      <section id="group-farm-tours" className={`${section} bg-beige`}>
+      <section
+        id="group-farm-tours"
+        className={`${section} border-t border-gray-200 bg-white`}
+      >
         <div
           className={`${container} grid grid-cols-1 items-center gap-10 md:grid-cols-2`}
         >
@@ -310,7 +318,7 @@ export default function ExperiencesPage() {
               {groupTourAudiences.map(audience => (
                 <li
                   key={audience.name}
-                  className="rounded-full bg-white px-4 py-1.5 text-sm font-medium text-neutral-800"
+                  className="rounded-full border border-brand-black bg-white px-4 py-1.5 text-sm font-medium text-brand-black"
                 >
                   {audience.name}
                 </li>

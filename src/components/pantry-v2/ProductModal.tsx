@@ -198,17 +198,17 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
               {product.discounts.map(discount => (
                 <div
                   key={discount.id}
-                  className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-2"
+                  className="bg-brand-white border-2 border-brand-black rounded-lg p-3 mb-2"
                 >
-                  <p className="font-medium text-yellow-800">
+                  <p className="font-medium text-brand-black">
                     {discount.discount.name}
                   </p>
                   {discount.discount.description && (
-                    <p className="text-sm text-yellow-700">
+                    <p className="text-sm text-brand-black">
                       {discount.discount.description}
                     </p>
                   )}
-                  <p className="text-sm text-yellow-600">
+                  <p className="text-sm text-brand-black">
                     {discount.discount.discountType === 'PERCENTAGE'
                       ? `${discount.discount.value}% off`
                       : `${discount.discount.value} tokens off`}
@@ -236,7 +236,7 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
                 {product.collections.map(collection => (
                   <span
                     key={collection.id}
-                    className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+                    className="bg-brand-green text-brand-black text-xs px-2 py-1 rounded-full"
                   >
                     {collection.collection.name}
                   </span>
@@ -252,7 +252,7 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
                 Options
               </label>
               <select
-                className="w-full text-sm border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                className="w-full text-sm border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-brand-green focus:border-transparent"
                 value={selectedVariation?.id || ''}
                 onChange={e => {
                   const variation = product.variations?.find(
@@ -310,7 +310,7 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
               disabled={!isInStock || isAdding}
               className={`w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 ${
                 isInStock && !isAdding
-                  ? 'bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white'
+                  ? 'bg-brand-green hover:bg-brand-black hover:text-brand-white active:bg-brand-black text-brand-black'
                   : 'bg-gray-400 cursor-not-allowed text-white'
               } ${isAdding ? 'scale-95' : ''}`}
             >

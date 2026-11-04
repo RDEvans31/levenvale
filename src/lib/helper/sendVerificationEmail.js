@@ -20,14 +20,14 @@ export async function sendVerificationRequest(params) {
 function html(params) {
   const { url, host } = params;
   const escapedHost = host.replace(/\./g, '&#8203;.');
-  const brandColor = '#346df1';
+  const brandColor = '#95C93D';
   const color = {
     background: '#f9f9f9',
     text: '#444',
     mainBackground: '#fff',
     buttonBackground: brandColor,
     buttonBorder: brandColor,
-    buttonText: '#fff',
+    buttonText: '#000',
   };
 
   return `

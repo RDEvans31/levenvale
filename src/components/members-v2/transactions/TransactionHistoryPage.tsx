@@ -20,7 +20,7 @@ const TransactionHistoryPage: React.FC<TransactionHistoryPageProps> = ({
     if (type === 'credit') {
       return {
         label: 'Credit',
-        color: 'text-green-600',
+        color: 'text-brand-black',
         icon: <ArrowUp className="w-4 h-4" />,
         prefix: '+',
       };
@@ -68,11 +68,11 @@ const TransactionHistoryPage: React.FC<TransactionHistoryPageProps> = ({
         </div>
 
         {/* Current Balance Card */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-sm">
-          <div className="text-sm text-blue-600 font-medium">
+        <div className="bg-brand-white border-2 border-brand-green rounded-lg p-4 max-w-sm">
+          <div className="text-sm text-brand-black font-medium">
             Current Balance
           </div>
-          <div className="text-xl md:text-2xl font-bold text-blue-900 mt-1">
+          <div className="text-xl md:text-2xl font-bold text-brand-black mt-1">
             {currentBalance.toFixed(2)} tokens
           </div>
         </div>
@@ -265,7 +265,7 @@ const TransactionHistoryPage: React.FC<TransactionHistoryPageProps> = ({
       <div className="fixed bottom-6 right-6 z-50">
         <Link
           href={`/members-v2/${user.id}`}
-          className="bg-forest hover:bg-forestDark text-white p-4 rounded-full font-medium transition-colors shadow-lg flex items-center gap-2"
+          className="bg-brand-green hover:bg-brand-black hover:text-brand-white text-brand-black p-4 rounded-full font-medium transition-colors shadow-lg flex items-center gap-2"
         >
           <ArrowLeft className="w-5 h-5" />
           <span className="hidden sm:inline">Home</span>

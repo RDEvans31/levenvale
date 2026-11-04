@@ -70,7 +70,7 @@ function AddNewAddressForm({
               {...register('firstName', {
                 required: 'First name is required',
               })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
             />
             {errors.firstName && (
               <p className="mt-1 text-sm text-red-600">
@@ -86,7 +86,7 @@ function AddNewAddressForm({
               {...register('lastName', {
                 required: 'Last name is required',
               })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
             />
             {errors.lastName && (
               <p className="mt-1 text-sm text-red-600">
@@ -102,7 +102,7 @@ function AddNewAddressForm({
           </label>
           <input
             {...register('address1', { required: 'Address is required' })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
           />
           {errors.address1 && (
             <p className="mt-1 text-sm text-red-600">
@@ -118,7 +118,7 @@ function AddNewAddressForm({
             </label>
             <input
               {...register('city', { required: 'City is required' })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
             />
             {errors.city && (
               <p className="mt-1 text-sm text-red-600">{errors.city.message}</p>
@@ -130,7 +130,7 @@ function AddNewAddressForm({
             </label>
             <input
               {...register('state', { required: 'State is required' })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
             />
             {errors.state && (
               <p className="mt-1 text-sm text-red-600">
@@ -149,7 +149,7 @@ function AddNewAddressForm({
               {...register('postcode', {
                 required: 'Postcode is required',
               })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
             />
             {errors.postcode && (
               <p className="mt-1 text-sm text-red-600">
@@ -163,7 +163,7 @@ function AddNewAddressForm({
             </label>
             <select
               {...register('country', { required: 'Country is required' })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
             >
               <option value="AU">Australia</option>
             </select>
@@ -177,7 +177,7 @@ function AddNewAddressForm({
 
         <button
           type="submit"
-          className="w-full block bg-black text-white py-4 rounded-lg font-medium text-center"
+          className="w-full block bg-brand-black text-brand-white py-4 rounded-lg font-medium text-center"
         >
           Save Shipping Address
         </button>
@@ -252,7 +252,7 @@ export function ShippingAddressForm({
                 </p>
               </>
             ) : (
-              <p className="text-green-600 mt-2">Add shipping address</p>
+              <p className="text-brand-black mt-2">Add shipping address</p>
             )}
           </div>
           <button onClick={() => setIsOpen(!isOpen)}>

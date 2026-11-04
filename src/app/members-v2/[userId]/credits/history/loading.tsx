@@ -22,11 +22,11 @@ export default function Loading() {
           </div>
 
           {/* Current Balance Card */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-sm">
-            <div className="text-sm text-blue-600 font-medium">
+          <div className="bg-brand-white border-2 border-brand-green rounded-lg p-4 max-w-sm">
+            <div className="text-sm text-brand-black font-medium">
               Current Balance
             </div>
-            <div className="text-xl md:text-2xl font-bold text-blue-900 mt-1">
+            <div className="text-xl md:text-2xl font-bold text-brand-black mt-1">
               156.50 tokens
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function Loading() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div
-                        className={`flex items-center gap-1 text-sm font-medium ${index % 2 === 0 ? 'text-green-600' : 'text-red-600'}`}
+                        className={`flex items-center gap-1 text-sm font-medium ${index % 2 === 0 ? 'text-brand-black' : 'text-red-600'}`}
                       >
                         {index % 2 === 0 ? (
                           <ArrowUp className="w-4 h-4" />
@@ -92,7 +92,7 @@ export default function Loading() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div
-                        className={`text-sm font-medium ${index % 2 === 0 ? 'text-green-600' : 'text-red-600'}`}
+                        className={`text-sm font-medium ${index % 2 === 0 ? 'text-brand-black' : 'text-red-600'}`}
                       >
                         {index % 2 === 0 ? '+' : '-'}
                         {(25.5 + index * 3.25).toFixed(2)} tokens
@@ -126,7 +126,7 @@ export default function Loading() {
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <div
-                      className={`flex items-center gap-1 text-sm font-medium ${index % 2 === 0 ? 'text-green-600' : 'text-red-600'}`}
+                      className={`flex items-center gap-1 text-sm font-medium ${index % 2 === 0 ? 'text-brand-black' : 'text-red-600'}`}
                     >
                       {index % 2 === 0 ? (
                         <ArrowUp className="w-4 h-4" />
@@ -136,7 +136,7 @@ export default function Loading() {
                       {index % 2 === 0 ? 'Credit' : 'Debit'}
                     </div>
                     <div
-                      className={`text-sm font-medium ${index % 2 === 0 ? 'text-green-600' : 'text-red-600'}`}
+                      className={`text-sm font-medium ${index % 2 === 0 ? 'text-brand-black' : 'text-red-600'}`}
                     >
                       {index % 2 === 0 ? '+' : '-'}
                       {(25.5 + index * 3.25).toFixed(2)} tokens

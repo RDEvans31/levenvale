@@ -7,17 +7,17 @@ export default function DeliveryInfoCollapsible() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-green-50 rounded-lg border border-green-200 mt-4">
+    <div className="bg-brand-white border-2 border-brand-green rounded-lg border border-brand-green mt-4">
       {/* Header */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 text-left hover:bg-green-100 transition-colors rounded-lg"
+        className="w-full flex items-center justify-between p-4 text-left hover:bg-brand-green transition-colors rounded-lg"
       >
-        <h3 className="text-lg font-medium text-green-800">
+        <h3 className="text-lg font-medium text-brand-black">
           How do you get your food?
         </h3>
         <ChevronDown
-          className={`text-green-600 transition-transform duration-200 ${
+          className={`text-brand-black transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
           }`}
           size={20}
@@ -26,11 +26,11 @@ export default function DeliveryInfoCollapsible() {
 
       {/* Collapsible Content */}
       {isOpen && (
-        <div className="border-t border-green-200">
-          <div className="flex border-b border-green-200">
+        <div className="border-t border-brand-green">
+          <div className="flex border-b border-brand-green">
             <div className="flex-1 px-4 py-4">
               <div className="flex-1 px-4 py-2">
-                <p className="text-sm font-bold mb-2 text-green-800">
+                <p className="text-sm font-bold mb-2 text-brand-black">
                   Shipping
                 </p>
                 <p className="text-gray-600 text-sm mb-2">
@@ -53,10 +53,12 @@ export default function DeliveryInfoCollapsible() {
               </div>
             </div>
           </div>
-          <div className="flex border-b border-green-200">
+          <div className="flex border-b border-brand-green">
             <div className="flex-1 px-4 py-4">
               <div className="flex-1 px-4 py-2">
-                <p className="text-sm font-bold mb-2 text-green-800">Pickup</p>
+                <p className="text-sm font-bold mb-2 text-brand-black">
+                  Pickup
+                </p>
                 <p className="text-gray-600 text-sm flex items-center">
                   You&apos;re welcome 10am-2pm, Monday-Thursday
                 </p>
@@ -64,19 +66,19 @@ export default function DeliveryInfoCollapsible() {
             </div>
           </div>
           <div className="flex py-4">
-            <div className="flex-1 border-r border-green-200 px-4 py-2">
-              <p className="text-sm font-medium flex items-center gap-2 text-green-800">
+            <div className="flex-1 border-r border-brand-green px-4 py-2">
+              <p className="text-sm font-medium flex items-center gap-2 text-brand-black">
                 Free Delivery on orders over
               </p>
-              <p className="text-sm font-medium flex items-center text-green-800">
+              <p className="text-sm font-medium flex items-center text-brand-black">
                 <Coins size={24} className="mr-2" /> 200
               </p>
             </div>
             <div className="flex-1 px-4 py-2">
-              <p className="text-sm font-medium flex items-center gap-2 text-green-800">
+              <p className="text-sm font-medium flex items-center gap-2 text-brand-black">
                 All meat ships frozen
               </p>
-              <p className="text-sm font-medium flex items-center text-green-800">
+              <p className="text-sm font-medium flex items-center text-brand-black">
                 <Snowflake size={24} />
               </p>
             </div>

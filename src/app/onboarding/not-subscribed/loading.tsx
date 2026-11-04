@@ -9,9 +9,9 @@ export default function Loading() {
         {/* Top navbar */}
         <div className="border-b border-gray-200 px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-forest rounded-md flex items-center justify-center">
+            <div className="w-8 h-8 rounded-md flex items-center justify-center">
               <Image
-                src="/levenvale-logo.png"
+                src="/brand/levenvale-emblem.svg"
                 alt="Levenvale Farm"
                 width={32}
                 height={32}
@@ -46,11 +46,13 @@ export default function Loading() {
                 <p className="text-gray-600 text-sm mb-3">
                   Access to seasonal produce
                 </p>
-                <div className="text-2xl font-bold text-forest">$29/month</div>
+                <div className="text-2xl font-bold text-brand-black">
+                  $29/month
+                </div>
               </div>
-              <div className="border border-forest rounded-lg p-4 bg-forest text-white">
+              <div className="border border-brand-black rounded-lg p-4 bg-brand-green text-brand-black">
                 <h3 className="font-medium mb-2">Premium Membership</h3>
-                <p className="text-gray-200 text-sm mb-3">
+                <p className="text-brand-black text-sm mb-3">
                   Full access to all products
                 </p>
                 <div className="text-2xl font-bold">$49/month</div>

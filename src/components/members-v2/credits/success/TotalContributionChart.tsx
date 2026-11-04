@@ -27,11 +27,11 @@ const chartConfig = {
   },
   tokens: {
     label: 'Tokens',
-    color: '#ffffff',
+    color: '#95C93D',
   },
   pounds: {
     label: '£ Contributed',
-    color: '#ffffff',
+    color: '#95C93D',
   },
 };
 
@@ -50,7 +50,7 @@ export default function TotalContributionChart({
   );
 
   return (
-    <div className="rounded-lg bg-ebony text-white">
+    <div className="rounded-lg bg-brand-black text-white">
       <div className="flex flex-col items-stretch border-b border-gray-800">
         <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-4">
           <h3 className="text-lg font-semibold leading-none tracking-tight">

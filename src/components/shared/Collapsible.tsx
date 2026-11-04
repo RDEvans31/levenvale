@@ -10,42 +10,22 @@ interface CollapsibleProps {
   defaultOpen?: boolean;
 }
 
+// Styleguide palette only (green, black, white). `color` is kept for API
+// compatibility: green = brand accent, gray = neutral, others = black outline.
+const accent = {
+  bg: 'bg-brand-white',
+  border: 'border-brand-green',
+  hover: 'hover:bg-brand-green',
+  text: 'text-brand-black',
+  icon: 'text-brand-black',
+};
+const outline = { ...accent, border: 'border-brand-black' };
 const colorVariants = {
-  green: {
-    bg: 'bg-green-50',
-    border: 'border-green-200',
-    hover: 'hover:bg-green-100',
-    text: 'text-green-800',
-    icon: 'text-green-600',
-  },
-  blue: {
-    bg: 'bg-blue-50',
-    border: 'border-blue-200',
-    hover: 'hover:bg-blue-100',
-    text: 'text-blue-800',
-    icon: 'text-blue-600',
-  },
-  indigo: {
-    bg: 'bg-purple-50',
-    border: 'border-purple-200',
-    hover: 'hover:bg-purple-100',
-    text: 'text-purple-800',
-    icon: 'text-purple-600',
-  },
-  orange: {
-    bg: 'bg-orange-50',
-    border: 'border-orange-200',
-    hover: 'hover:bg-orange-100',
-    text: 'text-orange-800',
-    icon: 'text-orange-600',
-  },
-  gray: {
-    bg: 'bg-gray-50',
-    border: 'border-gray-200',
-    hover: 'hover:bg-gray-100',
-    text: 'text-gray-800',
-    icon: 'text-gray-600',
-  },
+  green: accent,
+  blue: outline,
+  indigo: outline,
+  orange: outline,
+  gray: { ...accent, border: 'border-gray-200', hover: 'hover:bg-gray-50' },
 };
 
 export default function Collapsible({
@@ -58,7 +38,7 @@ export default function Collapsible({
   const colors = colorVariants[color];
 
   return (
-    <div className={`${colors.bg} rounded-lg border ${colors.border}`}>
+    <div className={`${colors.bg} rounded-lg border-2 ${colors.border}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full flex items-center justify-between p-4 text-left ${colors.hover} transition-colors rounded-lg`}

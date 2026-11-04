@@ -14,16 +14,15 @@ const testimonials = [
 
 const container = 'mx-auto max-w-[1440px] px-4 sm:px-8';
 const section = 'py-16 md:py-28';
-const h2 =
-  'text-[28px] font-medium leading-[1.15] tracking-[-0.03em] md:text-[45px]';
+const h2 = 'text-[28px] font-bold leading-[1.15] md:text-[45px]';
 const body =
   'text-pretty text-base leading-relaxed text-neutral-700 md:text-lg';
 
 const btn =
   'inline-flex h-9 items-center justify-center rounded-[3px] px-3 text-sm font-medium uppercase transition sm:w-[166px] sm:px-0 sm:text-base';
-const btnLeaf = `${btn} bg-leaf text-neutral-900 hover:bg-leaf-dark`;
+const btnLeaf = `${btn} bg-brand-green text-brand-black hover:bg-brand-black hover:text-brand-white`;
 const btnOutlineLight = `${btn} border border-white text-white hover:bg-white/10`;
-const btnOutlineDark = `${btn} border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white`;
+const btnOutlineDark = `${btn} border border-brand-black text-brand-black hover:bg-brand-black hover:text-brand-white`;
 
 function CtaButtons({
   className = 'mt-8',
@@ -65,7 +64,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% to-black/70" />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 text-center text-white md:pb-[60px]">
-          <h1 className="text-[36px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[69px]">
+          <h1 className="text-[36px] heading-display leading-[1.15] md:text-[56px]">
             Reconnect the way <br className="hidden sm:block" />
             you farm, eat &amp; live.
           </h1>
@@ -85,7 +84,7 @@ export default function Home() {
       {/* Intro */}
       <section className="pb-16 pt-12 md:pb-[100px] md:pt-16">
         <div className={container}>
-          <h2 className="text-2xl font-medium leading-[1.35] tracking-[-0.03em] md:text-[48px]">
+          <h2 className="text-2xl font-normal leading-[1.35] md:text-[48px]">
             Levenvale Farm is a working regenerative farm where people can slow
             down, reconnect with nature and experience where good food comes
             from.
@@ -115,7 +114,7 @@ export default function Home() {
       </section>
 
       {/* Rooted in Nature */}
-      <section className={`${section} bg-beige`}>
+      <section className={`${section} border-t border-gray-200 bg-white`}>
         <div
           className={`${container} grid grid-cols-1 items-center gap-10 md:grid-cols-2`}
         >
@@ -183,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className={`${section} bg-beige`}>
+      <section className={`${section} border-t border-gray-200 bg-white`}>
         <div className={container}>
           <Testimonials testimonials={testimonials} />
         </div>
@@ -200,7 +199,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% to-black/70" />
         <div className="relative z-10 mx-auto w-full max-w-2xl px-4 pb-12 text-center text-white md:pb-[60px]">
-          <h2 className="text-[28px] font-medium leading-tight tracking-[-0.03em] md:text-[45px]">
+          <h2 className="text-[28px] font-bold leading-tight md:text-[45px]">
             Wake Up to Valley Views
           </h2>
           <p className="mx-auto mt-4 max-w-[660px] text-base leading-normal text-white/90 md:text-[17px]">

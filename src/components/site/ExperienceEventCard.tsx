@@ -57,14 +57,14 @@ function getBookingBadge(closeBookingDateTime: string | null) {
 
   if (isClosed) {
     return (
-      <span className="absolute left-2 top-2 rounded-full bg-amber-400 px-2 py-1 text-xs text-white">
+      <span className="absolute left-2 top-2 rounded-full bg-brand-black px-2 py-1 text-xs text-brand-white">
         Booking Closed
       </span>
     );
   }
 
   return (
-    <span className="absolute left-2 top-2 rounded-full bg-green-500 px-2 py-1 text-xs text-white">
+    <span className="absolute left-2 top-2 rounded-full bg-brand-green px-2 py-1 text-xs text-brand-black">
       Open
     </span>
   );

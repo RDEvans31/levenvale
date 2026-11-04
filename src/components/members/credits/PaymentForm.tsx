@@ -78,7 +78,7 @@ function PaymentDetailsForm({
       <button
         disabled={isLoading || !stripe || !elements}
         id="submit"
-        className="w-full bg-forest text-white py-4 rounded-lg font-medium relative mt-4"
+        className="w-full bg-brand-green text-brand-black py-4 rounded-lg font-medium relative mt-4"
       >
         <span id="button-text">
           {isLoading ? <LoadingSpinner /> : 'Add Tokens'}

@@ -25,7 +25,7 @@ export default async function AuthorizedPage() {
           screenshot of this page and I&apos;ll work with you to sort it out.{' '}
           <a
             href="https://wa.me/447482400662"
-            className="text-blue-600 hover:text-blue-800 underline"
+            className="text-brand-black underline decoration-brand-green decoration-2 underline-offset-4 hover:decoration-brand-black"
           >
             +447482400662
           </a>

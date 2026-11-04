@@ -3,11 +3,11 @@ import { Check, Coins } from 'lucide-react';
 
 export default function Loading() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-green-100 to-green-700">
+    <div className="relative min-h-screen bg-brand-green">
       {/* Blurred Content */}
       <div className="blur-sm flex flex-col items-center justify-center p-4 space-y-6">
         {/* Green checkmark icon */}
-        <div className="bg-green-400 rounded-full p-4">
+        <div className="bg-brand-black rounded-full p-4">
           <Check className="w-12 h-12" color="#fff" />
         </div>
 
@@ -74,7 +74,7 @@ export default function Loading() {
 
         {/* Action button */}
         <div className="flex flex-col space-y-4 max-w-lg w-full">
-          <div className="bg-gray-800 text-white font-semibold py-4 px-8 rounded-xl text-lg text-center">
+          <div className="bg-brand-black text-brand-white font-semibold py-4 px-8 rounded-xl text-lg text-center">
             Back to Members Portal
           </div>
         </div>

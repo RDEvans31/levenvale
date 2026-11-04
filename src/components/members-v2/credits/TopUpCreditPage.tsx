@@ -39,9 +39,9 @@ export default function TopUpCreditPage({
       <div className="flex flex-col gap-4">
         <div className="bg-white rounded-lg">
           {loyaltyBonus && (
-            <div className="bg-yellow-300 border border-yellow-600 mt-8 text-yellow-600 rounded-lg p-2 text-center font-semibold text-sm">
+            <div className="bg-brand-green border border-brand-black mt-8 text-brand-black rounded-lg p-2 text-center font-semibold text-sm">
               <div className="p-4 flex flex-col items-center">
-                <Star className="text-yellow-600 mb-2" />
+                <Star className="text-brand-black mb-2" />
                 <p className="text-lg">Congratulations!</p>
                 <p className="font-semibold text-sm mb-2">You get 10% more</p>
                 <p className="text-xs">
@@ -51,7 +51,9 @@ export default function TopUpCreditPage({
               </div>
               <div className="rounded-xl mx-auto py-10 w-full">
                 <div className="flex items-center bg-gray-100 rounded-lg py-4 focus-within:ring-2 focus-within:ring-black focus-within:ring-inset w-full">
-                  <span className="text-base text-black mx-2">{currencySymbol}</span>
+                  <span className="text-base text-black mx-2">
+                    {currencySymbol}
+                  </span>
                   <input
                     id="price"
                     name="price"
@@ -76,11 +78,11 @@ export default function TopUpCreditPage({
                   </p>
                   {currencyAmount && (
                     <div className="text-right">
-                      <p className="text-sm text-yellow-700">
+                      <p className="text-sm text-brand-black">
                         +{baseTokens.toFixed(2)} Tokens
                       </p>
                       {bonusTokens > 0 && (
-                        <p className="text-sm text-yellow-600">
+                        <p className="text-sm text-brand-black">
                           +{bonusTokens.toFixed(2)} Bonus Tokens
                         </p>
                       )}
@@ -97,7 +99,9 @@ export default function TopUpCreditPage({
           {!loyaltyBonus && (
             <div className="rounded-xl mx-auto py-10 w-full">
               <div className="flex items-center bg-gray-100 rounded-lg py-4 focus-within:ring-2 focus-within:ring-black focus-within:ring-inset w-full">
-                <span className="text-base text-black mx-2">{currencySymbol}</span>
+                <span className="text-base text-black mx-2">
+                  {currencySymbol}
+                </span>
                 <input
                   id="price"
                   name="price"
@@ -122,15 +126,15 @@ export default function TopUpCreditPage({
                 </p>
                 {currencyAmount && (
                   <div className="text-right">
-                    <p className="text-sm text-green-500">
+                    <p className="text-sm text-brand-black">
                       +{baseTokens.toFixed(2)} Tokens
                     </p>
                     {bonusTokens > 0 && (
-                      <p className="text-sm text-yellow-600">
+                      <p className="text-sm text-brand-black">
                         +{bonusTokens.toFixed(2)} Bonus Tokens
                       </p>
                     )}
-                    <p className="text-sm text-blue-500">
+                    <p className="text-sm text-brand-black">
                       You&apos;ll have{' '}
                       {(creditBalance + tokensToAdd).toFixed(2)} Tokens
                     </p>

@@ -75,15 +75,14 @@ const enterprises: Enterprise[] = [
 
 const container = 'mx-auto max-w-[1440px] px-4 sm:px-8';
 const section = 'scroll-mt-8 py-16 md:py-28';
-const eyebrow = 'text-sm font-medium uppercase tracking-wide text-forest';
-const h2 =
-  'mt-3 text-[28px] font-medium leading-[1.15] tracking-[-0.03em] md:text-[45px]';
+const eyebrow = 'heading-display text-sm text-brand-black';
+const h2 = 'mt-3 text-[28px] font-bold leading-[1.15] md:text-[45px]';
 const body =
   'text-pretty text-base leading-normal text-neutral-700 md:text-[17.5px]';
 const btnLeaf =
-  'inline-flex h-9 items-center justify-center rounded-[3px] bg-leaf px-6 text-sm font-medium uppercase text-neutral-900 transition hover:bg-leaf-dark sm:h-8 sm:px-5 sm:text-base';
+  'inline-flex h-9 items-center justify-center rounded-[3px] bg-brand-green px-6 text-sm font-medium uppercase text-brand-black transition hover:bg-brand-black hover:text-brand-white sm:h-8 sm:px-5 sm:text-base';
 const btnOutlineDark =
-  'inline-flex h-9 items-center justify-center rounded-[3px] border border-neutral-900 px-6 text-sm font-medium uppercase text-neutral-900 transition hover:bg-neutral-900 hover:text-white sm:h-8 sm:px-5 sm:text-base';
+  'inline-flex h-9 items-center justify-center rounded-[3px] border border-brand-black px-6 text-sm font-medium uppercase text-brand-black transition hover:bg-brand-black hover:text-brand-white sm:h-8 sm:px-5 sm:text-base';
 
 export default function OurFarmPage() {
   return (
@@ -100,7 +99,7 @@ export default function OurFarmPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% to-black/70" />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 text-center text-white md:pb-[60px]">
-          <h1 className="text-[36px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[69px]">
+          <h1 className="text-[36px] heading-display leading-[1.15] md:text-[56px]">
             Our Farm
           </h1>
           <p className="mx-auto mt-5 max-w-[640px] text-base leading-normal text-white/90 md:text-[19px]">
@@ -122,7 +121,7 @@ export default function OurFarmPage() {
             <li key={item.id} className="shrink-0">
               <a
                 href={`#${item.id}`}
-                className="inline-flex h-8 items-center rounded-full border border-gray-300 px-4 text-sm font-medium text-neutral-900 transition hover:border-forest hover:text-forest"
+                className="inline-flex h-8 items-center rounded-full border border-gray-300 px-4 text-sm font-medium text-brand-black transition hover:border-brand-black link-hover"
               >
                 {item.name}
               </a>
@@ -163,7 +162,10 @@ export default function OurFarmPage() {
       </section>
 
       {/* Regenerative Agriculture & Our Practices */}
-      <section id="regenerative-agriculture" className={`${section} bg-beige`}>
+      <section
+        id="regenerative-agriculture"
+        className={`${section} border-t border-gray-200 bg-white`}
+      >
         <div className={container}>
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
             <div className="relative aspect-[3/2] overflow-hidden rounded-md md:order-first">
@@ -189,9 +191,9 @@ export default function OurFarmPage() {
             {practices.map(practice => (
               <li
                 key={practice.name}
-                className="rounded-md bg-white p-6 md:p-8"
+                className="rounded-md border-2 border-brand-green bg-white p-6 md:p-8"
               >
-                <h3 className="text-xl font-medium tracking-[-0.02em] md:text-2xl">
+                <h3 className="text-xl font-bold md:text-2xl">
                   {practice.name}
                 </h3>
                 <p className={`${body} mt-3`}>{practice.description}</p>
@@ -241,9 +243,7 @@ export default function OurFarmPage() {
                     )
                   )}
                 </div>
-                <h3 className="mt-6 text-2xl font-medium tracking-[-0.02em]">
-                  {enterprise.name}
-                </h3>
+                <h3 className="mt-6 text-2xl font-bold">{enterprise.name}</h3>
                 <p className={`${body} mt-3 flex-1`}>
                   {enterprise.description}
                 </p>
@@ -267,7 +267,7 @@ export default function OurFarmPage() {
       {/* Our Community & Partnerships */}
       <section
         id="community-and-partnerships"
-        className={`${section} bg-beige`}
+        className={`${section} border-t border-gray-200 bg-white`}
       >
         <div className={container}>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-end">

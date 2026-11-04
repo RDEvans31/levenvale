@@ -26,7 +26,9 @@ export default function TopUpCreditPage({
         <div className="bg-white rounded-lg">
           <div className="rounded-xl mx-auto py-10 w-full">
             <div className="flex items-center bg-gray-100 rounded-lg py-4 focus-within:ring-2 focus-within:ring-black focus-within:ring-inset w-full">
-              <span className="text-base text-black mx-2">{currencySymbol}</span>
+              <span className="text-base text-black mx-2">
+                {currencySymbol}
+              </span>
               <input
                 id="price"
                 name="price"
@@ -50,8 +52,9 @@ export default function TopUpCreditPage({
                 You have {creditBalance} Tokens.
               </p>
               {currencyAmount && (
-                <p className="text-sm text-green-500">
-                  +{convertCashToToken(currencyAmount, tokensPerLocalCurrency)} Tokens.
+                <p className="text-sm text-brand-black">
+                  +{convertCashToToken(currencyAmount, tokensPerLocalCurrency)}{' '}
+                  Tokens.
                 </p>
               )}
             </div>

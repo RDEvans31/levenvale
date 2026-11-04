@@ -3,13 +3,13 @@ import { Send } from 'lucide-react';
 
 export default function Loading() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-blue-100 to-blue-700 px-4 py-8">
+    <div className="relative min-h-screen bg-brand-green px-4 py-8">
       {/* Blurred Content Preview */}
       <div className="blur-sm">
         <div className="max-w-md mx-auto space-y-8">
           {/* Success Icon */}
           <div className="text-center pt-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500 rounded-full mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-black rounded-full mb-6">
               <Send className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -23,8 +23,8 @@ export default function Loading() {
           {/* Transfer Details Card */}
           <div className="bg-white rounded-xl shadow-lg p-6 mx-4">
             <div className="text-center space-y-4">
-              <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mx-auto">
-                <div className="w-6 h-6 bg-green-600 rounded"></div>
+              <div className="flex items-center justify-center w-12 h-12 bg-brand-green rounded-full mx-auto">
+                <div className="w-6 h-6 bg-brand-green rounded"></div>
               </div>
 
               <div>
@@ -46,7 +46,7 @@ export default function Loading() {
                   </div>
                   <div className="flex justify-between items-center border-t pt-2 mt-3">
                     <span>Your new balance:</span>
-                    <span className="font-bold text-green-600">
+                    <span className="font-bold text-brand-black">
                       75.50 tokens
                     </span>
                   </div>
@@ -69,7 +69,7 @@ export default function Loading() {
 
           {/* CTA Buttons */}
           <div className="px-4 space-y-3">
-            <div className="w-full bg-gray-900 text-white font-semibold py-4 rounded-lg text-center">
+            <div className="w-full bg-brand-black text-brand-white font-semibold py-4 rounded-lg text-center">
               Access the pantry now
             </div>
 

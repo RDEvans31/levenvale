@@ -68,7 +68,7 @@ export function BillingAddressForm() {
                 </p>
               </>
             ) : (
-              <p className="text-green-600 mt-2">Add billing address</p>
+              <p className="text-brand-black mt-2">Add billing address</p>
             )}
           </div>
           <button onClick={() => setIsOpen(!isOpen)}>
@@ -93,7 +93,7 @@ export function BillingAddressForm() {
                   {...register('first_name', {
                     required: 'First name is required',
                   })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
                 />
                 {errors.first_name && (
                   <p className="mt-1 text-sm text-red-600">
@@ -109,7 +109,7 @@ export function BillingAddressForm() {
                   {...register('last_name', {
                     required: 'Last name is required',
                   })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
                 />
                 {errors.last_name && (
                   <p className="mt-1 text-sm text-red-600">
@@ -125,7 +125,7 @@ export function BillingAddressForm() {
               </label>
               <input
                 {...register('address_1', { required: 'Address is required' })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
               />
               {errors.address_1 && (
                 <p className="mt-1 text-sm text-red-600">
@@ -141,7 +141,7 @@ export function BillingAddressForm() {
                 </label>
                 <input
                   {...register('city', { required: 'City is required' })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
                 />
                 {errors.city && (
                   <p className="mt-1 text-sm text-red-600">
@@ -155,7 +155,7 @@ export function BillingAddressForm() {
                 </label>
                 <input
                   {...register('state', { required: 'State is required' })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
                 />
                 {errors.state && (
                   <p className="mt-1 text-sm text-red-600">
@@ -174,7 +174,7 @@ export function BillingAddressForm() {
                   {...register('postcode', {
                     required: 'Postcode is required',
                   })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
                 />
                 {errors.postcode && (
                   <p className="mt-1 text-sm text-red-600">
@@ -188,7 +188,7 @@ export function BillingAddressForm() {
                 </label>
                 <select
                   {...register('country', { required: 'Country is required' })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
                 >
                   <option value="AU">Australia</option>
                   <option value="US">United States</option>
@@ -215,7 +215,7 @@ export function BillingAddressForm() {
                     message: 'Invalid email address',
                   },
                 })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-600">
@@ -230,7 +230,7 @@ export function BillingAddressForm() {
               </label>
               <input
                 {...register('phone', { required: 'Phone is required' })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
               />
               {errors.phone && (
                 <p className="mt-1 text-sm text-red-600">
@@ -241,7 +241,7 @@ export function BillingAddressForm() {
 
             <button
               type="submit"
-              className="w-full block bg-black text-white py-4 rounded-lg font-medium text-center"
+              className="w-full block bg-brand-black text-brand-white py-4 rounded-lg font-medium text-center"
             >
               Save Billing Address
             </button>

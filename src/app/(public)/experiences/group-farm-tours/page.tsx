@@ -33,10 +33,9 @@ const itinerary = [
 
 const container = 'mx-auto max-w-[1440px] px-4 sm:px-8';
 const section = 'scroll-mt-8 py-16 md:py-28';
-const eyebrow = 'text-sm font-medium uppercase tracking-wide text-forest';
-const h2 =
-  'mt-3 text-[28px] font-medium leading-[1.15] tracking-[-0.03em] md:text-[45px]';
-const h3 = 'text-xl font-medium tracking-[-0.02em] md:text-2xl';
+const eyebrow = 'heading-display text-sm text-brand-black';
+const h2 = 'mt-3 text-[28px] font-bold leading-[1.15] md:text-[45px]';
+const h3 = 'text-xl font-bold md:text-2xl';
 const body =
   'text-pretty text-base leading-relaxed text-neutral-700 md:text-lg';
 
@@ -55,7 +54,7 @@ export default function GroupFarmToursPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% to-black/70" />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 text-center text-white md:pb-[60px]">
-          <h1 className="text-[36px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[69px]">
+          <h1 className="text-[36px] heading-display leading-[1.15] md:text-[56px]">
             Group Farm Tours
           </h1>
           <p className="mx-auto mt-5 max-w-[640px] text-base leading-normal text-white/90 md:text-[19px]">
@@ -79,8 +78,11 @@ export default function GroupFarmToursPage() {
           </div>
           <ol className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
             {itinerary.map((step, index) => (
-              <li key={step.title} className="rounded-md bg-beige p-6">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-leaf text-base font-semibold text-neutral-900">
+              <li
+                key={step.title}
+                className="rounded-md border-2 border-brand-green bg-white p-6"
+              >
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green text-base font-semibold text-brand-black">
                   {index + 1}
                 </span>
                 <h3 className={`${h3} mt-5`}>{step.title}</h3>
@@ -92,13 +94,16 @@ export default function GroupFarmToursPage() {
       </section>
 
       {/* Who it's for */}
-      <section className={`${section} bg-beige`}>
+      <section className={`${section} border-t border-gray-200 bg-white`}>
         <div className={container}>
           <p className={eyebrow}>Who It&apos;s For</p>
           <h2 className={h2}>Tours for Every Group</h2>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
             {groupTourAudiences.map(audience => (
-              <article key={audience.name} className="rounded-md bg-white p-6">
+              <article
+                key={audience.name}
+                className="rounded-md border-2 border-brand-green bg-white p-6"
+              >
                 <h3 className={h3}>{audience.name}</h3>
                 <p className={`${body} mt-2`}>{audience.description}</p>
               </article>
@@ -128,7 +133,7 @@ export default function GroupFarmToursPage() {
                 <p className="mt-1 text-base text-neutral-600">
                   {tour.duration}
                 </p>
-                <p className="mt-6 text-2xl font-semibold text-neutral-900">
+                <p className="mt-6 text-2xl font-semibold text-brand-black">
                   {tour.price}
                 </p>
                 <p className="mt-1 text-sm text-neutral-600">{tour.note}</p>
@@ -139,7 +144,10 @@ export default function GroupFarmToursPage() {
       </section>
 
       {/* Enquiry */}
-      <section id="enquire" className={`${section} bg-beige`}>
+      <section
+        id="enquire"
+        className={`${section} border-t border-gray-200 bg-white`}
+      >
         <div
           className={`${container} grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr]`}
         >
@@ -152,7 +160,7 @@ export default function GroupFarmToursPage() {
               with options and a quote.
             </p>
           </div>
-          <div className="rounded-md bg-white p-5 md:p-8">
+          <div className="rounded-md border-2 border-brand-green bg-white p-5 md:p-8">
             <EnquiryForm
               type="group-tour"
               guestsLabel="Group size"

@@ -29,7 +29,7 @@ function mockEvent(input: MockEventInput): EventDto {
     postcode: '2454',
     mapLink: null,
     closeBookingDateTime: null,
-    category: { id: input.category, name: input.category, color: '#8DC63F' },
+    category: { id: input.category, name: input.category, color: '#95C93D' },
     images: [
       {
         id: `${input.id}-image`,

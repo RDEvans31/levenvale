@@ -1,13 +1,7 @@
 import { auth } from '@/lib/auth';
 import type { Metadata } from 'next';
 import { SessionProvider } from 'next-auth/react';
-import { Lora } from 'next/font/google';
 import './globals.css';
-
-const lora = Lora({
-  variable: '--font-lora',
-  subsets: ['latin'],
-});
 
 const requiredEnvVars = [
   'NEXT_PUBLIC_APP_URL',
@@ -48,7 +42,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${lora.variable} font-serif antialiased`}>
+      <body className="font-sans text-brand-black antialiased">
         <SessionProvider session={session}>{children}</SessionProvider>
       </body>
     </html>

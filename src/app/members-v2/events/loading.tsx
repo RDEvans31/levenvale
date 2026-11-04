@@ -10,7 +10,7 @@ export default function Loading() {
           <button className="p-2 bg-white rounded-full shadow">
             <ArrowLeft size={20} />
           </button>
-          <div className="bg-black text-white py-2 px-4 rounded-full shadow-lg flex items-center gap-2">
+          <div className="bg-brand-black text-brand-white py-2 px-4 rounded-full shadow-lg flex items-center gap-2">
             <Coins size={20} />
             <span className="font-bold">65.23</span>
           </div>
@@ -25,13 +25,12 @@ export default function Loading() {
           />
 
           <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
-            <div className="w-24 h-24 rounded-full bg-white p-2 shadow-lg">
+            <div className="w-24 h-24 rounded-full bg-white p-2">
               <Image
-                src="/levenvale-logo.png"
+                src="/brand/levenvale-emblem.svg"
                 alt="Levenvale Farm"
                 width={80}
                 height={80}
-                className="rounded-full"
               />
             </div>
           </div>
@@ -39,7 +38,7 @@ export default function Loading() {
 
         <div className="pt-16 text-center px-4">
           <h1 className="text-2xl font-bold mb-2">Events</h1>
-          <div className="flex items-center justify-center text-green-700 font-medium">
+          <div className="flex items-center justify-center text-brand-black font-medium">
             <MapPin size={16} className="mr-1" />
             Bellingen, NSW • 2454
           </div>
@@ -49,7 +48,7 @@ export default function Loading() {
           <div className="bg-white rounded-lg p-4 mb-4">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold">Farm Tours</h2>
-              <ArrowRight size={20} className="text-blue-600" />
+              <ArrowRight size={20} className="text-brand-black" />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
@@ -83,7 +82,7 @@ export default function Loading() {
             </div>
 
             <div className="mt-4 text-center">
-              <button className="text-blue-600 font-medium text-sm">
+              <button className="text-brand-black font-medium text-sm">
                 View all 8 events
               </button>
             </div>

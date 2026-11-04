@@ -154,11 +154,11 @@ export default async function CreditSuccessPage({
   const newTokenBalance = result.value.newBalance;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-100 to-emerald-700 px-4 py-8">
+    <div className="min-h-screen bg-brand-green px-4 py-8">
       <div className="max-w-md mx-auto space-y-8">
         {/* Success Icon */}
         <div className="text-center pt-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-black rounded-full mb-6">
             <CheckCircle className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -193,7 +193,7 @@ export default async function CreditSuccessPage({
           <div className="px-4">
             <Link
               href={returnUrl}
-              className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-4 rounded-lg text-center transition-colors block"
+              className="w-full bg-brand-black hover:bg-brand-white hover:text-brand-black text-brand-white font-semibold py-4 rounded-lg text-center transition-colors block"
             >
               Next
             </Link>
@@ -205,7 +205,7 @@ export default async function CreditSuccessPage({
           <div className="px-4">
             <Link
               href="/members-v2/pantry"
-              className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-4 rounded-lg text-center transition-colors block"
+              className="w-full bg-brand-black hover:bg-brand-white hover:text-brand-black text-brand-white font-semibold py-4 rounded-lg text-center transition-colors block"
             >
               Access the pantry now
             </Link>

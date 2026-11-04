@@ -24,7 +24,7 @@ export default function CreditSuccessPageClientComponent({
         onClick={() => {
           router.push('/members/pantry');
         }}
-        className="w-full max-w-xs bg-forest hover:bg-forest/90 text-white font-semibold py-3 rounded-lg text-center transition-colors"
+        className="w-full max-w-xs bg-brand-green hover:bg-brand-black hover:text-brand-white text-brand-black font-semibold py-3 rounded-lg text-center transition-colors"
       >
         Go to Pantry
       </button>

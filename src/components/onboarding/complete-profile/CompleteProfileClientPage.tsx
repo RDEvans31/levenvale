@@ -45,7 +45,7 @@ export default function CompleteProfileClientPage({
                   id="name"
                   value={name}
                   onChange={e => setName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#064526]"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -54,7 +54,7 @@ export default function CompleteProfileClientPage({
                 type="submit"
                 disabled={isLoading}
                 onClick={() => handleSubmit()}
-                className="w-full p-3 bg-forest text-white rounded-md hover:bg-gray-800 transition-colors"
+                className="w-full p-3 bg-brand-green text-brand-black rounded-md hover:bg-brand-black hover:text-brand-white transition-colors"
               >
                 {isLoading ? 'Loading...' : 'Continue'}
               </button>

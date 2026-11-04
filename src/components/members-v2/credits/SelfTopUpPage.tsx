@@ -57,10 +57,10 @@ export default function SelfTopUpPage({
 
   if (status === 'success') {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-emerald-100 to-emerald-700 px-4 py-8 flex flex-col">
+      <div className="min-h-screen bg-brand-green px-4 py-8 flex flex-col">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
           <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-white mb-6">
-            <CheckCircle className="w-12 h-12 text-emerald-600" />
+            <CheckCircle className="w-12 h-12 text-brand-black" />
           </div>
 
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -83,7 +83,7 @@ export default function SelfTopUpPage({
         <div className="max-w-md mx-auto w-full space-y-3">
           <Link
             href="/members-v2/pantry"
-            className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-4 rounded-lg text-center transition-colors block"
+            className="w-full bg-brand-black hover:bg-brand-white hover:text-brand-black text-brand-white font-semibold py-4 rounded-lg text-center transition-colors block"
           >
             Go to Pantry
           </Link>
@@ -101,7 +101,7 @@ export default function SelfTopUpPage({
 
   if (status === 'submitting') {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-emerald-100 to-emerald-700 flex items-center justify-center">
+      <div className="min-h-screen bg-brand-green flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="inline-flex items-center justify-center w-24 h-24 rounded-full animate-bounce">
             <Coins className="w-12 h-12 text-black" />
@@ -160,10 +160,10 @@ export default function SelfTopUpPage({
                 </p>
                 {currencyAmount > 0 && (
                   <div className="text-right">
-                    <p className="text-sm text-green-500">
+                    <p className="text-sm text-brand-black">
                       +{tokensToAdd} Tokens
                     </p>
-                    <p className="text-sm text-blue-500">
+                    <p className="text-sm text-brand-black">
                       You&apos;ll have{' '}
                       {(creditBalance + tokensToAdd).toFixed(2)} Tokens
                     </p>
@@ -198,7 +198,7 @@ export default function SelfTopUpPage({
           {currencyAmount > 0 && (
             <button
               onClick={handleTopUp}
-              className="w-full bg-forest text-white py-4 px-6 mb-4 rounded-lg font-semibold text-lg hover:bg-forestDark transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-brand-green text-brand-black py-4 px-6 mb-4 rounded-lg font-semibold text-lg hover:bg-brand-black hover:text-brand-white transition-colors flex items-center justify-center gap-2"
             >
               <Coins className="w-5 h-5" />
               Add {tokensToAdd} Tokens

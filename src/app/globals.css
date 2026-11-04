@@ -4,8 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --button-primary: #064526;
+  --foreground: #000000;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -18,12 +17,34 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
+/*
+ * Brand fonts (licensed, not in the repo). To enable, add the web font files
+ * to public/fonts/ and uncomment. Until then the stacks in tailwind.config.ts
+ * fall back to Helvetica, as the styleguide specifies.
+ *
+ * @font-face { font-family: 'Gotham'; font-weight: 400; font-display: swap;
+ *   src: url('/fonts/Gotham-Book.woff2') format('woff2'); }
+ * @font-face { font-family: 'Gotham'; font-weight: 700; font-display: swap;
+ *   src: url('/fonts/Gotham-Bold.woff2') format('woff2'); }
+ * @font-face { font-family: 'Lunchbox'; font-weight: 400; font-display: swap;
+ *   src: url('/fonts/Lunchbox-Regular.woff2') format('woff2'); }
+ */
+
 @layer components {
+  /* Black text on green: white on brand green fails contrast (~2:1). */
   .btn-primary {
-    @apply bg-forest text-white hover:bg-forestDark transition-colors duration-200 px-4 py-2 rounded-lg font-medium;
+    @apply bg-brand-green text-brand-black hover:bg-brand-black hover:text-brand-white transition-colors duration-200 px-4 py-2 rounded-lg font-bold;
+  }
+
+  /* LUNCHBOX headings & callouts — use sparingly, tracking 200-300. */
+  .heading-display {
+    @apply font-display font-normal uppercase tracking-display;
+  }
+
+  .link-hover {
+    @apply hover:underline hover:decoration-brand-green hover:decoration-2 hover:underline-offset-4;
   }
 
   .animate-slide-up {

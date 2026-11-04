@@ -8,8 +8,24 @@ export default {
   ],
   theme: {
     extend: {
+      // Levenvale Farm styleguide: Gotham (Book body, Bold subheadings),
+      // falling back to Helvetica when Gotham isn't available. LUNCHBOX is
+      // the display face for headings/callouts — see `.heading-display`.
       fontFamily: {
-        serif: ['var(--font-lora)', 'serif'],
+        sans: ['Gotham', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+        display: [
+          'Lunchbox',
+          'Gotham',
+          'Helvetica Neue',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
+      },
+      letterSpacing: {
+        // Styleguide tracking 200-300 (1/1000 em)
+        display: '0.2em',
+        'display-wide': '0.3em',
       },
       keyframes: {
         marquee: {
@@ -24,20 +40,12 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
-        forest: '#064526',
-        forestDark: '#053a20',
-        ebony: '#2A2338',
-        lint: '#E5F2C9',
-        cream: '#FAF6EC',
-        beige: '#FAF9DF',
-        leaf: {
-          DEFAULT: '#8DC63F',
-          dark: '#7AB22E',
-        },
-        brown: {
-          DEFAULT: '#8B5E3C',
-          dark: '#5C3A1E',
-          light: '#C49A6C',
+        // Styleguide palette: green, black and white only. No new colours
+        // or pale tints of these.
+        brand: {
+          green: '#95C93D', // 149/201/61, PMS 375C
+          black: '#000000',
+          white: '#FFFFFF',
         },
       },
     },

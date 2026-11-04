@@ -125,7 +125,7 @@ export default async function EventDetailPage({
             <h1 className="text-2xl font-bold text-gray-900">{event.title}</h1>
 
             {event.closeBookingDateTime && !isBookingClosed && (
-              <p className="text-sm text-amber-500 mt-1">
+              <p className="text-sm text-brand-black mt-1">
                 Booking closes on{' '}
                 {new Date(event.closeBookingDateTime).toLocaleDateString(
                   'en-GB',
@@ -209,7 +209,7 @@ export default async function EventDetailPage({
               ) : (
                 <Link
                   href={`/members-v2/events/${id}/booking`}
-                  className="block w-full mt-4 bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-full transition-colors text-center"
+                  className="block w-full mt-4 bg-brand-green hover:bg-brand-black hover:text-brand-white text-brand-black font-bold py-3 px-6 rounded-full transition-colors text-center"
                 >
                   Book now
                 </Link>

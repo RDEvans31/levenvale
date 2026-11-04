@@ -12,9 +12,9 @@ export default function OrderDetailsLoading() {
           <div className="flex items-center gap-4">
             <ArrowLeft className="text-gray-600" size={24} />
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-forest rounded-md flex items-center justify-center">
+              <div className="w-8 h-8 rounded-md flex items-center justify-center">
                 <Image
-                  src="/levenvale-logo.png"
+                  src="/brand/levenvale-emblem.svg"
                   alt="Levenvale Farm"
                   width={32}
                   height={32}
@@ -35,7 +35,7 @@ export default function OrderDetailsLoading() {
                 Order summary
               </h1>
               <div className="flex items-center gap-2 mb-2">
-                <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">
+                <span className="px-2 py-1 text-xs font-medium rounded-full bg-brand-white text-brand-black ring-1 ring-inset ring-brand-black">
                   Processing
                 </span>
                 <span className="text-gray-600 text-sm">14 Aug, 2025</span>
@@ -54,7 +54,7 @@ export default function OrderDetailsLoading() {
             {Array.from({ length: 3 }).map((_, index) => (
               <div
                 key={index}
-                className="bg-green-50 rounded-lg p-4 flex items-center gap-4"
+                className="bg-brand-white border-2 border-brand-green rounded-lg p-4 flex items-center gap-4"
               >
                 {/* Product Image */}
                 <div className="w-16 h-16 relative flex-shrink-0 bg-gray-200 animate-pulse rounded-lg"></div>
@@ -71,7 +71,7 @@ export default function OrderDetailsLoading() {
 
                 {/* Price */}
                 <div className="flex items-center gap-1 text-lg font-semibold text-gray-900">
-                  <Coins size={16} className="text-green-600" />
+                  <Coins size={16} className="text-brand-black" />
                   <span>12.50</span>
                 </div>
               </div>
@@ -79,7 +79,7 @@ export default function OrderDetailsLoading() {
           </div>
 
           {/* Order Details */}
-          <div className="bg-green-50 rounded-lg p-6">
+          <div className="bg-brand-white border-2 border-brand-green rounded-lg p-6">
             <h2 className="text-lg font-semibold text-gray-900 mb-4">
               Order details
             </h2>
@@ -88,7 +88,7 @@ export default function OrderDetailsLoading() {
               <div className="flex justify-between text-gray-600">
                 <span>Items total</span>
                 <div className="flex items-center gap-1">
-                  <Coins size={16} className="text-green-600" />
+                  <Coins size={16} className="text-brand-black" />
                   <span>37.50</span>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function OrderDetailsLoading() {
               <div className="flex justify-between text-gray-600">
                 <span>Processing Fee</span>
                 <div className="flex items-center gap-1">
-                  <Coins size={16} className="text-green-600" />
+                  <Coins size={16} className="text-brand-black" />
                   <span>0.08</span>
                 </div>
               </div>
@@ -104,7 +104,7 @@ export default function OrderDetailsLoading() {
               <div className="flex justify-between text-gray-600">
                 <span>Delivery Fee</span>
                 <div className="flex items-center gap-1">
-                  <Coins size={16} className="text-green-600" />
+                  <Coins size={16} className="text-brand-black" />
                   <span>19.00</span>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export default function OrderDetailsLoading() {
               <div className="flex justify-between font-semibold text-gray-900">
                 <span>Order total</span>
                 <div className="flex items-center gap-1">
-                  <Coins size={16} className="text-green-600" />
+                  <Coins size={16} className="text-brand-black" />
                   <span>56.58</span>
                 </div>
               </div>

@@ -331,7 +331,7 @@ export default function CartPage({
               onClick={() => setOrderType(OrderType.DELIVERY)}
               className={`relative p-4 rounded-lg border-2 transition-all h-28 ${
                 orderType === OrderType.DELIVERY
-                  ? 'border-forest bg-white'
+                  ? 'border-brand-black bg-white'
                   : 'border-gray-200 bg-white hover:border-gray-300'
               }`}
             >
@@ -344,7 +344,7 @@ export default function CartPage({
                     </p>
                   </div>
                   {prices.subtotal >= 200 ? (
-                    <p className="font-semibold text-lg text-green-600 mt-2">
+                    <p className="font-semibold text-lg text-brand-black mt-2">
                       Free
                     </p>
                   ) : (
@@ -357,7 +357,7 @@ export default function CartPage({
                   )}
                 </div>
                 {orderType === OrderType.DELIVERY && (
-                  <div className="absolute top-4 right-4 w-6 h-6 rounded-full flex items-center text-white bg-forest justify-center">
+                  <div className="absolute top-4 right-4 w-6 h-6 rounded-full flex items-center text-brand-black bg-brand-green justify-center">
                     <Check size={16} />
                   </div>
                 )}
@@ -367,7 +367,7 @@ export default function CartPage({
               onClick={() => setOrderType(OrderType.PICKUP)}
               className={`relative p-4 rounded-lg border-2 transition-all h-28 ${
                 orderType === OrderType.PICKUP
-                  ? 'border-forest bg-white'
+                  ? 'border-brand-black bg-white'
                   : 'border-gray-200 bg-white hover:border-gray-300'
               }`}
             >
@@ -382,7 +382,7 @@ export default function CartPage({
                   <p className="font-semibold text-lg mt-2">Free</p>
                 </div>
                 {orderType === OrderType.PICKUP && (
-                  <div className="absolute top-4 right-4 w-6 h-6 rounded-full flex items-center text-white bg-forest justify-center">
+                  <div className="absolute top-4 right-4 w-6 h-6 rounded-full flex items-center text-brand-black bg-brand-green justify-center">
                     <Check size={16} />
                   </div>
                 )}
@@ -405,7 +405,7 @@ export default function CartPage({
                 <h3 className="font-semibold text-gray-900">
                   Select a collection day
                 </h3>
-                <span className="text-sm text-green-600">10am to 2pm</span>
+                <span className="text-sm text-brand-black">10am to 2pm</span>
               </div>
               <div className="flex gap-3 overflow-x-auto">
                 {['Mon', 'Tues', 'Wed', 'Thurs'].map(day => (
@@ -414,7 +414,7 @@ export default function CartPage({
                     onClick={() => handleDaySelection(day)}
                     className={`flex-shrink-0 px-6 py-3 rounded-lg border transition-all ${
                       selectedDay === day
-                        ? 'bg-forest text-white border-forest'
+                        ? 'bg-brand-green text-brand-black border-brand-black'
                         : 'bg-white text-gray-900 border-gray-300 hover:border-gray-400'
                     }`}
                   >
@@ -438,7 +438,7 @@ export default function CartPage({
                     onClick={() => handleTimeSlotSelection(timeSlot)}
                     className={`flex-shrink-0 px-6 py-3 rounded-lg border transition-all ${
                       selectedTimeSlot === timeSlot
-                        ? 'bg-forest text-white border-forest'
+                        ? 'bg-brand-green text-brand-black border-brand-black'
                         : 'bg-white text-gray-900 border-gray-300 hover:border-gray-400'
                     }`}
                   >
@@ -496,16 +496,16 @@ export default function CartPage({
                         Out of Stock
                       </span>
                     ) : item.currentStock <= 5 ? (
-                      <span className="text-orange-600 text-sm">
+                      <span className="text-brand-black text-sm">
                         Only {item.currentStock} left
                       </span>
                     ) : (
-                      <span className="text-green-600 text-sm">
+                      <span className="text-brand-black text-sm">
                         {item.currentStock} in stock
                       </span>
                     )
                   ) : (
-                    <span className="text-green-600 text-sm">In Stock</span>
+                    <span className="text-brand-black text-sm">In Stock</span>
                   )}
                 </div>
 
@@ -636,7 +636,7 @@ export default function CartPage({
               className={`w-full block py-4 rounded-lg font-medium text-center ${
                 hasStockIssues
                   ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-black text-white hover:bg-gray-800'
+                  : 'bg-brand-black text-brand-white hover:ring-2 hover:ring-brand-green'
               }`}
             >
               {hasStockIssues
@@ -650,7 +650,7 @@ export default function CartPage({
                 <>
                   <Link
                     href={`/members-v2/${userId}/credits?amount=${topUpAmount}&returnUrl=${encodeURIComponent('/members-v2/pantry/cart')}`}
-                    className="w-full block bg-black text-white py-4 rounded-lg font-medium text-center mb-2"
+                    className="w-full block bg-brand-black text-brand-white py-4 rounded-lg font-medium text-center mb-2"
                   >
                     Add tokens
                   </Link>
@@ -668,7 +668,7 @@ export default function CartPage({
                   className={`w-full block py-4 rounded-lg font-medium text-center ${
                     hasStockIssues || !deliveryInstructions
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      : 'bg-black text-white hover:bg-gray-800'
+                      : 'bg-brand-black text-brand-white hover:ring-2 hover:ring-brand-green'
                   }`}
                 >
                   {hasStockIssues

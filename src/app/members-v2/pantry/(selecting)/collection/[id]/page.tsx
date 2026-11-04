@@ -82,7 +82,7 @@ export default async function CollectionsPage({
           {collection.name}
         </h1>
         <p>{collection.count}</p>
-        <div className="bg-black text-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:bg-gray-800 transition-colors ml-auto">
+        <div className="bg-brand-black text-brand-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:ring-2 hover:ring-brand-green transition-colors ml-auto">
           <div className="flex items-center gap-2">
             <Wallet size={24} />
             <span className="font-bold">{balance}</span>

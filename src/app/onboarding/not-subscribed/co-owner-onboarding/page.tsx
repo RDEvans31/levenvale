@@ -49,13 +49,15 @@ export default function CoOwnerOnboarding() {
         </h1>
         <Image
           className="mx-auto w-[50px] sm:w-[100px]"
-          src="/levenvale-logo.png"
+          src="/brand/levenvale-emblem.svg"
           alt="Levenvale Farm logo"
           width={180}
           height={180}
           priority
         />
-        <p className="px-4 sm:px-0">You&apos;re a co-owner of Levenvale Farm!</p>
+        <p className="px-4 sm:px-0">
+          You&apos;re a co-owner of Levenvale Farm!
+        </p>
         <p className="px-4 sm:px-0">
           So you can access to our members-only features.
         </p>
@@ -87,7 +89,7 @@ export default function CoOwnerOnboarding() {
               Please reach out to us at{' '}
               <a
                 href="mailto:hello@bellobeef.com.au"
-                className="text-blue-600 underline underline-offset-4 break-words"
+                className="text-brand-black underline decoration-brand-green decoration-2 underline-offset-4 break-words"
               >
                 hello@bellobeef.com.au
               </a>

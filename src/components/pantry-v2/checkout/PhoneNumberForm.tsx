@@ -52,7 +52,7 @@ function AddNewPhoneForm({
               },
             })}
             placeholder="Enter your phone number"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-black focus:ring-brand-green"
           />
           {errors.phone && (
             <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
@@ -61,7 +61,7 @@ function AddNewPhoneForm({
 
         <button
           type="submit"
-          className="w-full block bg-black text-white py-4 rounded-lg font-medium text-center"
+          className="w-full block bg-brand-black text-brand-white py-4 rounded-lg font-medium text-center"
         >
           Save Phone Number
         </button>
@@ -124,7 +124,7 @@ export function PhoneNumberForm({
             ) : (
               <button
                 onClick={() => setIsOpen(true)}
-                className="text-green-600 mt-2"
+                className="text-brand-black mt-2"
               >
                 Add Contact Number
               </button>

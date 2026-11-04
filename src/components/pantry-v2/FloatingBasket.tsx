@@ -20,7 +20,7 @@ export default function FloatingBasket() {
   return (
     <div className="fixed bottom-6 left-4 right-4 z-50">
       <button
-        className="w-full bg-black text-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:bg-gray-800 transition-colors"
+        className="w-full bg-brand-black text-brand-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:ring-2 hover:ring-brand-green transition-colors"
         onClick={() => router.push('/members-v2/pantry/cart')}
       >
         <div className="flex items-center gap-2">

@@ -93,7 +93,7 @@ export default async function ShopPage() {
             </Link>
           </div>
         </div> */}
-        <div className="bg-black text-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:bg-gray-800 transition-colors ml-auto">
+        <div className="bg-brand-black text-brand-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:ring-2 hover:ring-brand-green transition-colors ml-auto">
           <div className="flex items-center gap-2">
             <Wallet size={24} />
             <span className="font-bold">{creditBalance}</span>
@@ -103,7 +103,7 @@ export default async function ShopPage() {
 
       <div>
         {/* Farm Cover Image */}
-        <div className="relative h-48 md:h-64 lg:h-80 bg-green-800 w-full">
+        <div className="relative h-48 md:h-64 lg:h-80 bg-brand-black w-full">
           <div className="absolute inset-0">
             <Image
               src="/home/levenvale-hero-mobile.jpg"
@@ -115,13 +115,12 @@ export default async function ShopPage() {
 
           {/* Farm Logo (Overlapping) */}
           <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
-            <div className="w-24 h-24 rounded-full bg-white p-1 shadow-lg">
+            <div className="w-24 h-24 rounded-full bg-white p-1">
               <Image
-                src="/levenvale-logo.png"
+                src="/brand/levenvale-emblem.svg"
                 alt="Levenvale Farm Logo"
                 width={96}
                 height={96}
-                className="rounded-full"
               />
             </div>
           </div>
@@ -137,12 +136,12 @@ export default async function ShopPage() {
                 }
                 className="flex items-center justify-center mt-2 text-gray-600"
               >
-                <span className="flex items-center text-green-700 font-medium">
+                <span className="flex items-center text-brand-black font-medium">
                   <MapPinCheck />
                   Bellingen, NSW
                 </span>
                 <span className="mx-1">•</span>
-                <span className="flex items-center text-green-700 font-medium">
+                <span className="flex items-center text-brand-black font-medium">
                   2454
                 </span>
               </Link>

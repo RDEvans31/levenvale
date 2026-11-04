@@ -10,13 +10,13 @@ interface Props {
 export default function CardCredits({ userId }: Props) {
   const router = useRouter();
   return (
-    <div className="bg-forest rounded-2xl shadow-md p-8 flex flex-col items-center text-center max-w-sm mx-auto border border-gray-100">
-      <div className="w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-forest">
+    <div className="bg-brand-black rounded-2xl shadow-md p-8 flex flex-col items-center text-center max-w-sm mx-auto border border-gray-100">
+      <div className="w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-brand-black">
         <Wallet size={56} className="text-white" />
       </div>
       <button
         onClick={() => router.push(`/members/${userId}/credits`)}
-        className="px-8 py-3 rounded-lg border border-white bg-forest text-white font-semibold text-lg shadow-sm hover:bg-white hover:text-forest focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition mb-2 inline-block text-center"
+        className="px-8 py-3 rounded-lg border border-white bg-brand-black text-white font-semibold text-lg shadow-sm hover:bg-white hover:text-brand-black focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition mb-2 inline-block text-center"
       >
         Top Up
       </button>

@@ -63,7 +63,7 @@ export default async function MembersPage({
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-md flex items-center justify-center">
             <Image
-              src="/levenvale-logo.png"
+              src="/brand/levenvale-emblem.svg"
               alt="Levenvale Farm"
               width={32}
               height={32}
@@ -81,19 +81,24 @@ export default async function MembersPage({
 
         {/* Wallet - full width on mobile, left column on desktop */}
         <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <TokenBalance userId={userId} membershipId={session.user.membershipId ?? ''} />
+          <TokenBalance
+            userId={userId}
+            membershipId={session.user.membershipId ?? ''}
+          />
           <div className="grid grid-cols-2 gap-4">
             <CardGoToPantry pantryLink="/members-v2/pantry" />
             <CardEvents />
             {/* Previous Orders - spans both columns */}
             <div className="col-span-2 aspect-[2/1]">
               <Suspense fallback={<PreviousOrdersSkeleton />}>
-                <PreviousOrders userId={userId} membershipId={session.user.membershipId ?? ''} />
+                <PreviousOrders
+                  userId={userId}
+                  membershipId={session.user.membershipId ?? ''}
+                />
               </Suspense>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

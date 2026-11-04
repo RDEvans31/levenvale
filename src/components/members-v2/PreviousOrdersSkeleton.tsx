@@ -7,7 +7,7 @@ export default function PreviousOrdersSkeleton() {
         {Array.from({ length: 1 }).map((_, index) => (
           <div
             key={index}
-            className="bg-green-100 bg-opacity-50 rounded-xl p-4 shadow-sm animate-pulse"
+            className="bg-gray-100 rounded-xl p-4 shadow-sm animate-pulse"
           >
             {/* Header skeleton */}
             <div className="flex justify-between items-start mb-4">

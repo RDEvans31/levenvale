@@ -84,7 +84,7 @@ export default function SiteFooter() {
               <ul className="mt-6 space-y-4 text-sm text-neutral-700">
                 {column.links.map(link => (
                   <li key={link.name} className="break-words">
-                    <Link href={link.href} className="hover:text-forest">
+                    <Link href={link.href} className="link-hover">
                       {link.name}
                     </Link>
                   </li>
@@ -94,7 +94,7 @@ export default function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col gap-5 border-t border-gray-200 pt-6 text-sm text-neutral-900 md:mt-[78px] md:flex-row md:items-center md:justify-between md:pt-8">
+        <div className="mt-14 flex flex-col gap-5 border-t border-gray-200 pt-6 text-sm text-brand-black md:mt-[78px] md:flex-row md:items-center md:justify-between md:pt-8">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-[25px]">
             <p>
               Copyright © {new Date().getFullYear()} Levenvale Farm ·
@@ -105,7 +105,7 @@ export default function SiteFooter() {
                 <li key={policy}>
                   <Link
                     href="#"
-                    className="underline underline-offset-2 hover:text-forest"
+                    className="underline underline-offset-2 link-hover"
                   >
                     {policy}
                   </Link>
@@ -117,7 +117,7 @@ export default function SiteFooter() {
             <a
               href="https://www.facebook.com/"
               aria-label="Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-[2px] bg-leaf text-neutral-900 hover:bg-leaf-dark"
+              className="flex h-9 w-9 items-center justify-center rounded-[2px] bg-brand-green text-brand-black hover:bg-brand-black hover:text-brand-white"
             >
               <Facebook
                 className="h-[18px] w-[18px]"
@@ -128,7 +128,7 @@ export default function SiteFooter() {
             <a
               href="https://www.instagram.com/"
               aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-[2px] bg-leaf text-neutral-900 hover:bg-leaf-dark"
+              className="flex h-9 w-9 items-center justify-center rounded-[2px] bg-brand-green text-brand-black hover:bg-brand-black hover:text-brand-white"
             >
               <Instagram className="h-5 w-5" strokeWidth={2} />
             </a>

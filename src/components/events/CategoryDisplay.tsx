@@ -34,7 +34,7 @@ export async function CategoryDisplay({ category }: CategoryDisplayProps) {
         <div className="mt-4 text-center">
           <Link
             href={`/members-v2/events/category/${category.id}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-brand-black underline decoration-brand-green decoration-2 underline-offset-4 hover:decoration-brand-black text-sm"
           >
             View all {category.eventCount} events
           </Link>

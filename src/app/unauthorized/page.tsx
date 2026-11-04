@@ -14,7 +14,7 @@ export default async function UnauthorizedPage() {
             you out. Please message me on Whatsapp by clicking my number below.{' '}
             <a
               href="https://wa.me/447482400662"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="text-brand-black underline decoration-brand-green decoration-2 underline-offset-4 hover:decoration-brand-black"
             >
               +447482400662
             </a>
@@ -33,13 +33,13 @@ export default async function UnauthorizedPage() {
           <div className="flex flex-row gap-x-4">
             <Link
               href="/login?callbackUrl=/members-v2"
-              className="inline-block w-full px-6 py-2 bg-forest text-white rounded-full hover:bg-gray-800 transition-colors"
+              className="inline-block w-full px-6 py-2 bg-brand-green text-brand-black rounded-full hover:bg-brand-black hover:text-brand-white transition-colors"
             >
               Sign In
             </Link>
             <Link
               href="/"
-              className="inline-block w-full px-6 py-2 bg-forest text-white rounded-full hover:bg-gray-800 transition-colors"
+              className="inline-block w-full px-6 py-2 bg-brand-green text-brand-black rounded-full hover:bg-brand-black hover:text-brand-white transition-colors"
             >
               Home
             </Link>

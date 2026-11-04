@@ -21,7 +21,7 @@ export default function Testimonials({
   return (
     <div>
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-[28px] font-medium leading-tight tracking-[-0.03em] md:text-[45px]">
+        <h2 className="text-[28px] font-bold leading-tight md:text-[45px]">
           Loved by Our Tribe
         </h2>
         <div className="flex shrink-0 gap-2">
@@ -30,7 +30,7 @@ export default function Testimonials({
             aria-label="Previous testimonial"
             onClick={() => go(-1)}
             disabled={!canCycle}
-            className="flex h-10 w-10 items-center justify-center rounded-[3px] bg-gray-200 text-neutral-900 hover:bg-gray-300 disabled:cursor-default md:h-12 md:w-12"
+            className="flex h-10 w-10 items-center justify-center rounded-[3px] border border-brand-black bg-white text-brand-black hover:bg-brand-black hover:text-brand-white disabled:cursor-default md:h-12 md:w-12"
           >
             <ArrowLeft className="h-5 w-5" strokeWidth={2} />
           </button>
@@ -39,7 +39,7 @@ export default function Testimonials({
             aria-label="Next testimonial"
             onClick={() => go(1)}
             disabled={!canCycle}
-            className="flex h-10 w-10 items-center justify-center rounded-[3px] bg-leaf text-neutral-900 hover:bg-leaf-dark disabled:cursor-default md:h-12 md:w-12"
+            className="flex h-10 w-10 items-center justify-center rounded-[3px] bg-brand-green text-brand-black hover:bg-brand-black hover:text-brand-white disabled:cursor-default md:h-12 md:w-12"
           >
             <ArrowRight className="h-5 w-5" strokeWidth={2} />
           </button>

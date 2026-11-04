@@ -26,7 +26,7 @@ export default function ProgressBarCredit({
       </div>
       <div className="w-full h-4 mb-4 bg-gray-200 rounded-full">
         <motion.div
-          className="h-4 bg-emerald-500 rounded-full"
+          className="h-4 bg-brand-green rounded-full"
           initial={{ width: '0%' }}
           animate={{ width: `${progressEnd * 100}%` }}
           transition={{

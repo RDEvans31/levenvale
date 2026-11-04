@@ -141,12 +141,11 @@ const reasons = [
 
 const container = 'mx-auto max-w-[1440px] px-4 sm:px-8';
 const section = 'py-16 md:py-28';
-const h2 =
-  'text-[28px] font-medium leading-[1.15] tracking-[-0.03em] md:text-[45px]';
+const h2 = 'text-[28px] font-bold leading-[1.15] md:text-[45px]';
 const body =
   'text-pretty text-base leading-normal text-neutral-700 md:text-[17.5px]';
 const btnLeaf =
-  'inline-flex h-9 items-center justify-center rounded-[3px] bg-leaf px-6 text-sm font-medium uppercase text-neutral-900 transition hover:bg-leaf-dark sm:h-8 sm:w-[166px] sm:px-0 sm:text-base';
+  'inline-flex h-9 items-center justify-center rounded-[3px] bg-brand-green px-6 text-sm font-medium uppercase text-brand-black transition hover:bg-brand-black hover:text-brand-white sm:h-8 sm:w-[166px] sm:px-0 sm:text-base';
 
 function CardAction({ href, label }: { href: string; label: string }) {
   const external = href.startsWith('http');
@@ -191,9 +190,7 @@ function StayCard({
           </div>
         ))}
       </div>
-      <h3 className="mt-6 text-2xl font-medium tracking-[-0.02em]">
-        {card.name}
-      </h3>
+      <h3 className="mt-6 text-2xl font-bold">{card.name}</h3>
       <div className="mt-3 flex-1 space-y-3">
         {card.description.map(paragraph => (
           <p key={paragraph} className={body}>
@@ -225,7 +222,7 @@ export default function StayPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% to-black/70" />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 text-center text-white md:pb-[60px]">
-          <h1 className="text-[36px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[69px]">
+          <h1 className="text-[36px] heading-display leading-[1.15] md:text-[56px]">
             Farm Stays
           </h1>
           <p className="mx-auto mt-5 max-w-[640px] text-base leading-normal text-white/90 md:text-[19px]">
@@ -248,7 +245,7 @@ export default function StayPage() {
       </section>
 
       {/* Extras */}
-      <section className={`${section} bg-beige`}>
+      <section className={`${section} border-t border-gray-200 bg-white`}>
         <div className={container}>
           <h2 className={h2}>Make the Most of Your Stay</h2>
           <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 md:mt-16 md:grid-cols-2">
@@ -274,7 +271,7 @@ export default function StayPage() {
             />
           </div>
           <div className="lg:pl-12">
-            <p className="text-sm font-medium uppercase tracking-wide text-forest">
+            <p className="text-sm font-medium uppercase tracking-wide text-brand-black">
               Dorrigo Farm Escape
             </p>
             <h2 className={`${h2} mt-3`}>Hudson&apos;s Hideaway</h2>
@@ -300,7 +297,7 @@ export default function StayPage() {
       </section>
 
       {/* Why stay */}
-      <section className={`${section} bg-beige`}>
+      <section className={`${section} border-t border-gray-200 bg-white`}>
         <div className={container}>
           <h2 className={h2}>Why Stay at Levenvale Farm?</h2>
           <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-3">
@@ -309,7 +306,7 @@ export default function StayPage() {
                 key={reason}
                 className="flex items-center gap-3 text-lg font-medium"
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-leaf">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-green">
                   <Check className="h-4 w-4" strokeWidth={3} />
                 </span>
                 {reason}

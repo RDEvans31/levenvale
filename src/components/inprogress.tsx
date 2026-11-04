@@ -5,7 +5,7 @@ export default function InProgress() {
     <div className="flex flex-col py-8 px-4 sm:px-16 gap-8 items-center justify-center">
       <Image
         className="mx-auto w-[140px] sm:w-[180px]"
-        src="/levenvale-logo.png"
+        src="/brand/levenvale-emblem.svg"
         alt="Levenvale Farm logo"
         width={180}
         height={38}
@@ -23,7 +23,7 @@ export default function InProgress() {
           please contact us at{' '}
           <a
             href="mailto:hello@bellobeef.com.au"
-            className="text-blue-600 underline underline-offset-4 break-words"
+            className="text-brand-black underline decoration-brand-green decoration-2 underline-offset-4 break-words"
           >
             hello@bellobeef.com.au
           </a>

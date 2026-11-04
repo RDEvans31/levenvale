@@ -13,7 +13,7 @@ export default function Loading() {
             </div>
           </button>
 
-          <div className="bg-black text-white py-4 px-6 rounded-full shadow-lg flex items-center gap-2 ml-auto">
+          <div className="bg-brand-black text-brand-white py-4 px-6 rounded-full shadow-lg flex items-center gap-2 ml-auto">
             <Wallet size={24} />
             <span className="font-bold">--</span>
           </div>

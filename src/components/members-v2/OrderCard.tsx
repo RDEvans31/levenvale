@@ -31,10 +31,10 @@ export default function OrderCard({
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
       case 'processing':
-        return 'bg-yellow-100 text-yellow-800';
+        return 'bg-brand-white text-brand-black ring-1 ring-inset ring-brand-black';
       case 'completed':
       case 'delivered':
-        return 'bg-green-100 text-green-800';
+        return 'bg-brand-green text-brand-black';
       case 'cancelled':
         return 'bg-red-100 text-red-800';
       default:
@@ -77,7 +77,7 @@ export default function OrderCard({
             {getStatusText(order.status)}
           </span>
         </div>
-        <ArrowRight className="text-forest flex-shrink-0" size={16} />
+        <ArrowRight className="text-brand-black flex-shrink-0" size={16} />
       </div>
       <p className="flex items-center text-gray-600 text-xs mb-3">
         <Coins size={10} className="mr-1" />

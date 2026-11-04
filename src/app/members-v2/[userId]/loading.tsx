@@ -25,7 +25,7 @@ export default function Loading() {
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-md flex items-center justify-center">
               <Image
-                src="/levenvale-logo.png"
+                src="/brand/levenvale-emblem.svg"
                 alt="Levenvale Farm"
                 width={32}
                 height={32}
@@ -47,36 +47,36 @@ export default function Loading() {
           <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Token Balance */}
             <div className="h-full">
-              <div className="bg-gradient-to-br from-green-200 to-beige rounded-2xl shadow-lg p-8 flex flex-col items-center justify-center text-center border border-gray-100 relative overflow-hidden h-full">
+              <div className="bg-brand-green rounded-2xl shadow-lg p-8 flex flex-col items-center justify-center text-center border border-gray-100 relative overflow-hidden h-full">
                 <div className="relative z-10 flex flex-col items-center w-full">
-                  <p className="text-forest text-sm mb-4 font-medium">
+                  <p className="text-brand-black text-sm mb-4 font-medium">
                     Your Balance
                   </p>
                   <div className="flex items-center justify-center mb-8">
-                    <Coins size={32} className="text-forest mr-3" />
+                    <Coins size={32} className="text-brand-black mr-3" />
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="flex flex-col items-center">
-                      <div className="flex flex-col items-center justify-center w-16 h-16 bg-forest bg-opacity-10 rounded-full">
-                        <PlusIcon size={24} className="text-forest" />
+                      <div className="flex flex-col items-center justify-center w-16 h-16 bg-brand-white rounded-full">
+                        <PlusIcon size={24} className="text-brand-black" />
                       </div>
-                      <span className="text-forest text-xs font-medium mt-2">
+                      <span className="text-brand-black text-xs font-medium mt-2">
                         Top Up
                       </span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <div className="flex flex-col items-center justify-center w-16 h-16 bg-forest bg-opacity-10 rounded-full">
-                        <Send size={24} className="text-forest" />
+                      <div className="flex flex-col items-center justify-center w-16 h-16 bg-brand-white rounded-full">
+                        <Send size={24} className="text-brand-black" />
                       </div>
-                      <span className="text-forest text-xs font-medium mt-2">
+                      <span className="text-brand-black text-xs font-medium mt-2">
                         Send
                       </span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <div className="flex flex-col items-center justify-center w-16 h-16 bg-forest bg-opacity-10 rounded-full">
-                        <ScrollText size={24} className="text-forest" />
+                      <div className="flex flex-col items-center justify-center w-16 h-16 bg-brand-white rounded-full">
+                        <ScrollText size={24} className="text-brand-black" />
                       </div>
-                      <span className="text-forest text-xs font-medium mt-2">
+                      <span className="text-brand-black text-xs font-medium mt-2">
                         History
                       </span>
                     </div>
@@ -88,20 +88,20 @@ export default function Loading() {
             {/* Right side 2x2 grid */}
             <div className="grid grid-cols-2 gap-4">
               {/* Pantry card */}
-              <div className="aspect-square bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center gap-3 p-4 text-forest">
+              <div className="aspect-square bg-brand-green rounded-2xl shadow-xl flex flex-col items-center justify-center gap-3 p-4 text-brand-black">
                 <Drumstick className="h-8 w-8" />
                 <span className="text-lg font-semibold">Pantry</span>
-                <div className="flex items-center justify-center w-10 h-10 bg-forest bg-opacity-10 rounded-full">
-                  <ArrowRight size={20} className="text-forest" />
+                <div className="flex items-center justify-center w-10 h-10 bg-brand-white rounded-full">
+                  <ArrowRight size={20} className="text-brand-black" />
                 </div>
               </div>
 
               {/* Events card */}
-              <div className="aspect-square bg-beige rounded-2xl shadow-xl text-forest flex flex-col items-center justify-center gap-3 p-4">
+              <div className="aspect-square bg-brand-white border-2 border-brand-green rounded-2xl shadow-xl text-brand-black flex flex-col items-center justify-center gap-3 p-4">
                 <CalendarHeart className="h-8 w-8" />
                 <span className="text-lg font-semibold">Events</span>
-                <div className="flex items-center justify-center w-10 h-10 bg-forest bg-opacity-10 rounded-full">
-                  <ArrowRight size={20} className="text-forest" />
+                <div className="flex items-center justify-center w-10 h-10 bg-brand-green rounded-full">
+                  <ArrowRight size={20} className="text-brand-black" />
                 </div>
               </div>
 
@@ -112,9 +112,9 @@ export default function Loading() {
                     <h2 className="text-sm font-bold text-gray-900">
                       Previous Orders
                     </h2>
-                    <div className="flex items-center justify-center px-2 bg-forest bg-opacity-10 rounded-full">
+                    <div className="flex items-center justify-center px-2 bg-brand-green rounded-full">
                       See more{' '}
-                      <ArrowRight size={16} className="text-forest" />
+                      <ArrowRight size={16} className="text-brand-black" />
                     </div>
                   </div>
                   <div className="flex-1 rounded-xl p-3 flex flex-col">
@@ -123,7 +123,7 @@ export default function Loading() {
                         <span className="text-sm font-semibold text-gray-900">
                           #0001
                         </span>
-                        <span className="px-1.5 py-0.5 text-[10px] font-medium rounded-full bg-green-100 text-green-800">
+                        <span className="px-1.5 py-0.5 text-[10px] font-medium rounded-full bg-brand-green text-brand-black">
                           Order delivered
                         </span>
                       </div>

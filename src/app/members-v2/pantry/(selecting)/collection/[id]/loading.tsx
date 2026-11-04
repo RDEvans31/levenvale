@@ -10,7 +10,7 @@ export default function Loading() {
         </div>
         <div className="ml-4 h-6 bg-gray-300 rounded w-32 animate-pulse"></div>
         <div className="ml-2 h-5 bg-gray-300 rounded w-8 animate-pulse"></div>
-        <div className="bg-black text-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:bg-gray-800 transition-colors ml-auto">
+        <div className="bg-brand-black text-brand-white py-4 px-6 rounded-full shadow-lg flex items-center justify-between hover:ring-2 hover:ring-brand-green transition-colors ml-auto">
           <div className="flex items-center gap-2">
             <Wallet size={24} />
             <div className="h-6 bg-gray-600 rounded w-12 animate-pulse"></div>

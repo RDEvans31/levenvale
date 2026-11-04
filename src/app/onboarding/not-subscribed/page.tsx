@@ -22,9 +22,9 @@ export default async function NotSubscribedPage() {
       {/* Top navbar */}
       <div className="border-b border-gray-200 px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-forest rounded-md flex items-center justify-center">
+          <div className="w-8 h-8 rounded-md flex items-center justify-center">
             <Image
-              src="/levenvale-logo.png"
+              src="/brand/levenvale-emblem.svg"
               alt="Levenvale Farm"
               width={32}
               height={32}

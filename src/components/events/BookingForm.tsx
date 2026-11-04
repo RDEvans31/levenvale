@@ -67,7 +67,7 @@ function ProductCard({
               <Plus size={18} />
             </button>
           </div>
-          <span className="text-xs text-green-600 mt-1">
+          <span className="text-xs text-brand-black mt-1">
             {product.maxQuantity === null
               ? 'Unlimited'
               : `${product.maxQuantity} left`}
@@ -204,7 +204,7 @@ export function BookingForm({
           {/* Green checkmark */}
           <div className="flex justify-center mb-6">
             <ClipboardCheck
-              className="text-green-600"
+              className="text-brand-black"
               size={80}
               strokeWidth={1.5}
             />
@@ -222,7 +222,7 @@ export function BookingForm({
             </p>
 
             {/* Date/time */}
-            <p className="text-sm text-green-700 mt-1">
+            <p className="text-sm text-brand-black mt-1">
               {new Date(bookingResult.event.startsAt).toLocaleString('en-GB', {
                 dateStyle: 'medium',
                 timeStyle: 'short',
@@ -251,7 +251,7 @@ export function BookingForm({
                 href={bookingResult.event.mapLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-green-700 underline mt-1 inline-block"
+                className="text-sm text-brand-black underline mt-1 inline-block"
               >
                 View on map
               </a>
@@ -295,7 +295,7 @@ export function BookingForm({
           {/* Back to dashboard button */}
           <Link
             href="/members-v2"
-            className="inline-block bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full transition-colors"
+            className="inline-block bg-brand-black hover:bg-brand-white hover:text-brand-black text-brand-white font-bold py-3 px-8 rounded-full transition-colors"
           >
             Back to your Dashboard
           </Link>
@@ -397,7 +397,7 @@ export function BookingForm({
                   key={key}
                   className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 mb-3"
                 >
-                  <label className="block text-green-700 font-medium mb-2">
+                  <label className="block text-brand-black font-medium mb-2">
                     {product.name} #{index + 1}:{' '}
                     {product.additionalInfoQuestion}
                   </label>
@@ -411,7 +411,7 @@ export function BookingForm({
                       }))
                     }
                     placeholder="Your answer goes here"
-                    className="w-full border-0 border-b border-gray-300 bg-transparent px-0 py-2 text-gray-900 placeholder:text-gray-400 focus:border-green-700 focus:ring-0 focus:outline-none"
+                    className="w-full border-0 border-b border-gray-300 bg-transparent px-0 py-2 text-gray-900 placeholder:text-gray-400 focus:border-brand-black focus:ring-0 focus:outline-none"
                   />
                   <p className="text-xs text-gray-400 mt-2">
                     Enter &apos;none&apos; if no answer
@@ -441,7 +441,7 @@ export function BookingForm({
           </span>
           <button
             onClick={handleBooking}
-            className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-brand-green hover:bg-brand-black hover:text-brand-white text-brand-black font-bold py-3 px-8 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={!hasSelections || isLoading || hasUnansweredQuestions()}
           >
             {isLoading ? (
@@ -455,7 +455,7 @@ export function BookingForm({
           </button>
         </div>
         {hasSelections && depositInTokens > 0 && (
-          <p className="text-xs text-green-700 mt-2 flex items-center gap-1">
+          <p className="text-xs text-brand-black mt-2 flex items-center gap-1">
             includes {depositInTokens} <Coins size={12} /> refundable deposit
           </p>
         )}

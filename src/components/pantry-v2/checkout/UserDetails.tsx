@@ -14,8 +14,8 @@ export async function UserDetails({ userId }: UserDetailsProps) {
     // Fallback UI when API call fails
     return (
       <div className="space-y-4 p-4">
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-          <p className="text-yellow-800 text-sm">
+        <div className="bg-brand-white border-2 border-brand-black rounded-lg p-4">
+          <p className="text-brand-black text-sm">
             Unable to load shipping information. Please refresh the page or
             contact support.
           </p>

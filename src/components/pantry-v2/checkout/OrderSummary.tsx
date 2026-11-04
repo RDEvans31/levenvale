@@ -48,7 +48,7 @@ export function OrderSummary({
           <p className="text-gray-600 mb-4">Your cart is empty</p>
           <Link
             href="/members-v2/pantry"
-            className="bg-black text-white px-6 py-2 rounded-lg"
+            className="bg-brand-black text-brand-white px-6 py-2 rounded-lg"
           >
             Continue Shopping
           </Link>
@@ -64,13 +64,13 @@ export function OrderSummary({
         <div className="bg-white rounded-lg p-4 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gray-100 rounded-full overflow-hidden">
+              <div className="w-12 h-12 rounded-full overflow-hidden">
                 <Image
-                  src="/levenvale-logo.png"
+                  src="/brand/levenvale-emblem.svg"
                   alt="Levenvale Farm"
                   width={48}
                   height={48}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div>
@@ -132,7 +132,7 @@ export function OrderSummary({
             <>
               <Link
                 href={`/members-v2/${userId}/credits?amount=${topUpAmount}&returnUrl=${returnUrl}`}
-                className="w-full block bg-black text-white py-4 rounded-lg font-medium text-center mb-2"
+                className="w-full block bg-brand-black text-brand-white py-4 rounded-lg font-medium text-center mb-2"
               >
                 Add tokens
               </Link>
@@ -152,7 +152,7 @@ export function OrderSummary({
           <>
             <Link
               href={`/members-v2/${userId}/credits?amount=${topUpAmount}&returnUrl=${returnUrl}`}
-              className="w-full block bg-black text-white py-4 rounded-lg font-medium text-center mb-2"
+              className="w-full block bg-brand-black text-brand-white py-4 rounded-lg font-medium text-center mb-2"
             >
               Add tokens
             </Link>
